@@ -1,0 +1,3 @@
+=============TEMPORARY FILE============
+
+# Global TypeScript types/interfaces
