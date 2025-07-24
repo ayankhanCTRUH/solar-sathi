@@ -1,3 +1,4 @@
+// TODO: testimonials data need to be updated
 export const TESTIMONIALS = [
   {
     name: 'Jay Sarawan',
