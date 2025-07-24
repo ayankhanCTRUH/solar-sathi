@@ -2,6 +2,10 @@ import type { Metadata } from 'next';
 import { DM_Sans, Poppins } from 'next/font/google';
 import './globals.css';
 import ReactQueryProvider from '@/providers/ReactQueryProvider';
+import LeftSection from '@/components/layout/LeftSection';
+import MiddleSection from '@/components/layout/MiddleSection';
+import RightSection from '@/components/layout/RightSection';
+import Ribbon from '@/components/layout/Ribbon';
 
 const dmSans = DM_Sans({
   variable: '--font-dm-sans',
@@ -30,7 +34,15 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${dmSans.variable} ${poppins.variable} antialiased`}>
-        <ReactQueryProvider>{children}</ReactQueryProvider>
+        <ReactQueryProvider>
+          <div className="absolute inset-0 flex gap-6">
+            <LeftSection />
+            <MiddleSection />
+            <RightSection />
+          </div>
+          {children}
+          <Ribbon />
+        </ReactQueryProvider>
       </body>
     </html>
   );
