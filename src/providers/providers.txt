@@ -1,0 +1,3 @@
+=============TEMPORARY FILE============
+
+# Providers for the app like ReactQuery etc.
