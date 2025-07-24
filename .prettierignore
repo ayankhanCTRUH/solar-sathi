@@ -1,0 +1,26 @@
+# Ignore build output
+.next
+out
+dist
+
+# Node
+node_modules
+package-lock.json
+pnpm-lock.yaml
+yarn.lock
+
+# Env and system
+.env*
+.DS_Store
+
+# Public/static files
+public
+*.svg
+*.png
+*.jpg
+*.jpeg
+*.webp
+
+# Ignore coverage and test results
+coverage
+*.log
