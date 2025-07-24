@@ -3,9 +3,8 @@ import { ReactQueryProviderProps } from '@/types';
 import { createAsyncStoragePersister } from '@tanstack/query-async-storage-persister';
 import { QueryClient } from '@tanstack/react-query';
 import { PersistQueryClientProvider } from '@tanstack/react-query-persist-client';
-import { FC } from 'react';
 
-const ReactQueryProvider: FC<ReactQueryProviderProps> = ({ children }) => {
+const ReactQueryProvider: React.FC<ReactQueryProviderProps> = ({ children }) => {
   const queryClient = new QueryClient({
     defaultOptions: {
       queries: {
