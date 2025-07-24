@@ -45,9 +45,9 @@ npm run format
 
 ```
 
-### Format everything with Prettier
+### Build for production
 
-Automatically formats your code and sorts Tailwind classes.
+Automatically check for syntax and lint issues and build
 
 ```
 npm run build
