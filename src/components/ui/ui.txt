@@ -1,3 +1,0 @@
-=============TEMPORARY FILE============
-
-# Components related to ui like Button, Input etc.

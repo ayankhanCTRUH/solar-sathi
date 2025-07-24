@@ -23,6 +23,7 @@
   /* neutral */
   --color-neutral-500: #0e1118;
   --color-neutral-400: #2c3045;
+  --color-neutral-450: #bbbfc8;
   --color-neutral-300: #364056;
   --color-neutral-200: #3d4a66;
   --color-neutral-100: #4c5b7d;
@@ -35,6 +36,7 @@
   --color-background-200: #f9fafb;
   --color-background-100: #fcfdfd;
   --color-background-50: #ffffff;
+  --color-background-dark-200: #1b1f3f;
 
   /* components */
   --color-brand: #182150;
@@ -75,4 +77,11 @@
   --color-red-600: #fce6e6;
   --color-red-500: #fdf3f3;
   --color-red-400: #fef9f9;
+
+  --testimonial-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  --testimonial-radial:
+    193.07% 141.42% at 100% 0%, rgba(14, 16, 26, 0.4) 0%,
+    rgba(14, 16, 26, 0) 40%;
+  --testimonial-gradient: 180deg, rgba(27, 31, 63, 0) 65%, #1b1f3f 90%;
+  --testimonial-content: 0 4px 4px rgba(0, 0, 0, 0.25);
 }
