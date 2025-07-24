@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "build": "next build",
+    "lint": "next lint",
+    "build": "npm run lint && next build",
     "start": "next start",
-    "lint": "next lint"
+    "format": "prettier --write ."
   },
   "dependencies": {
     "next": "15.4.3",
