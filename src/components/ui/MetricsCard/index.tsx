@@ -7,7 +7,7 @@ const StyledMetricsText = ({ metricContents }: StyledMetricsTextProps) => {
       {metricContents.map((item, index) => (
         <span
           key={index}
-          className={`font-${item.variant === 'red' ? 'medium text-[red]' : 'semibold'}`}
+          className={`font-${item.highlighted ? 'medium text-neutral-dark-500' : 'semibold text-white'}`}
         >
           {item.text}
         </span>

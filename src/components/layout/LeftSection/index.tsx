@@ -7,7 +7,7 @@ const LeftSection = () => {
       <MetricsCard
         title="Annual Savings Generated"
         icon={<RupeeIcon />}
-        metricContents={[{ text: '₹53.9' }, { text: 'Cr', variant: 'red' }]}
+        metricContents={[{ text: '₹53.9' }, { text: 'Cr', highlighted: true }]}
       />
       <MetricsCard
         title="Solarsquare Homes"

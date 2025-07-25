@@ -8,8 +8,9 @@ export type IconProps = SVGProps<SVGSVGElement>;
 
 export interface MetricContentProps {
   text: string;
-  variant?: string;
+  highlighted?: boolean;
 }
+
 export interface StyledMetricsTextProps {
   metricContents: MetricContentProps[];
 }
