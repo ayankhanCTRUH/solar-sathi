@@ -134,7 +134,7 @@ export const ChevronIcon = ({ className }: IconProps) => (
   </svg>
 );
 
-export const Home = ({ className }: IconProps) => (
+export const HomeIcon = ({ className }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
