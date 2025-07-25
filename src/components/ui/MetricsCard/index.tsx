@@ -12,6 +12,10 @@ const MetricsCard = () => {
           <RupeeIcon className="h-9 w-9" />
         </div>
       </div>
+      <div className="font-poppins inline-flex items-center gap-2 text-[54px]/19">
+        <span className="font-semibold"> ₹53.9</span>
+        <span className="font-medium text-[red]">Cr</span>
+      </div>
     </div>
   );
 };
