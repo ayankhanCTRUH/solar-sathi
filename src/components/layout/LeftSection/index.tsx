@@ -8,8 +8,8 @@ const LeftSection = () => {
       <BreadCrumbs
         items={[
           { href: '/', label: 'India' },
-          { href: '/maharashtra', label: 'Maharashtra' },
-          { href: '/maharashtra/nagpur', label: 'Nagpur' },
+          // { href: '/maharashtra', label: 'Maharashtra' },
+          // { href: '/maharashtra/nagpur', label: 'Nagpur' },
         ]}
       />
 
