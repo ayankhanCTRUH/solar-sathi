@@ -26,7 +26,7 @@ const BreadCrumbs = ({ items }: BreadCrumbsProps) => {
           <Fragment key={index}>
             <Link
               href={item.href}
-              className={`flex items-center gap-1 text-2xl select-none ${
+              className={`flex items-center gap-1 text-2xl/8.5 select-none ${
                 !isFirst && isLast
                   ? 'text-secondary-500 pointer-events-none font-semibold'
                   : 'font-normal'
