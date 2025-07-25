@@ -104,3 +104,48 @@ export const SubsidyIcon = ({ className }: IconProps) => (
     </g>
   </svg>
 );
+
+export const ChevronIcon = ({ className }: IconProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="36"
+    height="37"
+    viewBox="0 0 36 37"
+    fill="none"
+    className={className}
+  >
+    <mask
+      id="mask0_242_30763"
+      style={{ maskType: 'alpha' }}
+      maskUnits="userSpaceOnUse"
+      x="0"
+      y="0"
+      width="36"
+      height="37"
+    >
+      <rect y="0.5" width="36" height="36" fill="#D9D9D9" />
+    </mask>
+    <g mask="url(#mask0_242_30763)">
+      <path
+        d="M18.9 18.5L12 11.6L14.1 9.5L23.1 18.5L14.1 27.5L12 25.4L18.9 18.5Z"
+        fill="white"
+      />
+    </g>
+  </svg>
+);
+
+export const Home = ({ className }: IconProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="24"
+    height="27"
+    viewBox="0 0 24 27"
+    fill="none"
+    className={className}
+  >
+    <path
+      d="M3 24H7.5V15H16.5V24H21V10.5L12 3.75L3 10.5V24ZM0 27V9L12 0L24 9V27H13.5V18H10.5V27H0Z"
+      fill="white"
+    />
+  </svg>
+);
