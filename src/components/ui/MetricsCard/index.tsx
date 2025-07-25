@@ -1,20 +1,6 @@
-import { StyledMetricsTextProps, MetricsCardProps } from '@/types';
+import { MetricsCardProps } from '@/types';
 import React from 'react';
-
-const StyledMetricsText = ({ metricContents }: StyledMetricsTextProps) => {
-  return (
-    <div className="font-poppins inline-flex items-center gap-2 text-[54px]/19">
-      {metricContents.map((item, index) => (
-        <span
-          key={index}
-          className={`font-${item.highlighted ? 'medium text-neutral-dark-500' : 'semibold text-white'}`}
-        >
-          {item.text}
-        </span>
-      ))}
-    </div>
-  );
-};
+import StyledMetricsText from './StyledMetricsText';
 
 const MetricsCard = ({ title, icon, metricContents }: MetricsCardProps) => {
   return (
