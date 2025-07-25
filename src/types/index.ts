@@ -19,3 +19,9 @@ export interface MetricsCardProps {
   metricContents: MetricContentProps[];
   icon: FC<IconProps>;
 }
+
+export interface LeaderBoardData {
+  rank: number;
+  city: string;
+  homesSolarized: string;
+}

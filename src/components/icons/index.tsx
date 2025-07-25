@@ -1,5 +1,4 @@
 import { IconProps } from '@/types';
-import { FC } from 'react';
 
 export const ArrowIcon = ({ className, ...props }: IconProps) => (
   <svg
@@ -21,7 +20,7 @@ export const ArrowIcon = ({ className, ...props }: IconProps) => (
   </svg>
 );
 
-export const QuotesIcon = ({ className }: IconProps) => (
+export const QuotesIcon = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="51"
@@ -29,6 +28,7 @@ export const QuotesIcon = ({ className }: IconProps) => (
     viewBox="0 0 51 42"
     fill="none"
     className={className}
+    {...props}
   >
     <path
       opacity="0.4"
@@ -38,7 +38,7 @@ export const QuotesIcon = ({ className }: IconProps) => (
   </svg>
 );
 
-export const RupeeIcon = ({ className }: IconProps) => (
+export const RupeeIcon = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="36"
@@ -46,6 +46,7 @@ export const RupeeIcon = ({ className }: IconProps) => (
     viewBox="0 0 36 37"
     fill="none"
     className={className}
+    {...props}
   >
     <path
       d="M20.2666 28.1122H24.5333V27.9789L17.1999 20.2011L17.2444 20.0678H17.6888C19.2888 20.0678 20.6148 19.5789 21.6666 18.6011C22.7185 17.6233 23.3629 16.4826 23.5999 15.1789H25.3777V13.09H23.5555C23.4666 12.6455 23.3111 12.2233 23.0888 11.8233C22.8666 11.4233 22.5925 11.0307 22.2666 10.6455H25.3777V8.55664H10.6222V11.09H17.5555C18.3259 11.09 18.9555 11.2826 19.4444 11.6678C19.9333 12.0529 20.2666 12.527 20.4444 13.09H10.6222V15.1789H20.4888C20.3111 15.7715 19.9703 16.2826 19.4666 16.7122C18.9629 17.1418 18.2814 17.3566 17.4222 17.3566H12.9777V20.2011L20.2666 28.1122ZM17.9999 36.1122C15.5407 36.1122 13.2296 35.6455 11.0666 34.7122C8.90365 33.7789 7.02217 32.5122 5.42217 30.9122C3.82217 29.3122 2.5555 27.4307 1.62217 25.2678C0.688835 23.1048 0.222168 20.7937 0.222168 18.3344C0.222168 15.8752 0.688835 13.564 1.62217 11.4011C2.5555 9.23812 3.82217 7.35664 5.42217 5.75664C7.02217 4.15664 8.90365 2.88997 11.0666 1.95664C13.2296 1.02331 15.5407 0.556641 17.9999 0.556641C20.4592 0.556641 22.7703 1.02331 24.9333 1.95664C27.0962 2.88997 28.9777 4.15664 30.5777 5.75664C32.1777 7.35664 33.4444 9.23812 34.3777 11.4011C35.3111 13.564 35.7777 15.8752 35.7777 18.3344C35.7777 20.7937 35.3111 23.1048 34.3777 25.2678C33.4444 27.4307 32.1777 29.3122 30.5777 30.9122C28.9777 32.5122 27.0962 33.7789 24.9333 34.7122C22.7703 35.6455 20.4592 36.1122 17.9999 36.1122ZM17.9999 32.5566C21.9703 32.5566 25.3333 31.1789 28.0888 28.4233C30.8444 25.6678 32.2222 22.3048 32.2222 18.3344C32.2222 14.364 30.8444 11.0011 28.0888 8.24553C25.3333 5.48997 21.9703 4.1122 17.9999 4.1122C14.0296 4.1122 10.6666 5.48997 7.91106 8.24553C5.1555 11.0011 3.77772 14.364 3.77772 18.3344C3.77772 22.3048 5.1555 25.6678 7.91106 28.4233C10.6666 31.1789 14.0296 32.5566 17.9999 32.5566Z"
@@ -54,7 +55,7 @@ export const RupeeIcon = ({ className }: IconProps) => (
   </svg>
 );
 
-export const SolarHomeIcon = ({ className }: IconProps) => (
+export const SolarHomeIcon = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="36"
@@ -62,6 +63,7 @@ export const SolarHomeIcon = ({ className }: IconProps) => (
     viewBox="0 0 36 36"
     fill="none"
     className={className}
+    {...props}
   >
     <path
       d="M0.222168 35.7782L3.77772 18.0004H32.2222L35.7777 35.7782H0.222168ZM1.99995 3.77821V0.222656H7.33328V3.77821H1.99995ZM4.57772 32.2227H16.2222V28.6671H5.28883L4.57772 32.2227ZM7.5555 13.2449L5.02217 10.756L8.79995 6.97821L11.3333 9.4671L7.5555 13.2449ZM5.99995 25.1115H16.2222V21.556H6.71106L5.99995 25.1115ZM17.9999 9.11154C15.5407 9.11154 13.4444 8.24488 11.7111 6.51155C9.97772 4.77821 9.11106 2.68192 9.11106 0.222656H12.6666C12.6666 1.70414 13.1851 2.9634 14.2222 4.00043C15.2592 5.03747 16.5185 5.55599 17.9999 5.55599C19.4814 5.55599 20.7407 5.03747 21.7777 4.00043C22.8148 2.9634 23.3333 1.70414 23.3333 0.222656H26.8888C26.8888 2.68192 26.0222 4.77821 24.2888 6.51155C22.5555 8.24488 20.4592 9.11154 17.9999 9.11154ZM16.2222 16.2227V10.8893H19.7777V16.2227H16.2222ZM19.7777 32.2227H31.4222L30.7111 28.6671H19.7777V32.2227ZM19.7777 25.1115H29.9999L29.2888 21.556H19.7777V25.1115ZM28.4444 13.2449L24.7111 9.4671L27.1999 6.97821L30.9777 10.7115L28.4444 13.2449ZM28.6666 3.77821V0.222656H33.9999V3.77821H28.6666Z"
@@ -105,7 +107,7 @@ export const SubsidyIcon = ({ className }: IconProps) => (
   </svg>
 );
 
-export const ChevronIcon = ({ className }: IconProps) => (
+export const ChevronIcon = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="36"
@@ -113,6 +115,7 @@ export const ChevronIcon = ({ className }: IconProps) => (
     viewBox="0 0 36 37"
     fill="none"
     className={className}
+    {...props}
   >
     <mask
       id="mask0_242_30763"
@@ -134,7 +137,7 @@ export const ChevronIcon = ({ className }: IconProps) => (
   </svg>
 );
 
-export const HomeIcon = ({ className }: IconProps) => (
+export const HomeIcon = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="24"
@@ -142,10 +145,41 @@ export const HomeIcon = ({ className }: IconProps) => (
     viewBox="0 0 24 27"
     fill="none"
     className={className}
+    {...props}
   >
     <path
       d="M3 24H7.5V15H16.5V24H21V10.5L12 3.75L3 10.5V24ZM0 27V9L12 0L24 9V27H13.5V18H10.5V27H0Z"
       fill="white"
     />
+  </svg>
+);
+
+export const LeaderBoardIcon = ({ className, ...props }: IconProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    fill="none"
+    className={className}
+    {...props}
+  >
+    <mask
+      id="mask0_212_4140"
+      style={{ maskType: 'alpha' }}
+      maskUnits="userSpaceOnUse"
+      x="0"
+      y="0"
+      width="32"
+      height="32"
+    >
+      <rect width="32" height="32" fill="#D9D9D9" />
+    </mask>
+    <g mask="url(#mask0_212_4140)">
+      <path
+        d="M5.33329 25.3333H10.6666V14.6667H5.33329V25.3333ZM13.3333 25.3333H18.6666V6.66667H13.3333V25.3333ZM21.3333 25.3333H26.6666V17.3333H21.3333V25.3333ZM2.66663 28V12H10.6666V4H21.3333V14.6667H29.3333V28H2.66663Z"
+        fill="white"
+      />
+    </g>
   </svg>
 );
