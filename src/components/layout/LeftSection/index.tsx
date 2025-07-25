@@ -1,9 +1,19 @@
+import { RupeeIcon } from '@/components/icons';
 import MetricsCard from '@/components/ui/MetricsCard';
 
 const LeftSection = () => {
   return (
     <div className="h-full w-[368px] pl-12">
-      <MetricsCard />
+      <MetricsCard
+        title="Annual Savings Generated"
+        icon={<RupeeIcon />}
+        metricContents={[{ text: '₹53.9' }, { text: 'Cr', variant: 'red' }]}
+      />
+      <MetricsCard
+        title="Solarsquare Homes"
+        icon={<RupeeIcon />}
+        metricContents={[{ text: '29,983+' }]}
+      />
     </div>
   );
 };
