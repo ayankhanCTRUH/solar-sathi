@@ -1,22 +1,14 @@
 import { ChevronIcon, HomeIcon } from '@/components/icons';
+import { BreadCrumbsProps } from '@/types';
 import Link from 'next/link';
 import { Fragment } from 'react';
-
-interface BreadcrumbItem {
-  label: string;
-  href: string;
-}
-
-interface BreadCrumbsProps {
-  items: BreadcrumbItem[];
-}
 
 const BreadCrumbs = ({ items }: BreadCrumbsProps) => {
   if (!items?.length) return null;
 
   return (
     <div
-      className="bg-background-dark-300 font-dm-sans border-background-dark-100 mt-10 flex w-full items-center gap-0.5 rounded-xl border-[1.5px] p-4 text-white"
+      className="bg-background-dark-300 font-dm-sans border-background-dark-100 flex w-full items-center gap-0.5 rounded-xl border-[1.5px] p-4 text-white"
       aria-label="Breadcrumb"
     >
       {items.map((item, index) => {

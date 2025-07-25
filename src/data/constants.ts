@@ -1,5 +1,5 @@
 import { RupeeIcon, SolarHomeIcon, SubsidyIcon } from '@/components/icons';
-import { MetricsCardProps } from '@/types';
+import { BreadcrumbItem, MetricsCardProps } from '@/types';
 import { LeaderBoardData } from '@/types';
 
 // TODO: testimonials data need to be updated
@@ -47,6 +47,12 @@ export const METRICS_DATA: MetricsCardProps[] = [
     icon: SubsidyIcon,
     metricContents: [{ text: '₹53.9' }, { text: 'Cr', highlighted: true }],
   },
+];
+
+export const BREADCRUMBS_DATA: BreadcrumbItem[] = [
+  { href: '/', label: 'India' },
+  { href: '/maharashtra', label: 'Maharashtra' },
+  { href: '/maharashtra/nagpur', label: 'Nagpur' },
 ];
 
 // TODO: cities data need to be fetched from API

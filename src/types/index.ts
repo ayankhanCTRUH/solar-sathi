@@ -20,6 +20,15 @@ export interface MetricsCardProps {
   icon: FC<IconProps>;
 }
 
+export interface BreadcrumbItem {
+  label: string;
+  href: string;
+}
+
+export interface BreadCrumbsProps {
+  items: BreadcrumbItem[];
+}
+
 export interface LeaderBoardData {
   rank: number;
   city: string;
