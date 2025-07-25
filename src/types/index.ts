@@ -1,4 +1,4 @@
-import { ReactElement, ReactNode, SVGProps } from 'react';
+import { FC, ReactNode, SVGProps } from 'react';
 
 export interface ReactQueryProviderProps {
   children: ReactNode;
@@ -10,7 +10,6 @@ export interface MetricContentProps {
   text: string;
   highlighted?: boolean;
 }
-
 export interface StyledMetricsTextProps {
   metricContents: MetricContentProps[];
 }
@@ -18,5 +17,5 @@ export interface StyledMetricsTextProps {
 export interface MetricsCardProps {
   title: string;
   metricContents: MetricContentProps[];
-  icon: ReactElement<IconProps>;
+  icon: FC<IconProps>;
 }

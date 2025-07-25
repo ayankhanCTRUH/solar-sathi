@@ -1,3 +1,6 @@
+import { RupeeIcon, SolarHomeIcon } from '@/components/icons';
+import { MetricsCardProps } from '@/types';
+
 // TODO: testimonials data need to be updated
 export const TESTIMONIALS = [
   {
@@ -23,5 +26,18 @@ export const TESTIMONIALS = [
       'From start to finish, this solar team exceeded all expectations. Their professionalism, knowledge, and attention to detail made the entire process smooth and stress-free.',
     date: 'Jan, 2025',
     image: '/images/testimonial.webp',
+  },
+];
+
+export const METRICS_DATA: MetricsCardProps[] = [
+  {
+    title: 'Annual Savings Generated',
+    icon: RupeeIcon,
+    metricContents: [{ text: '₹53.9' }, { text: 'Cr', highlighted: true }],
+  },
+  {
+    title: 'Solarsquare Homes',
+    icon: SolarHomeIcon,
+    metricContents: [{ text: '29,983+' }],
   },
 ];

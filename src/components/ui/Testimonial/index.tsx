@@ -18,7 +18,7 @@ const Testimonial = () => {
     );
   };
   return (
-    <div className="bg-background-dark-200 mx-auto max-w-[360px] rounded-2xl border border-neutral-100 p-5 shadow-(--testimonial-shadow)">
+    <div className="bg-background-dark-200 shadow-smoke mx-auto max-w-[360px] rounded-2xl border border-neutral-100 p-5">
       <div className="relative rounded-lg">
         <div className="absolute inset-0 z-[0] bg-linear-(--testimonial-gradient)" />
         <div className="absolute inset-0 z-[1] bg-radial-(--testimonial-radial)" />
