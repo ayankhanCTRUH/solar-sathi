@@ -1,4 +1,4 @@
-import { RupeeIcon, SolarHomeIcon } from '@/components/icons';
+import { RupeeIcon, SolarHomeIcon, SubsidyIcon } from '@/components/icons';
 import { MetricsCardProps } from '@/types';
 
 // TODO: testimonials data need to be updated
@@ -31,13 +31,19 @@ export const TESTIMONIALS = [
 
 export const METRICS_DATA: MetricsCardProps[] = [
   {
+    title: 'Solarsquare Homes',
+    icon: SolarHomeIcon,
+    metricContents: [{ text: '29,983+' }],
+  },
+  {
     title: 'Annual Savings Generated',
     icon: RupeeIcon,
     metricContents: [{ text: '₹53.9' }, { text: 'Cr', highlighted: true }],
   },
+
   {
-    title: 'Solarsquare Homes',
-    icon: SolarHomeIcon,
-    metricContents: [{ text: '29,983+' }],
+    title: 'Govt. Subsidy Disbursed',
+    icon: SubsidyIcon,
+    metricContents: [{ text: '₹53.9' }, { text: 'Cr', highlighted: true }],
   },
 ];
