@@ -21,94 +21,34 @@ const BreadCrumbs = ({ items }: BreadCrumbsProps) => {
       {items.map((item, index) => {
         const isLast = index === items.length - 1;
         const isFirst = index === 0;
-        const isSecond = index === 1;
+        const showLabel = items.length <= 2 || !isFirst;
 
-        if (items.length === 1 && isFirst) {
-          return (
-            <Fragment key={index}>
-              <Link
-                href={item.href}
-                className="flex items-center gap-1 font-normal"
-              >
-                <HomeIcon className="m-2 shrink-0" />
-                <span>{item.label}</span>
-              </Link>
-            </Fragment>
-          );
-        }
-
-        if (items.length === 2) {
-          if (isFirst) {
-            return (
-              <Fragment key={index}>
-                <Link
-                  href={item.href}
-                  className="flex items-center gap-1 font-normal"
-                >
-                  <HomeIcon className="m-2 shrink-0" />
-                  <span>{item.label}</span>
-                </Link>
-                <ChevronIcon className="shrink-0" />
-              </Fragment>
-            );
-          }
-
-          return (
-            <Fragment key={index}>
-              <Link
-                href={item.href}
-                className={`flex items-center gap-1 ${
-                  isLast
-                    ? 'text-secondary-500 pointer-events-none font-semibold'
-                    : 'font-normal'
-                }`}
-              >
-                <span>{item.label}</span>
-              </Link>
-              {!isLast && <ChevronIcon className="shrink-0" />}
-            </Fragment>
-          );
-        }
-
-        if (items.length > 2) {
-          if (isFirst) {
-            return (
-              <Fragment key={index}>
-                <Link
-                  href={item.href}
-                  className="flex items-center gap-1 font-normal"
-                >
-                  <HomeIcon className="m-2 shrink-0" />
-                </Link>
-                <ChevronIcon className="shrink-0" />
-              </Fragment>
-            );
-          }
-
-          return (
-            <Fragment key={index}>
-              <Link
-                href={item.href}
-                className={`flex items-center gap-1 ${
-                  isLast
-                    ? 'text-secondary-500 pointer-events-none font-semibold'
-                    : 'font-normal'
-                }`}
-              >
+        return (
+          <Fragment key={index}>
+            <Link
+              href={item.href}
+              className={`flex items-center gap-1 ${
+                isLast
+                  ? 'text-secondary-500 pointer-events-none font-semibold'
+                  : 'font-normal'
+              }`}
+            >
+              {isFirst && <HomeIcon className="m-2 shrink-0" />}
+              {showLabel && (
                 <span
                   className={
-                    shouldTruncate && !isLast ? 'max-w-20 truncate' : ''
+                    shouldTruncate && !isLast && !isFirst
+                      ? 'max-w-20 truncate'
+                      : ''
                   }
                 >
                   {item.label}
                 </span>
-              </Link>
-              {!isLast && <ChevronIcon className="shrink-0" />}
-            </Fragment>
-          );
-        }
-
-        return null;
+              )}
+            </Link>
+            {!isLast && <ChevronIcon className="shrink-0" />}
+          </Fragment>
+        );
       })}
     </div>
   );

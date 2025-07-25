@@ -1,4 +1,5 @@
 import BreadCrumbs from '@/components/ui/BreadCrumbs';
+
 import MetricsCard from '@/components/ui/MetricsCard';
 import { METRICS_DATA } from '@/data/constants';
 
@@ -8,8 +9,8 @@ const LeftSection = () => {
       <BreadCrumbs
         items={[
           { href: '/', label: 'India' },
-          // { href: '/maharashtra', label: 'Maharashtra' },
-          // { href: '/maharashtra/nagpur', label: 'Nagpur' },
+          { href: '/maharashtra', label: 'Maharashtra' },
+          { href: '/maharashtra/nagpur', label: 'Nagpur' },
         ]}
       />
 
