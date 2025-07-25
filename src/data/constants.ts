@@ -1,3 +1,5 @@
+import { LeaderBoardData } from '@/types';
+
 // TODO: testimonials data need to be updated
 export const TESTIMONIALS = [
   {
@@ -24,4 +26,11 @@ export const TESTIMONIALS = [
     date: 'Jan, 2025',
     image: '/images/testimonial.webp',
   },
+];
+
+// TODO: cities data need to be fetched from API
+export const CITIES_DATA: LeaderBoardData[] = [
+  { rank: 1, city: 'Nagpur', homesSolarized: '2,500' },
+  { rank: 2, city: 'Nashik', homesSolarized: '1,200' },
+  { rank: 3, city: 'Pune', homesSolarized: '1,050' },
 ];

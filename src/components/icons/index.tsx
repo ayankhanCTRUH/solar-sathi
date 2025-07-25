@@ -41,3 +41,36 @@ export const QuotesIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
     />
   </svg>
 );
+
+export const LeaderBoardIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
+  className,
+  ...props
+}) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="32"
+    height="32"
+    viewBox="0 0 32 32"
+    fill="none"
+    className={className}
+    {...props}
+  >
+    <mask
+      id="mask0_212_4140"
+      style={{ maskType: 'alpha' }}
+      maskUnits="userSpaceOnUse"
+      x="0"
+      y="0"
+      width="32"
+      height="32"
+    >
+      <rect width="32" height="32" fill="#D9D9D9" />
+    </mask>
+    <g mask="url(#mask0_212_4140)">
+      <path
+        d="M5.33329 25.3333H10.6666V14.6667H5.33329V25.3333ZM13.3333 25.3333H18.6666V6.66667H13.3333V25.3333ZM21.3333 25.3333H26.6666V17.3333H21.3333V25.3333ZM2.66663 28V12H10.6666V4H21.3333V14.6667H29.3333V28H2.66663Z"
+        fill="white"
+      />
+    </g>
+  </svg>
+);

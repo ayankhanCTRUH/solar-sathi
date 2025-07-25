@@ -36,6 +36,7 @@
   --color-background-200: #f9fafb;
   --color-background-100: #fcfdfd;
   --color-background-50: #ffffff;
+  --color-background-dark-100: #333a68;
   --color-background-dark-200: #1b1f3f;
 
   /* components */
@@ -86,4 +87,10 @@
     rgba(14, 16, 26, 0) 40%;
   --testimonial-gradient: 180deg, rgba(27, 31, 63, 0) 65%, #1b1f3f 90%;
   --testimonial-content: 0 4px 4px rgba(0, 0, 0, 0.25);
+}
+@layer utilities {
+  .leading-trim {
+    text-box-trim: trim-both;
+    text-box-edge: cap alphabetic;
+  }
 }
