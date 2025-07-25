@@ -36,7 +36,9 @@
   --color-background-200: #f9fafb;
   --color-background-100: #fcfdfd;
   --color-background-50: #ffffff;
+  --color-background-dark-100: #333a68;
   --color-background-dark-200: #1b1f3f;
+  --color-background-dark-300: #101329;
 
   /* components */
   --color-brand: #182150;
@@ -78,12 +80,17 @@
   --color-red-500: #fdf3f3;
   --color-red-400: #fef9f9;
 
-  --testimonial-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
+  /* ribbon */
   --ribbon-shadow: 0 -8px 32px 0 rgba(0, 0, 0, 0.2);
 
+  /* testimonial */
+  --testimonial-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
   --testimonial-radial:
     193.07% 141.42% at 100% 0%, rgba(14, 16, 26, 0.4) 0%,
     rgba(14, 16, 26, 0) 40%;
   --testimonial-gradient: 180deg, rgba(27, 31, 63, 0) 65%, #1b1f3f 90%;
   --testimonial-content: 0 4px 4px rgba(0, 0, 0, 0.25);
+
+  /* button */
+  --button-primary-gradient: 104deg, #00bdff 0%, #131ca2 95.88%;
 }
