@@ -1,9 +1,12 @@
+import BreadCrumbs from '@/components/ui/BreadCrumbs';
 import MetricsCard from '@/components/ui/MetricsCard';
 import { METRICS_DATA } from '@/data/constants';
 
 const LeftSection = () => {
   return (
-    <div className="h-full w-[368px] pl-12">
+    <div className="flex h-full w-[368px] flex-col gap-5 pl-12">
+      <BreadCrumbs />
+      <hr className="border-background-dark-100" />
       <div className="flex flex-col gap-5">
         {METRICS_DATA?.map((metric, index) => (
           <MetricsCard
