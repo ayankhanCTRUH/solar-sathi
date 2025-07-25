@@ -3,7 +3,7 @@ import MixColorsText from '@/components/ui/MixColorsText';
 
 const PageOne = () => {
   return (
-    <div className="font-dm-sans flex h-full w-full flex-col items-center justify-center gap-12 bg-black text-white">
+    <div className="font-dm-sans flex h-[calc(100%-74px)] w-full flex-col items-center justify-center gap-12 bg-black text-white">
       <div className="flex flex-col items-center gap-4">
         <MixColorsText
           content={[

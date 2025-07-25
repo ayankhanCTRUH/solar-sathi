@@ -4,9 +4,9 @@ export interface ReactQueryProviderProps {
   children: ReactNode;
 }
 
-interface TextItem {
+export interface TextItem {
   text: string;
-  variant?: 'blue';
+  variant?: 'blue' | 'neutral-300' | 'neutral-500';
   color?: string;
   break?: boolean;
 }
@@ -26,4 +26,9 @@ export interface ButtonProps {
   rightIcon?: ReactNode;
   onClick?: () => void;
   isLoading?: boolean;
+}
+
+export interface MiddleContentProps {
+  top: { titleProps: MixColorsTextProps; subtitleProps: MixColorsTextProps };
+  bottom: { textProps: MixColorsTextProps; buttonProps: ButtonProps };
 }
