@@ -1,4 +1,5 @@
 'use client';
+// import PageOne from './components/PageOne';
 import MiddleContent from './components/MiddleContent';
 
 const MiddleSection = () => {

@@ -2,15 +2,16 @@ import { MixColorsTextProps, TextItem } from '@/types';
 
 const MixColorsText = ({ className = '', content }: MixColorsTextProps) => {
   const color = (value: TextItem['variant'] | TextItem['color']) => {
-    return value === 'blue'
-      ? 'text-secondary-500'
-      : value === 'neutral-300'
-        ? 'text-background-400'
-        : value === 'neutral-500'
-          ? 'text-neutral-dark-500'
-          : value
-            ? value
-            : 'text-white';
+    switch (value) {
+      case 'blue':
+        return 'text-secondary-500';
+      case 'neutral-300':
+        return 'text-background-400';
+      case 'neutral-500':
+        return 'text-neutral-dark-500';
+      default:
+        return value ?? 'text-white';
+    }
   };
 
   return (
