@@ -9,9 +9,13 @@ const BreadCrumbs = () => {
         India
       </Link>
       <ChevronIcon className="shrink-0" />
+      <Link href="/maharashtra" className="font-normal">
+        Maharashtra
+      </Link>
+      <ChevronIcon className="shrink-0" />
       {/* selected */}
       <Link href="/maharashtra" className="text-secondary-500 font-semibold">
-        Maharashtra
+        Nagpur
       </Link>
       {/* <ChevronIcon className="shrink-0" />
       <span className="">Nagpur</span> */}
