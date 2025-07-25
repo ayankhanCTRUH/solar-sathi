@@ -35,7 +35,7 @@ export default function RootLayout({
     <html lang="en">
       <body className={`${dmSans.variable} ${poppins.variable} antialiased`}>
         <ReactQueryProvider>
-          <div className="absolute inset-0 bottom-[74px] flex gap-6">
+          <div className="absolute inset-0 flex gap-6">
             <LeftSection />
             <MiddleSection />
             <RightSection />
