@@ -19,7 +19,7 @@ const BreadCrumbs = ({ items }: BreadCrumbsProps) => {
       {items.map((item, index) => {
         const isLast = index === items.length - 1;
         const isFirst = index === 0;
-        const shouldTruncate = items.length > 2; // Check if truncation should be applied
+        const shouldTruncate = items.length > 2;
 
         if (isFirst && items.length > 1) {
           return (
