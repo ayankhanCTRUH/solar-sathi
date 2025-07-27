@@ -82,11 +82,11 @@
   --color-red-500: #fdf3f3;
   --color-red-400: #fef9f9;
 
-  /* ribbon */
+  /* box shadow */
   --ribbon-shadow: 0 -8px 32px 0 rgba(0, 0, 0, 0.2);
+  --shadow-smoke: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
 
   /* testimonial */
-  --testimonial-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.2);
   --testimonial-radial:
     193.07% 141.42% at 100% 0%, rgba(14, 16, 26, 0.4) 0%,
     rgba(14, 16, 26, 0) 40%;
