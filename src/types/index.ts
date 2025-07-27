@@ -80,14 +80,12 @@ export interface ServiceModalProps {
 
 // left section
 
-export interface MetricContentProps {
-  text: string;
-  highlighted?: boolean;
-}
-
 export interface MetricsCardProps {
   title: string;
-  metricContents: MetricContentProps[];
+  metricContents: {
+    text: string;
+    highlighted?: boolean;
+  }[];
   icon: FC<IconProps>;
 }
 
