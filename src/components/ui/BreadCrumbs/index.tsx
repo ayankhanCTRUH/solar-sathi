@@ -1,9 +1,9 @@
 import { ChevronIcon, HomeIcon } from '@/components/icons';
-import { BreadCrumbsProps } from '@/types';
+import { BreadCrumbItemType } from '@/types';
 import Link from 'next/link';
 import { Fragment } from 'react';
 
-const BreadCrumbs = ({ items }: BreadCrumbsProps) => {
+const BreadCrumbs = ({ items }: { items: BreadCrumbItemType[] }) => {
   if (!items?.length) return null;
 
   return (

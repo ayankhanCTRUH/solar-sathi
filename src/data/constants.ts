@@ -1,5 +1,5 @@
 import { RupeeIcon, SolarHomeIcon, SubsidyIcon } from '@/components/icons';
-import { BreadcrumbItem, MetricsCardProps } from '@/types';
+import { BreadCrumbItemType, MetricsCardProps } from '@/types';
 import { LeaderBoardData } from '@/types';
 
 // TODO: testimonials data need to be updated
@@ -49,7 +49,7 @@ export const METRICS_DATA: MetricsCardProps[] = [
   },
 ];
 
-export const BREADCRUMBS_DATA: BreadcrumbItem[] = [
+export const BREADCRUMBS_DATA: BreadCrumbItemType[] = [
   { href: '/', label: 'India' },
   { href: '/maharashtra', label: 'Maharashtra' },
   { href: '/maharashtra/nagpur', label: 'Nagpur' },

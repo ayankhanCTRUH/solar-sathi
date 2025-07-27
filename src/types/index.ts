@@ -89,13 +89,9 @@ export interface MetricsCardProps {
   icon: FC<IconProps>;
 }
 
-export interface BreadcrumbItem {
+export interface BreadCrumbItemType {
   label: string;
   href: string;
-}
-
-export interface BreadCrumbsProps {
-  items: BreadcrumbItem[];
 }
 
 // middle section
