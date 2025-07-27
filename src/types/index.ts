@@ -1,4 +1,10 @@
-import { CSSProperties, InputHTMLAttributes, ReactNode, SVGProps } from 'react';
+import {
+  CSSProperties,
+  FC,
+  InputHTMLAttributes,
+  ReactNode,
+  SVGProps,
+} from 'react';
 
 // global components
 
@@ -73,6 +79,20 @@ export interface ServiceModalProps {
 }
 
 // left section
+
+export interface MetricsCardProps {
+  title: string;
+  metricContents: {
+    text: string;
+    highlighted?: boolean;
+  }[];
+  icon: FC<IconProps>;
+}
+
+export interface BreadCrumbItemType {
+  label: string;
+  href: string;
+}
 
 // middle section
 

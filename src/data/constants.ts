@@ -1,3 +1,5 @@
+import { RupeeIcon, SolarHomeIcon, SubsidyIcon } from '@/components/icons';
+import { BreadCrumbItemType, MetricsCardProps } from '@/types';
 import { LeaderBoardData } from '@/types';
 
 // TODO: testimonials data need to be updated
@@ -26,6 +28,31 @@ export const TESTIMONIALS = [
     date: 'Jan, 2025',
     image: '/images/testimonial.webp',
   },
+];
+
+export const METRICS_DATA: MetricsCardProps[] = [
+  {
+    title: 'Solarsquare Homes',
+    icon: SolarHomeIcon,
+    metricContents: [{ text: '29,983+' }],
+  },
+  {
+    title: 'Annual Savings Generated',
+    icon: RupeeIcon,
+    metricContents: [{ text: '₹53.9' }, { text: 'Cr', highlighted: true }],
+  },
+
+  {
+    title: 'Govt. Subsidy Disbursed',
+    icon: SubsidyIcon,
+    metricContents: [{ text: '₹53.9' }, { text: 'Cr', highlighted: true }],
+  },
+];
+
+export const BREADCRUMBS_DATA: BreadCrumbItemType[] = [
+  { href: '/', label: 'India' },
+  { href: '/maharashtra', label: 'Maharashtra' },
+  { href: '/maharashtra/nagpur', label: 'Nagpur' },
 ];
 
 // TODO: cities data need to be fetched from API
