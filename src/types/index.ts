@@ -85,10 +85,6 @@ export interface MetricContentProps {
   highlighted?: boolean;
 }
 
-export interface StyledMetricsTextProps {
-  metricContents: MetricContentProps[];
-}
-
 export interface MetricsCardProps {
   title: string;
   metricContents: MetricContentProps[];
