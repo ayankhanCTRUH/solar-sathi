@@ -1,6 +1,6 @@
 const LeftSection = () => {
   return (
-    <div className="h-full w-[320px] border border-[blue]">LeftSection</div>
+    <div className="h-full min-w-[320px] border border-[blue]">LeftSection</div>
   );
 };
 

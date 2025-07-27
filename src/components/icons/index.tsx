@@ -1,7 +1,6 @@
-export const ArrowIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  className,
-  ...props
-}) => (
+import { IconProps } from '@/types';
+
+export const ArrowIcon = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="36"
@@ -21,10 +20,7 @@ export const ArrowIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
   </svg>
 );
 
-export const QuotesIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  className,
-  ...props
-}) => (
+export const QuotesIcon = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="51"
@@ -42,10 +38,7 @@ export const QuotesIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
   </svg>
 );
 
-export const LeaderBoardIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
-  className,
-  ...props
-}) => (
+export const LeaderBoardIcon = ({ className, ...props }: IconProps) => (
   <svg
     xmlns="http://www.w3.org/2000/svg"
     width="32"
@@ -72,5 +65,38 @@ export const LeaderBoardIcon: React.FC<React.SVGProps<SVGSVGElement>> = ({
         fill="white"
       />
     </g>
+  </svg>
+);
+
+export const BackSpaceIcon = ({ className, ...props }: IconProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="57"
+    height="57"
+    viewBox="0 0 57 57"
+    className={className}
+    {...props}
+  >
+    <path
+      d="M26.9328 37.8333L32.9995 31.7666L39.0662 37.8333L42.3328 34.5666L36.2662 28.4999L42.3328 22.4333L39.0662 19.1666L32.9995 25.2333L26.9328 19.1666L23.6662 22.4333L29.7328 28.4999L23.6662 34.5666L26.9328 37.8333ZM21.3328 47.1666C20.594 47.1666 19.894 47.0013 19.2328 46.6707C18.5717 46.3402 18.0273 45.8833 17.5995 45.2999L4.99951 28.4999L17.5995 11.6999C18.0273 11.1166 18.5717 10.6596 19.2328 10.3291C19.894 9.99853 20.594 9.83325 21.3328 9.83325H46.9995C48.2828 9.83325 49.3815 10.2902 50.2953 11.2041C51.2092 12.118 51.6662 13.2166 51.6662 14.4999V42.4999C51.6662 43.7832 51.2092 44.8819 50.2953 45.7957C49.3815 46.7096 48.2828 47.1666 46.9995 47.1666H21.3328ZM10.8328 28.4999L21.3328 42.4999H46.9995V14.4999H21.3328L10.8328 28.4999Z"
+      fill="white"
+    />
+  </svg>
+);
+
+export const WestIcon = ({ className, ...props }: IconProps) => (
+  <svg
+    xmlns="http://www.w3.org/2000/svg"
+    width="40"
+    height="41"
+    viewBox="0 0 40 41"
+    fill="none"
+    className={className}
+    {...props}
+  >
+    <path
+      d="M14.9999 8.83268L17.3499 11.1827L9.71659 18.8327L36.6666 18.8327V22.166L9.71659 22.166L17.3666 29.816L14.9999 32.166L3.33325 20.4993L14.9999 8.83268Z"
+      fill="white"
+    />
   </svg>
 );
