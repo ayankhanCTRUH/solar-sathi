@@ -61,3 +61,5 @@ export const CITIES_DATA: LeaderBoardData[] = [
   { rank: 2, city: 'Nashik', homesSolarized: '1,200' },
   { rank: 3, city: 'Pune', homesSolarized: '1,050' },
 ];
+
+export const PIN_INPUT_LIMIT = 6;
