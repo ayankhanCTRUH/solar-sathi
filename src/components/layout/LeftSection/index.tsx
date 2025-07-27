@@ -18,12 +18,7 @@ const LeftSection = () => {
       <hr className="border-background-dark-100" />
       <div className="flex flex-col gap-5">
         {METRICS_DATA?.map((metric, index) => (
-          <MetricsCard
-            key={index}
-            title={metric.title}
-            icon={metric.icon}
-            metricContents={metric.metricContents}
-          />
+          <MetricsCard key={index} data={metric} />
         ))}
       </div>
     </div>
