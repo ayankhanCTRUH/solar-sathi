@@ -305,7 +305,7 @@ const MapComponent = () => {
       } catch (err) {
         console.error('Error initializing map: ', err);
         setError(
-          'Could not initialize map. Pease refresh the page to try again'
+          'Could not initialize map. Please refresh the page to try again'
         );
       }
     };
