@@ -1,3 +1,0 @@
-=============TEMPORARY FILE============
-
-# Shared hooks used across features
