@@ -11,7 +11,7 @@ const LeftSection = () => {
         height={0}
         src="/icons/logo.svg"
         alt="logo"
-        className="h-full max-h-37 w-full max-w-52"
+        className="mb-3 h-full max-h-37 w-full max-w-52"
       />
       <BreadCrumbs items={BREADCRUMBS_DATA} />
 
