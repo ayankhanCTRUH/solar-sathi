@@ -39,10 +39,10 @@ const Testimonial = () => {
           className="w-full select-none"
         />
         <div className="absolute inset-x-0 bottom-0 left-4 z-[3] select-none">
-          <h3 className="font-dm-sans text-2xl/[33px] font-bold tracking-[-0.96px] text-white text-shadow-(--testimonial-content)">
+          <h3 className="font-dm-sans text-shadow-testimonial-content text-2xl/[33px] font-bold tracking-[-0.96px] text-white">
             {TESTIMONIALS[currentIndex].name}
           </h3>
-          <p className="font-dm-sans text-background-400 text-sm tracking-[-0.28px] text-shadow-(--testimonial-content)">
+          <p className="font-dm-sans text-background-400 text-shadow-testimonial-content text-sm tracking-[-0.28px]">
             {TESTIMONIALS[currentIndex].city}
           </p>
         </div>
