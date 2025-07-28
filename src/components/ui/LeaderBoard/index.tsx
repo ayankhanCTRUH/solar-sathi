@@ -1,5 +1,5 @@
 import { LeaderBoardIcon } from '@/components/icons';
-import { CITIES_DATA } from '@/data/constants';
+import { CITIES_DATA, TABLE_HEADINGS } from '@/data/constants';
 import LeaderBoardRow from './LeaderBoardRow';
 
 const LeaderBoard = () => {
@@ -14,7 +14,7 @@ const LeaderBoard = () => {
       <table>
         <thead>
           <tr>
-            {['Rank', 'City', 'Homes Solarized'].map((item, index) => (
+            {TABLE_HEADINGS.map((item, index) => (
               <th
                 key={index}
                 className={`font-dm-sans leading-trim text-neutral-450 pb-5 ${index === 2 ? 'text-right' : 'text-left'} text-lg font-normal`}

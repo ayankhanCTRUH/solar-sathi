@@ -63,3 +63,5 @@ export const CITIES_DATA: LeaderBoardData[] = [
 ];
 
 export const PIN_INPUT_LIMIT = 6;
+
+export const TABLE_HEADINGS = ['Rank', 'City', 'Homes Solarized'];
