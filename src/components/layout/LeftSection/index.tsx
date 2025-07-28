@@ -5,7 +5,7 @@ import Image from 'next/image';
 
 const LeftSection = () => {
   return (
-    <div className="flex h-full max-w-[368px] min-w-[368px] flex-col gap-5">
+    <div className="flex h-full max-w-[320px] min-w-[320px] flex-col gap-5">
       <Image
         width={0}
         height={0}
