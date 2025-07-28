@@ -25,3 +25,18 @@ export const TESTIMONIALS = [
     image: '/images/testimonial.webp',
   },
 ];
+
+export const mapStylingParams = {
+  fillColor: '#151930',
+  weight: 2,
+  opacity: 1,
+  color: '#3f4774',
+  fillOpacity: 1,
+  className: 'state',
+
+  // Highlight/focused states styling
+  focusWeight: 3,
+  focusColor: '#49549d',
+  focusFillColor: '#1b1f3f',
+  focusFillOpacity: 0.9,
+};
