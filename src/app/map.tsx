@@ -14,6 +14,18 @@ import {
   getCoordinatesByPincode,
   loadPincodeData,
 } from '@/lib/utils/pincodeLookUp';
+import {
+  fetchMapData,
+  getCitiesByState,
+  getPincodesByCity,
+  getStateCount,
+} from '@/lib/utils/mapData';
+
+type StateData = {
+  cityName: string;
+  count: number;
+  pincode: string;
+};
 
 const MapComponent = () => {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -22,20 +34,60 @@ const MapComponent = () => {
   const [error, setError] = useState<string | null>(null);
 
   let map: L.Map;
+
+  let indiaGeoJsonLayer: L.GeoJSON;
   let stateGeoJsonLayer: L.GeoJSON;
 
   let indiaMarkers: L.LayerGroup;
   let stateMarkers: L.LayerGroup;
   let cityMarkers: L.LayerGroup;
 
-  let currentStateLayer: L.Layer | null = null;
+  let currentStateLayer: L.GeoJSON | null = null;
   let currentStateName: string | null = null;
+
+  let currentCityLayer: L.Layer | null = null;
 
   const stateLayers: Array<L.Layer> = [];
 
+  function backToState() {
+    map.fitBounds(stateGeoJsonLayer.getBounds());
+    map.removeLayer(stateGeoJsonLayer);
+
+    map.removeLayer(cityMarkers);
+    stateMarkers.addTo(map);
+
+    cityMarkers.clearLayers();
+
+    if (currentStateLayer) {
+      focusLayer(currentStateLayer);
+    }
+  }
+
+  function backToInda() {
+    map.fitBounds(indiaGeoJsonLayer.getBounds());
+
+    map.removeLayer(stateGeoJsonLayer);
+
+    map.removeLayer(cityMarkers);
+    stateMarkers.addTo(map);
+
+    cityMarkers.clearLayers();
+
+    map.removeLayer(stateMarkers);
+    stateMarkers.clearLayers();
+
+    indiaMarkers.addTo(map);
+
+    indiaGeoJsonLayer.getLayers().forEach((layer: any) => {
+      if (states.includes(layer.feature.properties.ST_NM)) {
+        focusLayer(layer);
+      }
+    });
+  }
+
   function unfocusMap(layers: Array<L.Layer>) {
     layers.forEach((layer) => {
-      stateGeoJsonLayer.resetStyle(layer);
+      indiaGeoJsonLayer.resetStyle(layer);
     });
   }
 
@@ -88,7 +140,7 @@ const MapComponent = () => {
   function createStateMarkers(
     cityName: string,
     houseCount: number,
-    latLng: [number, number]
+    pincode: string
   ) {
     const markerIcon = L.divIcon({
       className: 'map-marker',
@@ -104,6 +156,9 @@ const MapComponent = () => {
       iconSize: [60, 80],
     });
 
+    const latLng = getCoordinatesByPincode(parseInt(pincode));
+    if (!latLng) return;
+
     const marker: any = L.marker(latLng, { icon: markerIcon });
     marker.name = cityName;
 
@@ -118,7 +173,7 @@ const MapComponent = () => {
     return marker;
   }
 
-  function createCityMarkers(pincode: number, latLng: [number, number]) {
+  function createCityMarkers(pincode: number) {
     const markerIcon = L.divIcon({
       className: 'map-marker',
       html: `
@@ -132,8 +187,11 @@ const MapComponent = () => {
       iconSize: [60, 80],
     });
 
-    // const latLng = getCoordinatesByPincode(pincode);
-    if (!latLng) return;
+    const latLng = getCoordinatesByPincode(pincode);
+    if (!latLng) {
+      console.log("can't find the coordintes of the pincode");
+      return;
+    }
 
     const marker: any = L.marker(latLng, { icon: markerIcon });
     marker.name = pincode;
@@ -142,24 +200,30 @@ const MapComponent = () => {
   }
 
   function addCityMarkers(cityName: string) {
-    console.log(cityName);
-    if (cityName == 'Nagpur' || cityName == 'Pune') {
-      const data = cityDataMap[cityName];
-      Object.entries(data).forEach(([pincode, latLng]) => {
-        const marker = createCityMarkers(parseInt(pincode), latLng);
-        marker.addTo(cityMarkers);
+    cityMarkers.addTo(map);
+
+    if (currentStateName) {
+      const cityData = getPincodesByCity(currentStateName, cityName);
+      cityData?.forEach((pincode) => {
+        const marker = createCityMarkers(parseInt(pincode));
+        if (marker) marker.addTo(cityMarkers);
       });
     }
   }
 
   function addStateMarkers(stateName: string) {
-    if (stateName == 'Maharashtra') {
-      Object.entries(maharashtraData).forEach(
-        ([cityName, { value, latLng }]) => {
-          createStateMarkers(cityName, value, latLng).addTo(stateMarkers);
-        }
+    stateMarkers.addTo(map);
+
+    const stateData: StateData[] | null = getCitiesByState(stateName);
+    if (!stateData) return;
+    stateData.forEach((data) => {
+      const marker = createStateMarkers(
+        data.cityName,
+        data.count,
+        data.pincode
       );
-    }
+      if (marker) marker.addTo(stateMarkers);
+    });
   }
 
   const loadStateGeoJSONData = async (cityName: string) => {
@@ -195,6 +259,7 @@ const MapComponent = () => {
           });
           layer.bringToFront();
 
+          console.log('city name', cityName, ' ', layer.getBounds());
           map.fitBounds(layer.getBounds());
         }
       };
@@ -234,8 +299,10 @@ const MapComponent = () => {
         const stateName = feature.properties.ST_NM;
 
         if (states.includes(stateName)) {
-          const houseCount = stateData[stateName].value;
+          const houseCount = getStateCount(stateName);
           const latLng = stateData[stateName].latLng;
+
+          if (!houseCount) return;
 
           layer.setStyle({
             weight: mapStylingParams.focusWeight,
@@ -259,15 +326,25 @@ const MapComponent = () => {
         }
       };
 
-      stateGeoJsonLayer = L.geoJSON(data, {
+      indiaGeoJsonLayer = L.geoJSON(data, {
         style: styleFeature,
         onEachFeature: onEachFeature,
       }).addTo(map);
 
-      map.fitBounds(stateGeoJsonLayer.getBounds());
+      map.fitBounds(indiaGeoJsonLayer.getBounds());
     } catch (err) {
       console.log(err);
     }
+
+    // Temp remove later
+
+    window.addEventListener('keydown', (e) => {
+      if (e.key == 'l') {
+        backToState();
+      } else if (e.key == 'k') {
+        backToInda();
+      }
+    });
   };
 
   useEffect(() => {
@@ -275,6 +352,7 @@ const MapComponent = () => {
       try {
         if (!mapRef.current) return;
 
+        await fetchMapData();
         await loadPincodeData();
 
         map = L.map(mapRef.current, {
