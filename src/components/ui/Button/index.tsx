@@ -4,7 +4,7 @@ import AnimatingDots from '../AnimatingDots';
 import { ButtonProps, ButtonVariant } from '@/types';
 
 const baseStyles =
-  'flex items-center justify-center gap-2 px-8 py-4 text-[28px] font-semibold rounded-xl h-full w-full text-white';
+  'flex items-center justify-center gap-2 px-8 py-4 text-[28px] font-semibold rounded-xl h-full w-full text-white pointer-events-auto';
 
 const variantStyles: Record<ButtonVariant, string> = {
   primary: 'bg-linear-(--button-primary-gradient) cursor-pointer',
