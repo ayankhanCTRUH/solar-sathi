@@ -107,4 +107,5 @@ export interface LeaderBoardData {
   rank: number;
   city: string;
   homesSolarized: string;
+  isLastRow?: boolean;
 }

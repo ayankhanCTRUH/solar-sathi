@@ -1,11 +1,11 @@
 import { LeaderBoardData } from '@/types';
 
-const LeaderBoardRow: React.FC<LeaderBoardData & { isLastRow?: boolean }> = ({
+const LeaderBoardRow = ({
   rank,
   city,
   homesSolarized,
   isLastRow,
-}) => (
+}: LeaderBoardData) => (
   <tr
     className={`${isLastRow && 'border-b-0'} border-background-dark-100 border-b`}
   >
