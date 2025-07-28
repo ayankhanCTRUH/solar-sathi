@@ -47,7 +47,7 @@ const Modal = ({ open, onClose, children, style, footer }: ModalProps) => {
   if (!open) return null;
 
   return (
-    <div className="bg-black-900/50 fixed inset-0 z-[100] flex h-dvh w-dvw items-center justify-center backdrop-blur-lg">
+    <div className="bg-black-900/50 pointer-events-auto fixed inset-0 z-[100] flex h-dvh w-dvw items-center justify-center backdrop-blur-lg">
       <div
         ref={modalRef}
         className="border-background-dark-100 max-h-[90vh] overflow-y-scroll rounded-3xl border backdrop-blur-lg"
