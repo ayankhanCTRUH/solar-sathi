@@ -1,3 +1,0 @@
-=============TEMPORARY FILE============
-
-# Components related to layout like Footer etc.

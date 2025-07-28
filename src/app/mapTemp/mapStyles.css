@@ -1,80 +1,78 @@
 .map-container {
-    height: 100vh;
-    overflow: hidden;
-    background-color: #151930;
+  height: 100vh;
+  overflow: hidden;
+  background-color: #151930;
 }
 
 #map {
-    width: 100% !important;
-    height: 100% !important;
+  width: 100% !important;
+  height: 100% !important;
 }
 
 .map-marker {
-    text-align: center;
+  text-align: center;
 }
 
 .marker-content {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
 .value {
-    font-size: 18px;
-    font-weight: bold;
-    color: #fff;
-    position: relative;
-    top: 14px;
+  font-size: 18px;
+  font-weight: bold;
+  color: #fff;
+  position: relative;
+  top: 14px;
 }
 
 .state-name {
-    font-size: 12px;
-    font-weight: normal;
-    color: black;
-    width: auto;
-    /* min-width: 211px; */
-    background: white;
-    padding: 4px;
-    border-radius: 20px;
-    position: relative;
-    top: -14px;
+  font-size: 12px;
+  font-weight: normal;
+  color: black;
+  width: auto;
+  /* min-width: 211px; */
+  background: white;
+  padding: 4px;
+  border-radius: 20px;
+  position: relative;
+  top: -14px;
 }
 
 .icon {
-    margin-bottom: 10px;
+  margin-bottom: 10px;
 }
-
-
 
 /* Custom Leaflet popup styling */
 .leaflet-popup-content-wrapper {
-    background: rgba(26, 26, 46, 0.95);
-    color: white;
-    border-radius: 10px;
-    box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
+  background: rgba(26, 26, 46, 0.95);
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 5px 20px rgba(0, 0, 0, 0.5);
 }
 
 .leaflet-popup-content {
-    margin: 15px;
-    font-family: Arial, sans-serif;
+  margin: 15px;
+  font-family: Arial, sans-serif;
 }
 
 .leaflet-popup-tip {
-    background: rgba(26, 26, 46, 0.95);
+  background: rgba(26, 26, 46, 0.95);
 }
 
 /* Remove Leaflet attribution and zoom controls styling */
 .leaflet-control-container {
-    display: none;
+  display: none;
 }
 
 /* Ensure map container is always visible */
 .leaflet-container {
-    background: transparent !important;
+  background: transparent !important;
 }
 
 /* Fix for containers that might be out of view */
 .leaflet-map-pane {
-    left: 0 !important;
-    top: 0 !important;
+  left: 0 !important;
+  top: 0 !important;
 }
