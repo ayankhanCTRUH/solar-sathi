@@ -31,7 +31,7 @@ const MiddleSection = () => {
   };
 
   return (
-    <div className="flex-grow border border-[teal]">
+    <div className="flex-grow">
       {showHome ? (
         <HomePage handleClick={() => setShowHome(false)} />
       ) : (
