@@ -7,7 +7,7 @@ const MiddleContent = ({
   bottom: { textProps, buttonProps },
 }: MiddleContentProps) => {
   return (
-    <div className="flex h-full flex-col items-center justify-between text-white">
+    <div className="pointer-events-none flex h-full flex-col items-center justify-between text-white">
       <div className="flex flex-col items-center gap-2">
         <MixColorsText {...titleProps} />
         <MixColorsText
@@ -22,7 +22,7 @@ const MiddleContent = ({
         />
         <Button
           {...buttonProps}
-          className={`!h-fit !max-w-[282px] ${buttonProps?.className ?? ''}`}
+          className={`pointer-events-auto !h-fit !max-w-[282px] ${buttonProps?.className ?? ''}`}
         />
       </div>
     </div>
