@@ -125,7 +125,7 @@ const MapSection = () => {
         <div class="flex flex-col items-center">
           <div class="relative top-3.5 text-lg font-dm-sans font-bold text-white">${houseCount.toLocaleString()}</div>
           <div class="mb-2.5">
-            <img class="marker" src="/marker.svg" alt="Icon" />
+            <img class="marker" src="/icons/marker.svg" alt="Icon" />
           </div>
           <div class=
           "relative -top-3.5 w-auto rounded-[20px] bg-white p-1 text-xs font-normal font-dm-sans text-black">${stateName}</div>
@@ -162,7 +162,7 @@ const MapSection = () => {
         <div class="flex flex-col items-center">
           <div class="relative top-3.5 text-lg font-bold text-white">${houseCount.toLocaleString()}</div>
           <div class="mb-2.5">
-            <img class="marker" src="/marker.svg" alt="Icon" />
+            <img class="marker" src="/icons/marker.svg" alt="Icon" />
           </div>
           <div class="relative -top-3.5 w-auto rounded-[20px] bg-white p-1 text-xs font-normal text-black">${cityName}</div>
         </div>
@@ -194,7 +194,7 @@ const MapSection = () => {
       html: `
         <div class="flex flex-col items-center">
           <div class="mb-2.5">
-            <img class="marker" src="/marker.svg" alt="Icon" />
+            <img class="marker" src="/icons/marker.svg" alt="Icon" />
           </div>
           <div class="relative -top-3.5 w-auto rounded-[20px] bg-white p-1 text-xs font-normal text-black">${pincode}</div>
         </div>
