@@ -8,7 +8,7 @@ import {
   getCoordinatesByPincode,
   getPincodesByCity,
   getStateCount,
-} from '@/lib/utils/mapData';
+} from '@/lib/utils';
 import {
   useGetGeoJSONData,
   useGetMapData,
