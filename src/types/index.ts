@@ -55,6 +55,17 @@ export interface NumpadProps {
 
 export type IconProps = SVGProps<SVGSVGElement>;
 
+export interface ShowErrorProps {
+  title: string;
+  description: string;
+  className?: string;
+}
+
+export interface EmptyDataProps {
+  content: string;
+  className?: string;
+}
+
 // modals
 
 export interface ModalProps {
@@ -109,3 +120,24 @@ export interface LeaderBoardData {
   homesSolarized: string;
   isLastRow?: boolean;
 }
+
+// api response
+
+interface StrapiImageType {
+  formats: {
+    small: { url: string };
+  };
+}
+
+export interface TestimonialAPIType {
+  id: number;
+  name: string;
+  address: string;
+  description: string;
+  installedOn: string;
+  image: StrapiImageType;
+}
+
+export type TestimonialType = Omit<TestimonialAPIType, 'image'> & {
+  image: string;
+};
