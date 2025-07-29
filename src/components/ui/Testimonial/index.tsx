@@ -1,6 +1,6 @@
 'use client';
 import { ArrowIcon, QuotesIcon } from '@/components/icons';
-import { formatDate } from '@/lib/utils/utils';
+import { formatDate } from '@/lib/utils';
 import { useGetTestimonials } from '@/services/testimonial-service';
 import { TestimonialType } from '@/types';
 import Image from 'next/image';

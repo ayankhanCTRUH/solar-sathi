@@ -141,3 +141,39 @@ export interface TestimonialAPIType {
 export type TestimonialType = Omit<TestimonialAPIType, 'image'> & {
   image: string;
 };
+
+// map section
+
+export interface MapDataType {
+  [stateName: string]: {
+    total_count: number;
+    cities: Record<
+      string,
+      {
+        count: number;
+        active_pincode: string[];
+      }
+    >;
+  };
+}
+
+export interface PincodeDataType {
+  pincode: number;
+  city: string;
+  state: string;
+  coordinates: [number, number];
+}
+
+export interface MapDataStateType {
+  mapData: MapDataType;
+  setMapData: (data: MapDataType) => void;
+  pincodeData: PincodeDataType[];
+  setPincodeData: (data: PincodeDataType[]) => void;
+}
+
+export interface StateDataType {
+  [state: string]: {
+    value: number;
+    latLng: [number, number];
+  };
+}

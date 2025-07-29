@@ -37,7 +37,7 @@ export default function RootLayout({
         className={`${dmSans.variable} ${poppins.variable} bg-background-dark-500 antialiased`}
       >
         <ReactQueryProvider>
-          <div className="absolute inset-x-12 top-[51px] bottom-[90px] flex gap-6">
+          <div className="pointer-events-none absolute inset-x-12 top-[51px] bottom-[90px] z-[1000] flex gap-6">
             <LeftSection />
             <MiddleSection />
             <RightSection />

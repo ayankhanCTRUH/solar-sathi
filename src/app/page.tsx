@@ -1,3 +1,6 @@
+'use client';
+import MapSection from '@/components/layout/MapSection';
+
 export default function Home() {
-  return <div></div>;
+  return <MapSection />;
 }
