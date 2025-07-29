@@ -1,5 +1,10 @@
 'use client';
-import MapSection from '@/components/layout/MapSection';
+
+import dynamic from 'next/dynamic';
+
+const MapSection = dynamic(() => import('@/components/layout/MapSection'), {
+  ssr: false,
+});
 
 export default function Home() {
   return <MapSection />;
