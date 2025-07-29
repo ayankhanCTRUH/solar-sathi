@@ -2,7 +2,6 @@
 import { useEffect, useRef } from 'react';
 import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import '../../../app/mapTemp/mapStyles.css';
 import { MAP_STYLE_DATA, STATE_DATA, STATE_NAME_DATA } from '@/data/constants';
 import {
   getCitiesByState,
@@ -121,14 +120,15 @@ const MapSection = () => {
     layer: L.GeoJSON
   ) {
     const markerIcon = L.divIcon({
-      className: 'map-marker',
+      className: 'text-center',
       html: `
-        <div class="marker-content">
-          <div class="value">${houseCount.toLocaleString()}</div>
-          <div class="icon">
+        <div class="flex flex-col items-center">
+          <div class="relative top-3.5 text-lg font-dm-sans font-bold text-white">${houseCount.toLocaleString()}</div>
+          <div class="mb-2.5">
             <img class="marker" src="/marker.svg" alt="Icon" />
           </div>
-          <div class="state-name">${stateName}</div>
+          <div class=
+          "relative -top-3.5 w-auto rounded-[20px] bg-white p-1 text-xs font-normal font-dm-sans text-black">${stateName}</div>
         </div>
       `,
       iconSize: [60, 80],
@@ -157,14 +157,14 @@ const MapSection = () => {
     pincode: string
   ) {
     const markerIcon = L.divIcon({
-      className: 'map-marker',
+      className: 'text-center',
       html: `
-        <div class="marker-content">
-          <div class="value">${houseCount.toLocaleString()}</div>
-          <div class="icon">
+        <div class="flex flex-col items-center">
+          <div class="relative top-3.5 text-lg font-bold text-white">${houseCount.toLocaleString()}</div>
+          <div class="mb-2.5">
             <img class="marker" src="/marker.svg" alt="Icon" />
           </div>
-          <div class="state-name">${cityName}</div>
+          <div class="relative -top-3.5 w-auto rounded-[20px] bg-white p-1 text-xs font-normal text-black">${cityName}</div>
         </div>
       `,
       iconSize: [60, 80],
@@ -190,13 +190,13 @@ const MapSection = () => {
 
   function createCityMarkers(pincode: number) {
     const markerIcon = L.divIcon({
-      className: 'map-marker',
+      className: 'text-center',
       html: `
-        <div class="marker-content">
-          <div class="icon">
+        <div class="flex flex-col items-center">
+          <div class="mb-2.5">
             <img class="marker" src="/marker.svg" alt="Icon" />
           </div>
-          <div class="state-name">${pincode}</div>
+          <div class="relative -top-3.5 w-auto rounded-[20px] bg-white p-1 text-xs font-normal text-black">${pincode}</div>
         </div>
       `,
       iconSize: [60, 80],
@@ -396,8 +396,8 @@ const MapSection = () => {
   }, []);
 
   return (
-    <div className="map-container">
-      <div ref={mapRef} id="map"></div>
+    <div className="bg-background-dark-500 h-screen overflow-hidden">
+      <div ref={mapRef} className="!h-full !w-full"></div>
     </div>
   );
 };
