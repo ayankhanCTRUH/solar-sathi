@@ -14,28 +14,3 @@ export const getTestimonials = async () => {
   );
   return response.data;
 };
-
-// map-service
-
-export const getMapData = async () => {
-  const response = await axios.get(
-    'https://script.googleusercontent.com/macros/echo',
-    {
-      params: {
-        user_content_key: process.env.NEXT_PUBLIC_MAP_USER_CONTENT_KEY,
-        lib: process.env.NEXT_PUBLIC_MAP_LIB_KEY,
-      },
-    }
-  );
-  return response.data;
-};
-
-export const getGeoJSONData = async (fileName: string | null) => {
-  const response = await axios.get(`/mapData/geoJson/${fileName}.geojson`);
-  return response.data;
-};
-
-export const getPinCodeData = async () => {
-  const response = await axios.get('/mapData/json/Pincode.json');
-  return response.data;
-};
