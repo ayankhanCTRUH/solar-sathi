@@ -1,37 +1,40 @@
-import { useEffect, useRef, useState } from 'react';
+'use client';
+import { useEffect, useRef } from 'react';
 import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
-import './mapTemp/mapStyles.css';
-
-import { mapStylingParams } from '@/data/constants';
+import '../../../app/mapTemp/mapStyles.css';
+import { MAP_STYLE_DATA, STATE_DATA, STATE_NAME_DATA } from '@/data/constants';
 import {
-  stateData,
-  states,
-  maharashtraData,
-  cityDataMap,
-} from './mapTemp/data';
-import {
-  getCoordinatesByPincode,
-  loadPincodeData,
-} from '@/lib/utils/pincodeLookUp';
-import {
-  fetchMapData,
   getCitiesByState,
+  getCoordinatesByPincode,
   getPincodesByCity,
   getStateCount,
 } from '@/lib/utils/mapData';
+import {
+  useGetGeoJSONData,
+  useGetMapData,
+  useGetPincodeData,
+} from '@/services/map-service';
+import { useMapState } from '@/lib/store';
 
-type StateData = {
-  cityName: string;
-  count: number;
-  pincode: string;
-};
-
-const MapComponent = () => {
+const MapSection = () => {
   const mapRef = useRef<HTMLDivElement>(null);
+  // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapInstanceRef = useRef<any>(null);
-  const [isLoading, setIsLoading] = useState(true);
-  const [error, setError] = useState<string | null>(null);
+  const getMapDataQuery = useGetMapData({ enabled: false });
+
+  let currentStateName: string | null = null;
+  const getStateGeoJSONDataQuery = useGetGeoJSONData({
+    enabled: false,
+    fileName: currentStateName,
+  });
+
+  const getIndiaGeoJSONDataQuery = useGetGeoJSONData({
+    enabled: false,
+    fileName: 'india',
+  });
+  const getPincodeDataQuery = useGetPincodeData({ enabled: false });
+  const { mapData, setMapData, pincodeData, setPincodeData } = useMapState();
 
   let map: L.Map;
 
@@ -43,11 +46,20 @@ const MapComponent = () => {
   let cityMarkers: L.LayerGroup;
 
   let currentStateLayer: L.GeoJSON | null = null;
-  let currentStateName: string | null = null;
-
-  let currentCityLayer: L.Layer | null = null;
 
   const stateLayers: Array<L.Layer> = [];
+
+  const {
+    focusWeight,
+    focusColor,
+    focusFillColor,
+    focusFillOpacity,
+    fillColor,
+    weight,
+    opacity,
+    color,
+    fillOpacity,
+  } = MAP_STYLE_DATA;
 
   function backToState() {
     map.fitBounds(stateGeoJsonLayer.getBounds());
@@ -63,7 +75,7 @@ const MapComponent = () => {
     }
   }
 
-  function backToInda() {
+  function backToIndia() {
     map.fitBounds(indiaGeoJsonLayer.getBounds());
 
     map.removeLayer(stateGeoJsonLayer);
@@ -78,8 +90,9 @@ const MapComponent = () => {
 
     indiaMarkers.addTo(map);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     indiaGeoJsonLayer.getLayers().forEach((layer: any) => {
-      if (states.includes(layer.feature.properties.ST_NM)) {
+      if (STATE_NAME_DATA.includes(layer.feature.properties.ST_NM)) {
         focusLayer(layer);
       }
     });
@@ -93,10 +106,10 @@ const MapComponent = () => {
 
   function focusLayer(layer: L.GeoJSON) {
     layer.setStyle({
-      weight: mapStylingParams.focusWeight,
-      color: mapStylingParams.focusColor,
-      fillColor: mapStylingParams.focusFillColor,
-      fillOpacity: mapStylingParams.focusFillOpacity,
+      weight: focusWeight,
+      color: focusColor,
+      fillColor: focusFillColor,
+      fillOpacity: focusFillOpacity,
     });
     layer.bringToFront();
   }
@@ -121,6 +134,7 @@ const MapComponent = () => {
       iconSize: [60, 80],
     });
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const marker: any = L.marker(latLng, { icon: markerIcon });
     marker.name = stateName;
     const bounds = layer.getBounds();
@@ -156,9 +170,10 @@ const MapComponent = () => {
       iconSize: [60, 80],
     });
 
-    const latLng = getCoordinatesByPincode(parseInt(pincode));
+    const latLng = getCoordinatesByPincode(parseInt(pincode), pincodeData);
     if (!latLng) return;
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const marker: any = L.marker(latLng, { icon: markerIcon });
     marker.name = cityName;
 
@@ -187,12 +202,13 @@ const MapComponent = () => {
       iconSize: [60, 80],
     });
 
-    const latLng = getCoordinatesByPincode(pincode);
+    const latLng = getCoordinatesByPincode(pincode, pincodeData);
     if (!latLng) {
-      console.log("can't find the coordintes of the pincode");
+      console.log("can't find the coordinates of the pincode");
       return;
     }
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     const marker: any = L.marker(latLng, { icon: markerIcon });
     marker.name = pincode;
 
@@ -203,7 +219,7 @@ const MapComponent = () => {
     cityMarkers.addTo(map);
 
     if (currentStateName) {
-      const cityData = getPincodesByCity(currentStateName, cityName);
+      const cityData = getPincodesByCity(currentStateName, cityName, mapData);
       cityData?.forEach((pincode) => {
         const marker = createCityMarkers(parseInt(pincode));
         if (marker) marker.addTo(cityMarkers);
@@ -214,7 +230,7 @@ const MapComponent = () => {
   function addStateMarkers(stateName: string) {
     stateMarkers.addTo(map);
 
-    const stateData: StateData[] | null = getCitiesByState(stateName);
+    const stateData = getCitiesByState(stateName, mapData);
     if (!stateData) return;
     stateData.forEach((data) => {
       const marker = createStateMarkers(
@@ -227,124 +243,101 @@ const MapComponent = () => {
   }
 
   const loadStateGeoJSONData = async (cityName: string) => {
-    try {
-      const response = await fetch(
-        `/mapData/geoJson/${currentStateName}.geojson`
-      );
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
+    const { data } = await getStateGeoJSONDataQuery.refetch();
+
+    const styleFeature = () => ({
+      fillColor: fillColor,
+      weight: weight,
+      opacity: opacity,
+      color: color,
+      fillOpacity: fillOpacity,
+    });
+
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const onEachFeature = (feature: any, layer: L.GeoJSON) => {
+      const distName = feature.properties.district;
+
+      if (cityName === distName) {
+        layer.setStyle({
+          weight: focusWeight,
+          color: focusColor,
+          fillColor: focusFillColor,
+          fillOpacity: focusFillOpacity,
+          pane: 'highlightPane',
+        });
+        layer.bringToFront();
+
+        console.log('city name', cityName, ' ', layer.getBounds());
+        map.fitBounds(layer.getBounds());
       }
+    };
 
-      const data = await response.json();
-      setIsLoading(false);
+    stateGeoJsonLayer = L.geoJSON(data, {
+      style: styleFeature,
+      onEachFeature: onEachFeature,
+    }).addTo(map);
 
-      const styleFeature = () => ({
-        fillColor: mapStylingParams.fillColor,
-        weight: mapStylingParams.weight,
-        opacity: mapStylingParams.opacity,
-        color: mapStylingParams.color,
-        fillOpacity: mapStylingParams.fillOpacity,
-      });
-
-      const onEachFeature = (feature: any, layer: L.GeoJSON) => {
-        const distName = feature.properties.district;
-
-        if (cityName === distName) {
-          layer.setStyle({
-            weight: mapStylingParams.focusWeight,
-            color: mapStylingParams.focusColor,
-            fillColor: mapStylingParams.focusFillColor,
-            fillOpacity: mapStylingParams.focusFillOpacity,
-            pane: 'highlightPane',
-          });
-          layer.bringToFront();
-
-          console.log('city name', cityName, ' ', layer.getBounds());
-          map.fitBounds(layer.getBounds());
-        }
-      };
-
-      //   console.log(data);
-
-      stateGeoJsonLayer = L.geoJSON(data, {
-        style: styleFeature,
-        onEachFeature: onEachFeature,
-      }).addTo(map);
-
-      map.fitBounds(stateGeoJsonLayer.getBounds());
-    } catch (err) {
-      console.log(err);
-    }
+    map.fitBounds(stateGeoJsonLayer.getBounds());
   };
 
   const loadGeoJSONData = async (map: L.Map) => {
-    try {
-      const response = await fetch('/mapData/geoJson/india.geojson');
-      if (!response.ok) {
-        throw new Error(`HTTP error! status: ${response.status}`);
-      }
+    const { data } = await getIndiaGeoJSONDataQuery.refetch();
 
-      const data = await response.json();
-      setIsLoading(false);
+    const styleFeature = () => ({
+      fillColor: fillColor,
+      weight: weight,
+      opacity: opacity,
+      color: color,
+      fillOpacity: fillOpacity,
+    });
 
-      const styleFeature = () => ({
-        fillColor: mapStylingParams.fillColor,
-        weight: mapStylingParams.weight,
-        opacity: mapStylingParams.opacity,
-        color: mapStylingParams.color,
-        fillOpacity: mapStylingParams.fillOpacity,
-      });
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
+    const onEachFeature = (feature: any, layer: L.GeoJSON) => {
+      const stateName = feature.properties.ST_NM;
 
-      const onEachFeature = (feature: any, layer: L.GeoJSON) => {
-        const stateName = feature.properties.ST_NM;
+      if (STATE_NAME_DATA.includes(stateName)) {
+        const houseCount = getStateCount(stateName, mapData);
+        const latLng = STATE_DATA[stateName].latLng;
 
-        if (states.includes(stateName)) {
-          const houseCount = getStateCount(stateName);
-          const latLng = stateData[stateName].latLng;
+        if (!houseCount) return;
 
-          if (!houseCount) return;
+        layer.setStyle({
+          weight: focusWeight,
+          color: focusColor,
+          fillColor: focusFillColor,
+          fillOpacity: focusFillOpacity,
+          // pane: 'highlightPane',
+        });
 
-          layer.setStyle({
-            weight: mapStylingParams.focusWeight,
-            color: mapStylingParams.focusColor,
-            fillColor: mapStylingParams.focusFillColor,
-            fillOpacity: mapStylingParams.focusFillOpacity,
-            // pane: 'highlightPane',
-          });
-
-          if (map) {
-            const marker = createIndiaMarkers(
-              stateName,
-              houseCount,
-              latLng,
-              layer
-            );
-            marker.addTo(indiaMarkers);
-          }
-
-          stateLayers.push(layer);
+        if (map) {
+          const marker = createIndiaMarkers(
+            stateName,
+            houseCount,
+            latLng,
+            layer
+          );
+          marker.addTo(indiaMarkers);
         }
-      };
 
-      indiaGeoJsonLayer = L.geoJSON(data, {
-        style: styleFeature,
-        onEachFeature: onEachFeature,
-      }).addTo(map);
+        stateLayers.push(layer);
+      }
+    };
 
-      map.fitBounds(indiaGeoJsonLayer.getBounds());
-    } catch (err) {
-      console.log(err);
-    }
+    indiaGeoJsonLayer = L.geoJSON(data, {
+      style: styleFeature,
+      onEachFeature: onEachFeature,
+    }).addTo(map);
+
+    map.fitBounds(indiaGeoJsonLayer.getBounds());
 
     // Temp remove later
 
-    window.addEventListener('keydown', (e) => {
-      if (e.key == 'l') {
-        backToState();
-      } else if (e.key == 'k') {
-        backToInda();
-      }
-    });
+    if (typeof window !== 'undefined') {
+      window.addEventListener('keydown', (e) => {
+        if (e.key == 'l') backToState();
+        else if (e.key == 'k') backToIndia();
+      });
+    }
   };
 
   useEffect(() => {
@@ -352,9 +345,13 @@ const MapComponent = () => {
       try {
         if (!mapRef.current) return;
 
-        await fetchMapData();
-        await loadPincodeData();
+        const getMapDataResponse = await getMapDataQuery.refetch();
+        setMapData(getMapDataResponse?.data?.states_cities_counts);
 
+        const getPincodeDataResponse = await getPincodeDataQuery.refetch();
+        setPincodeData(getPincodeDataResponse?.data);
+
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         map = L.map(mapRef.current, {
           zoomControl: false,
           attributionControl: false,
@@ -369,8 +366,11 @@ const MapComponent = () => {
         map.createPane('highlightPane');
         map.getPane('highlightPane')!.style.zIndex = '550';
 
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         indiaMarkers = L.layerGroup().addTo(map);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         stateMarkers = L.layerGroup().addTo(map);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
         cityMarkers = L.layerGroup().addTo(map);
 
         setTimeout(() => {
@@ -382,9 +382,6 @@ const MapComponent = () => {
         await loadGeoJSONData(map);
       } catch (err) {
         console.error('Error initializing map: ', err);
-        setError(
-          'Could not initialize map. Please refresh the page to try again'
-        );
       }
     };
 
@@ -399,12 +396,10 @@ const MapComponent = () => {
   }, []);
 
   return (
-    <>
-      <div className="map-container">
-        <div ref={mapRef} id="map"></div>
-      </div>
-    </>
+    <div className="map-container">
+      <div ref={mapRef} id="map"></div>
+    </div>
   );
 };
 
-export default MapComponent;
+export default MapSection;

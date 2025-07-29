@@ -55,6 +55,17 @@ export interface NumpadProps {
 
 export type IconProps = SVGProps<SVGSVGElement>;
 
+export interface ShowErrorProps {
+  title: string;
+  description: string;
+  className?: string;
+}
+
+export interface EmptyDataProps {
+  content: string;
+  className?: string;
+}
+
 // modals
 
 export interface ModalProps {
@@ -108,4 +119,61 @@ export interface LeaderBoardData {
   city: string;
   homesSolarized: string;
   isLastRow?: boolean;
+}
+
+// api response
+
+interface StrapiImageType {
+  formats: {
+    small: { url: string };
+  };
+}
+
+export interface TestimonialAPIType {
+  id: number;
+  name: string;
+  address: string;
+  description: string;
+  installedOn: string;
+  image: StrapiImageType;
+}
+
+export type TestimonialType = Omit<TestimonialAPIType, 'image'> & {
+  image: string;
+};
+
+// map section
+
+export interface MapDataType {
+  [stateName: string]: {
+    total_count: number;
+    cities: Record<
+      string,
+      {
+        count: number;
+        active_pincode: string[];
+      }
+    >;
+  };
+}
+
+export interface PincodeDataType {
+  pincode: number;
+  city: string;
+  state: string;
+  coordinates: [number, number];
+}
+
+export interface MapDataStateType {
+  mapData: MapDataType;
+  setMapData: (data: MapDataType) => void;
+  pincodeData: PincodeDataType[];
+  setPincodeData: (data: PincodeDataType[]) => void;
+}
+
+export interface StateDataType {
+  [state: string]: {
+    value: number;
+    latLng: [number, number];
+  };
 }
