@@ -7,6 +7,8 @@ const testimonialAction = axios.create({
 });
 
 export const getTestimonials = async () => {
-  const response = await testimonialAction.get('/api/solar-sathi-testimonials');
+  const response = await testimonialAction.get(
+    '/api/solar-sathi-testimonials?populate=*'
+  );
   return response.data;
 };

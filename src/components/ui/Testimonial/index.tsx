@@ -13,8 +13,8 @@ const Testimonial = () => {
   const getTestimonialsQuery = useGetTestimonials();
   const [currentIndex, setCurrentIndex] = useState(0);
 
-  const allTestimonials: TestimonialType[] = getTestimonialsQuery?.data?.data;
-  const currentTestimonial = allTestimonials?.[currentIndex];
+  const allTestimonials: TestimonialType[] = getTestimonialsQuery?.data ?? [];
+  const currentTestimonial: TestimonialType = allTestimonials?.[currentIndex];
 
   const handlePrev = () => {
     setCurrentIndex((prevIndex) =>
@@ -63,9 +63,9 @@ const Testimonial = () => {
           width={0}
           height={0}
           sizes="100vw"
-          src="/images/testimonial.webp"
+          src={currentTestimonial?.image}
           alt={currentTestimonial?.name}
-          className="w-full select-none"
+          className="h-[300px] w-full object-cover select-none"
         />
         <div className="absolute inset-x-0 bottom-0 left-4 z-[3] select-none">
           <h3 className="font-dm-sans text-shadow-testimonial-content text-2xl/[33px] font-bold tracking-[-0.96px] text-white">

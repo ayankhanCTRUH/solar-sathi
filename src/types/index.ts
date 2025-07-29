@@ -123,10 +123,21 @@ export interface LeaderBoardData {
 
 // api response
 
-export interface TestimonialType {
+interface StrapiImageType {
+  formats: {
+    small: { url: string };
+  };
+}
+
+export interface TestimonialAPIType {
   id: number;
   name: string;
   address: string;
   description: string;
   installedOn: string;
+  image: StrapiImageType;
 }
+
+export type TestimonialType = Omit<TestimonialAPIType, 'image'> & {
+  image: string;
+};
