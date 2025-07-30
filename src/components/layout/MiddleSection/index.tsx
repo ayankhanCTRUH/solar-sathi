@@ -5,9 +5,10 @@ import MiddleContent from './components/MiddleContent';
 import PinCodeModal from './components/PinCodeModal';
 import ServiceableModal from './components/ServiceableModal';
 import UnServiceableModal from './components/UnServiceableModal';
+import { useSolarState } from '@/lib/store';
 
 const MiddleSection = () => {
-  const [showHome, setShowHome] = useState(true);
+  const { isHomePage, setIsHomePage } = useSolarState();
   const [modalState, setModalState] = useState<{
     pinCode: boolean;
     serviceable: boolean;
@@ -31,8 +32,8 @@ const MiddleSection = () => {
 
   return (
     <div className="flex-grow">
-      {showHome ? (
-        <HomePage handleClick={() => setShowHome(false)} />
+      {isHomePage ? (
+        <HomePage handleClick={() => setIsHomePage(false)} />
       ) : (
         <MiddleContent
           top={{
@@ -78,13 +79,13 @@ const MiddleSection = () => {
       <ServiceableModal
         open={modalState.serviceable}
         onClose={() => closeModal('serviceable')}
-        handleHomeClick={() => setShowHome(true)}
+        handleHomeClick={() => setIsHomePage(true)}
         handlePinClick={() => openModal('pinCode')}
       />
       <UnServiceableModal
         open={modalState.unserviceable}
         onClose={() => closeModal('unserviceable')}
-        handleHomeClick={() => setShowHome(true)}
+        handleHomeClick={() => setIsHomePage(true)}
         handlePinClick={() => openModal('pinCode')}
       />
     </div>

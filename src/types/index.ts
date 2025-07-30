@@ -165,6 +165,10 @@ export interface PincodeDataType {
 }
 
 export interface MapDataStateType {
+  // home section
+  isHomePage: boolean;
+  setIsHomePage: (data: boolean) => void;
+  // map section
   mapData: MapDataType;
   setMapData: (data: MapDataType) => void;
   pincodeData: PincodeDataType[];

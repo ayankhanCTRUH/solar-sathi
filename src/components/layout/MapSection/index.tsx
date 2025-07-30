@@ -14,7 +14,7 @@ import {
   useGetMapData,
   useGetPincodeData,
 } from '@/services/map-service';
-import { useMapState } from '@/lib/store';
+import { useSolarState } from '@/lib/store';
 
 const MapSection = () => {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -33,7 +33,7 @@ const MapSection = () => {
     fileName: 'india',
   });
   const getPincodeDataQuery = useGetPincodeData({ enabled: false });
-  const { mapData, setMapData, pincodeData, setPincodeData } = useMapState();
+  const { mapData, setMapData, pincodeData, setPincodeData } = useSolarState();
 
   let map: L.Map;
 

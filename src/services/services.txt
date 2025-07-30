@@ -1,3 +1,0 @@
-=============TEMPORARY FILE============
-
-# Services handle feature-specific external API communication.

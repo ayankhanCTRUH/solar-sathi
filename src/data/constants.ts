@@ -56,6 +56,7 @@ export const MAP_STYLE_DATA = {
 };
 
 export const INITIAL_MAP_STORE_DATA = {
+  isHomePage: true,
   mapData: {},
   pincodeData: [],
 };
@@ -110,3 +111,10 @@ export const STATE_DATA: StateDataType = {
     latLng: [11.080035, 78.201705],
   },
 };
+
+export const PULSE_DOT_DATA = [
+  'top-[250px] left-[750px]',
+  'top-[400px] left-[650px]',
+  'top-[400px] left-[1050px]',
+  'top-[800px] left-[750px]',
+];
