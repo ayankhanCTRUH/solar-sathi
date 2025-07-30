@@ -83,12 +83,11 @@ const MapSection = () => {
   function backToIndia() {
     map.fitBounds(indiaGeoJsonLayer.getBounds());
 
-    map.removeLayer(stateGeoJsonLayer);
-
-    map.removeLayer(cityMarkers);
-    stateMarkers.addTo(map);
-
-    cityMarkers.clearLayers();
+    if (stateGeoJsonLayer) {
+      map.removeLayer(stateGeoJsonLayer);
+      cityMarkers.clearLayers();
+      map.removeLayer(cityMarkers);
+    }
 
     map.removeLayer(stateMarkers);
     stateMarkers.clearLayers();
@@ -275,8 +274,18 @@ const MapSection = () => {
         });
         layer.bringToFront();
 
-        console.log('city name', cityName, ' ', layer, '', layer.getBounds());
+        const bound1 =
+          layer.getBounds().getNorthEast().lng -
+          layer.getBounds().getSouthWest().lng;
+        const bound2 =
+          layer.getBounds().getNorthEast().lat -
+          layer.getBounds().getSouthWest().lat;
+
+        const bounds = Math.abs(bound1) * Math.abs(bound2);
+        console.log('city name', cityName, ' ', layer, '', bounds);
         map.fitBounds(layer.getBounds());
+
+        console.log('validity: ', layer.getBounds().isValid());
       }
     };
 
@@ -284,8 +293,6 @@ const MapSection = () => {
       style: styleFeature,
       onEachFeature: onEachFeature,
     }).addTo(map);
-
-    map.fitBounds(stateGeoJsonLayer.getBounds());
   };
 
   const loadGeoJSONData = async (map: L.Map) => {
@@ -309,14 +316,6 @@ const MapSection = () => {
 
         if (!houseCount) return;
 
-        layer.setStyle({
-          weight: focusWeight,
-          color: focusColor,
-          fillColor: focusFillColor,
-          fillOpacity: focusFillOpacity,
-          // pane: 'highlightPane',
-        });
-
         if (map) {
           const marker = createIndiaMarkers(
             stateName,
@@ -336,6 +335,13 @@ const MapSection = () => {
       onEachFeature: onEachFeature,
     }).addTo(map);
 
+    indiaGeoJsonLayer.getLayers().forEach((layer: any) => {
+      if (STATE_NAME_DATA.includes(layer.feature.properties.ST_NM)) {
+        focusLayer(layer);
+      }
+    });
+
+    map.setMaxBounds(indiaGeoJsonLayer.getBounds());
     map.fitBounds(indiaGeoJsonLayer.getBounds());
 
     // Temp remove later
@@ -367,6 +373,9 @@ const MapSection = () => {
           doubleClickZoom: true,
           dragging: true,
           preferCanvas: true,
+          minZoom: 4.5,
+          maxZoom: 14,
+          maxBoundsViscosity: 1.0,
         }).setView([20.5937, 78.9629], 5);
 
         mapInstanceRef.current = map;
