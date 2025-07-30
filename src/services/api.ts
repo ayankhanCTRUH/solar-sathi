@@ -32,6 +32,8 @@ export const getMapData = async () => {
 
 export const getGeoJSONData = async (fileName: string | null) => {
   const response = await axios.get(`/mapData/geoJson/${fileName}.geojson`);
+  console.log('Response', response);
+
   return response.data;
 };
 
