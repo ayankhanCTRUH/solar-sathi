@@ -18,7 +18,6 @@ import { useSolarState } from '@/lib/store';
 
 const MapSection = () => {
   const mapRef = useRef<HTMLDivElement>(null);
-  const [dataLoaded, setDataLoaded] = useState(false);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapInstanceRef = useRef<any>(null);
   const getMapDataQuery = useGetMapData({ enabled: false });
@@ -405,8 +404,7 @@ const MapSection = () => {
         map.whenReady(async () => {
           await loadGeoJSONData(map);
         });
-
-        setDataLoaded(false)
+        
       } catch (err) {
         console.error('Error initializing map: ', err);
       }
@@ -422,13 +420,6 @@ const MapSection = () => {
     };
   }, [getMapDataQuery?.data,getPincodeDataQuery.data]);
 
-  if (dataLoaded) {
-    return (
-      <div className="bg-background-dark-500 h-screen flex items-center justify-center">
-        <div className="text-white">Loading map...</div>
-      </div>
-    );
-  }
   return (
     <div className="bg-background-dark-500 h-screen overflow-hidden">
       <div ref={mapRef} className="!h-full !w-full"></div>

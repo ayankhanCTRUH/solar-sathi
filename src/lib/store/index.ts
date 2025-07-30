@@ -14,7 +14,6 @@ export const useSolarState = create<MapDataStateType>()(
     {
       name: 'map-store',
       partialize: (state) => ({
-        isHomePage: state.isHomePage,
         mapData: state.mapData,
         pincodeData: state.pincodeData,
       }),
