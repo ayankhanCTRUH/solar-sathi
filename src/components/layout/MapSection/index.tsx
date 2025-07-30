@@ -33,7 +33,12 @@ const MapSection = () => {
     fileName: 'india',
   });
   const getPincodeDataQuery = useGetPincodeData({ enabled: false });
-  const { mapData, setMapData, pincodeData, setPincodeData } = useSolarState();
+  const { isHomePage, mapData, setMapData, pincodeData, setPincodeData } =
+    useSolarState();
+
+  // TODO: remove after pulse dot integration
+  console.log('isHomePage', isHomePage ? 'yes' : 'no');
+  // example: <PulseDot className="top-[250px] left-[750px]" />
 
   let map: L.Map;
 
