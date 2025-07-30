@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MAP_STYLE_DATA, STATE_DATA, STATE_NAME_DATA } from '@/data/constants';
@@ -22,16 +22,22 @@ const MapSection = () => {
   const mapInstanceRef = useRef<any>(null);
   const getMapDataQuery = useGetMapData({ enabled: false });
 
+  const [currentStateNameState, setCurrentStateNameState] = useState<
+    string | null
+  >(null);
+
   let currentStateName: string | null = null;
+
   const getStateGeoJSONDataQuery = useGetGeoJSONData({
     enabled: false,
-    fileName: currentStateName,
+    fileName: currentStateNameState,
   });
 
   const getIndiaGeoJSONDataQuery = useGetGeoJSONData({
     enabled: false,
     fileName: 'india',
   });
+
   const getPincodeDataQuery = useGetPincodeData({ enabled: false });
   const { mapData, setMapData, pincodeData, setPincodeData } = useMapState();
 
@@ -143,6 +149,7 @@ const MapSection = () => {
       unfocusMap(stateLayers);
       focusLayer(layer);
       currentStateLayer = layer;
+      setCurrentStateNameState(stateName);
       currentStateName = stateName;
       addStateMarkers(marker.name);
       map.removeLayer(indiaMarkers);
@@ -181,8 +188,9 @@ const MapSection = () => {
       if (!currentStateLayer) return;
       map.removeLayer(stateMarkers);
       unfocusMap([currentStateLayer]);
-      loadStateGeoJSONData(cityName);
+
       addCityMarkers(cityName);
+      loadStateGeoJSONData(cityName);
     });
 
     return marker;
@@ -267,7 +275,7 @@ const MapSection = () => {
         });
         layer.bringToFront();
 
-        console.log('city name', cityName, ' ', layer.getBounds());
+        console.log('city name', cityName, ' ', layer, '', layer.getBounds());
         map.fitBounds(layer.getBounds());
       }
     };
