@@ -4,7 +4,7 @@ import { formatDate } from '@/lib/utils';
 import { useGetTestimonials } from '@/services/testimonial-service';
 import { TestimonialType } from '@/types';
 import Image from 'next/image';
-import { useState } from 'react';
+import { useState, useEffect, useCallback } from 'react';
 import TestimonialSkeleton from '../Skeleton/components/TestimonialSkeleton';
 import ShowError from '../ShowError';
 import EmptyData from '../EmptyData/EmptyData';
@@ -12,20 +12,46 @@ import EmptyData from '../EmptyData/EmptyData';
 const Testimonial = () => {
   const getTestimonialsQuery = useGetTestimonials();
   const [currentIndex, setCurrentIndex] = useState(0);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
 
   const allTestimonials: TestimonialType[] = getTestimonialsQuery?.data ?? [];
   const currentTestimonial: TestimonialType = allTestimonials?.[currentIndex];
 
-  const handlePrev = () => {
+  const handlePrev = useCallback(() => {
     setCurrentIndex((prevIndex) =>
       prevIndex === 0 ? allTestimonials.length - 1 : prevIndex - 1
     );
-  };
+  }, [allTestimonials.length]);
 
-  const handleNext = () => {
+  const handleNext = useCallback(() => {
     setCurrentIndex((prevIndex) =>
       prevIndex === allTestimonials.length - 1 ? 0 : prevIndex + 1
     );
+  }, [allTestimonials.length]);
+
+  useEffect(() => {
+    if (!isAutoPlaying || allTestimonials.length <= 1) return;
+
+    const interval = setInterval(() => {
+      handleNext();
+    }, 2000); 
+
+    return () => clearInterval(interval);
+  }, [handleNext, isAutoPlaying, allTestimonials.length]);
+
+  const handleMouseEnter = () => setIsAutoPlaying(false);
+  const handleMouseLeave = () => setIsAutoPlaying(true);
+
+  const handleManualPrev = () => {
+    setIsAutoPlaying(false);
+    handlePrev();
+    setTimeout(() => setIsAutoPlaying(true), 2000);
+  };
+
+  const handleManualNext = () => {
+    setIsAutoPlaying(false);
+    handleNext();
+    setTimeout(() => setIsAutoPlaying(true), 2000);
   };
 
   if (getTestimonialsQuery?.isPending) return <TestimonialSkeleton />;
@@ -48,26 +74,35 @@ const Testimonial = () => {
     );
 
   return (
-    <div className="bg-background-dark-200 shadow-smoke mx-auto flex w-[360px] flex-grow flex-col rounded-2xl border border-neutral-100 p-5">
+    <div 
+      className="bg-background-dark-200 shadow-smoke mx-auto flex w-[360px] flex-grow flex-col rounded-2xl border border-neutral-100 p-5"
+      onMouseEnter={handleMouseEnter}
+      onMouseLeave={handleMouseLeave}
+    >
       <div className="relative flex-grow rounded-lg">
         <div className="absolute inset-0 -bottom-1 z-[0] bg-linear-(--testimonial-gradient)" />
         <div className="absolute inset-0 z-[1] bg-radial-(--testimonial-radial)" />
         <div className="absolute inset-x-4 top-4 z-[2] flex justify-end gap-3">
-          <ArrowIcon onClick={handlePrev} className="cursor-pointer" />
+          <ArrowIcon 
+            onClick={handleManualPrev} 
+            className="cursor-pointer hover:opacity-80 transition-opacity" 
+          />
           <ArrowIcon
-            onClick={handleNext}
-            className="rotate-180 cursor-pointer"
+            onClick={handleManualNext}
+            className="rotate-180 cursor-pointer hover:opacity-80 transition-opacity"
           />
         </div>
+        
+  
         <Image
           width={0}
           height={0}
           sizes="100vw"
           src={currentTestimonial?.image}
           alt={currentTestimonial?.name}
-          className="h-[300px] w-full object-cover select-none"
+          className="h-[300px] w-full object-cover select-none transition-opacity duration-500"
         />
-        <div className="absolute inset-x-0 bottom-0 left-4 z-[3] select-none">
+        <div className="absolute inset-x-0 bottom-0 left-4 z-[3] select-none mb-8">
           <h3 className="font-dm-sans text-shadow-testimonial-content text-2xl/[33px] font-bold tracking-[-0.96px] text-white">
             {currentTestimonial?.name}
           </h3>
