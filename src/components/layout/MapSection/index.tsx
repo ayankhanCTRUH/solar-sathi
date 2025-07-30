@@ -1,5 +1,5 @@
 'use client';
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MAP_STYLE_DATA, STATE_DATA, STATE_NAME_DATA } from '@/data/constants';
@@ -22,16 +22,22 @@ const MapSection = () => {
   const mapInstanceRef = useRef<any>(null);
   const getMapDataQuery = useGetMapData({ enabled: false });
 
+  const [currentStateNameState, setCurrentStateNameState] = useState<
+    string | null
+  >(null);
+
   let currentStateName: string | null = null;
+
   const getStateGeoJSONDataQuery = useGetGeoJSONData({
     enabled: false,
-    fileName: currentStateName,
+    fileName: currentStateNameState,
   });
 
   const getIndiaGeoJSONDataQuery = useGetGeoJSONData({
     enabled: false,
     fileName: 'india',
   });
+
   const getPincodeDataQuery = useGetPincodeData({ enabled: false });
   const { isHomePage, mapData, setMapData, pincodeData, setPincodeData } =
     useSolarState();
@@ -82,12 +88,11 @@ const MapSection = () => {
   function backToIndia() {
     map.fitBounds(indiaGeoJsonLayer.getBounds());
 
-    map.removeLayer(stateGeoJsonLayer);
-
-    map.removeLayer(cityMarkers);
-    stateMarkers.addTo(map);
-
-    cityMarkers.clearLayers();
+    if (stateGeoJsonLayer) {
+      map.removeLayer(stateGeoJsonLayer);
+      cityMarkers.clearLayers();
+      map.removeLayer(cityMarkers);
+    }
 
     map.removeLayer(stateMarkers);
     stateMarkers.clearLayers();
@@ -148,6 +153,7 @@ const MapSection = () => {
       unfocusMap(stateLayers);
       focusLayer(layer);
       currentStateLayer = layer;
+      setCurrentStateNameState(stateName);
       currentStateName = stateName;
       addStateMarkers(marker.name);
       map.removeLayer(indiaMarkers);
@@ -186,8 +192,9 @@ const MapSection = () => {
       if (!currentStateLayer) return;
       map.removeLayer(stateMarkers);
       unfocusMap([currentStateLayer]);
-      loadStateGeoJSONData(cityName);
+
       addCityMarkers(cityName);
+      loadStateGeoJSONData(cityName);
     });
 
     return marker;
@@ -272,8 +279,18 @@ const MapSection = () => {
         });
         layer.bringToFront();
 
-        console.log('city name', cityName, ' ', layer.getBounds());
+        const bound1 =
+          layer.getBounds().getNorthEast().lng -
+          layer.getBounds().getSouthWest().lng;
+        const bound2 =
+          layer.getBounds().getNorthEast().lat -
+          layer.getBounds().getSouthWest().lat;
+
+        const bounds = Math.abs(bound1) * Math.abs(bound2);
+        console.log('city name', cityName, ' ', layer, '', bounds);
         map.fitBounds(layer.getBounds());
+
+        console.log('validity: ', layer.getBounds().isValid());
       }
     };
 
@@ -281,8 +298,6 @@ const MapSection = () => {
       style: styleFeature,
       onEachFeature: onEachFeature,
     }).addTo(map);
-
-    map.fitBounds(stateGeoJsonLayer.getBounds());
   };
 
   const loadGeoJSONData = async (map: L.Map) => {
@@ -306,14 +321,6 @@ const MapSection = () => {
 
         if (!houseCount) return;
 
-        layer.setStyle({
-          weight: focusWeight,
-          color: focusColor,
-          fillColor: focusFillColor,
-          fillOpacity: focusFillOpacity,
-          // pane: 'highlightPane',
-        });
-
         if (map) {
           const marker = createIndiaMarkers(
             stateName,
@@ -333,6 +340,13 @@ const MapSection = () => {
       onEachFeature: onEachFeature,
     }).addTo(map);
 
+    indiaGeoJsonLayer.getLayers().forEach((layer: any) => {
+      if (STATE_NAME_DATA.includes(layer.feature.properties.ST_NM)) {
+        focusLayer(layer);
+      }
+    });
+
+    map.setMaxBounds(indiaGeoJsonLayer.getBounds());
     map.fitBounds(indiaGeoJsonLayer.getBounds());
 
     // Temp remove later
@@ -364,6 +378,9 @@ const MapSection = () => {
           doubleClickZoom: true,
           dragging: true,
           preferCanvas: true,
+          minZoom: 4.5,
+          maxZoom: 14,
+          maxBoundsViscosity: 1.0,
         }).setView([20.5937, 78.9629], 5);
 
         mapInstanceRef.current = map;
