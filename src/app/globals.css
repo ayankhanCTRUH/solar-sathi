@@ -105,6 +105,7 @@
 }
 
 @layer components {
+
   /* Leaflet popup styling */
   .leaflet-popup-content-wrapper {
     @apply bg-background-dark-200 shadow-leaflet rounded-[10px] text-white;
@@ -143,4 +144,39 @@
 
 .animate-pulseAnimation {
   animation: pulseAnimation 2s ease-out infinite;
+}
+
+.circle-animation::after,
+.circle-animation::before {
+  content: "";
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  z-index: -1;
+  animation: grow 1s ease-in-out infinite;
+}
+
+.circle-animation::after {
+  background: #00bbff7e;
+}
+
+.circle-animation::before {
+  background: #00bbffd7;
+  animation-delay: -0.5s;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.8, 1.8);
+    opacity: 0;
+  }
 }
