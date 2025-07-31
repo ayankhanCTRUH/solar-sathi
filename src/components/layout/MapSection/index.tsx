@@ -16,12 +16,13 @@ import {
 } from '@/services/map-service';
 import { useSolarState } from '@/lib/store';
 import { LayerData } from '@/types';
+import { MapDataType, PincodeDataType } from '@/types';
 
 const MapSection = () => {
   const mapRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapInstanceRef = useRef<any>(null);
-  const getMapDataQuery = useGetMapData({ enabled: false });
+  const getMapDataQuery = useGetMapData({ enabled: true });
 
   const [currentStateNameState, setCurrentStateNameState] = useState<
     string | null
@@ -128,7 +129,9 @@ const MapSection = () => {
     stateName: string,
     houseCount: number,
     latLng: [number, number],
-    layer: L.GeoJSON
+    layer: L.GeoJSON,
+    mapData: MapDataType,
+    pincodeData: PincodeDataType[]
   ) {
     const markerIcon = L.divIcon({
       className: 'text-center',
@@ -156,7 +159,7 @@ const MapSection = () => {
       currentStateLayer = layer;
       setCurrentStateNameState(stateName);
       currentStateName = stateName;
-      addStateMarkers(marker.name);
+      addStateMarkers(marker.name, mapData, pincodeData);
       map.removeLayer(indiaMarkers);
     });
 
@@ -166,7 +169,9 @@ const MapSection = () => {
   function createStateMarkers(
     cityName: string,
     houseCount: number,
-    pincode: string
+    pincode: string,
+    pincodeData: PincodeDataType[],
+    mapData: MapDataType
   ) {
     const markerIcon = L.divIcon({
       className: 'text-center',
@@ -183,6 +188,7 @@ const MapSection = () => {
     });
 
     const latLng = getCoordinatesByPincode(parseInt(pincode), pincodeData);
+    console.log('latLng', latLng);
     if (!latLng) return;
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -194,14 +200,14 @@ const MapSection = () => {
       map.removeLayer(stateMarkers);
       unfocusMap([currentStateLayer]);
 
-      addCityMarkers(cityName);
+      addCityMarkers(cityName, mapData, pincodeData);
       loadStateGeoJSONData(cityName);
     });
 
     return marker;
   }
 
-  function createCityMarkers(pincode: number) {
+  function createCityMarkers(pincode: number, pincodeData: PincodeDataType[]) {
     const markerIcon = L.divIcon({
       className: 'text-center',
       html: `
@@ -228,29 +234,41 @@ const MapSection = () => {
     return marker;
   }
 
-  function addCityMarkers(cityName: string) {
+  function addCityMarkers(
+    cityName: string,
+    mapData: MapDataType,
+    pincodeData: PincodeDataType[]
+  ) {
     cityMarkers.addTo(map);
 
     if (currentStateName) {
       const cityData = getPincodesByCity(currentStateName, cityName, mapData);
       cityData?.forEach((pincode) => {
-        const marker = createCityMarkers(parseInt(pincode));
+        const marker = createCityMarkers(parseInt(pincode), pincodeData);
         if (marker) marker.addTo(cityMarkers);
       });
     }
   }
 
-  function addStateMarkers(stateName: string) {
+  function addStateMarkers(
+    stateName: string,
+    mapData: MapDataType,
+    pincodeData: PincodeDataType[]
+  ) {
     stateMarkers.addTo(map);
 
     const stateData = getCitiesByState(stateName, mapData);
+    console.log('stateData', stateData);
     if (!stateData) return;
     stateData.forEach((data) => {
       const marker = createStateMarkers(
         data.cityName,
         data.count,
-        data.pincode
+        data.pincode,
+        pincodeData,
+        mapData
       );
+      console.log('Marker:-', marker);
       if (marker) marker.addTo(stateMarkers);
     });
   }
@@ -301,7 +319,11 @@ const MapSection = () => {
     }).addTo(map);
   };
 
-  const loadGeoJSONData = async (map: L.Map) => {
+  const loadGeoJSONData = async (
+    map: L.Map,
+    mapData: MapDataType,
+    pincodeData: PincodeDataType[]
+  ) => {
     const { data } = await getIndiaGeoJSONDataQuery.refetch();
 
     const styleFeature = () => ({
@@ -327,7 +349,9 @@ const MapSection = () => {
             stateName,
             houseCount,
             latLng,
-            layer
+            layer,
+            mapData,
+            pincodeData
           );
           marker.addTo(indiaMarkers);
         }
@@ -406,9 +430,11 @@ const MapSection = () => {
           }
         }, 100);
 
-        map.whenReady(async () => {
-          await loadGeoJSONData(map);
-        });
+        await loadGeoJSONData(
+          map,
+          getMapDataResponse?.data?.states_cities_counts,
+          getPincodeDataResponse?.data
+        );
       } catch (err) {
         console.error('Error initializing map: ', err);
       }
