@@ -341,12 +341,9 @@ const MapSection = () => {
       onEachFeature: onEachFeature,
     }).addTo(map);
 
-    indiaGeoJsonLayer.getLayers().forEach((layer) => {
-      if (
-        layer instanceof L.GeoJSON &&
-        (layer as LayerData).feature?.properties?.ST_NM &&
-        STATE_NAME_DATA.includes((layer as LayerData).feature.properties.ST_NM)
-      ) {
+    indiaGeoJsonLayer.getLayers().forEach((layer: any) => {
+      console.log(layer);
+      if (STATE_NAME_DATA.includes(layer.feature?.properties.ST_NM)) {
         focusLayer(layer);
       }
     });
