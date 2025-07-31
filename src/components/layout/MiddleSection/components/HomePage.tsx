@@ -20,7 +20,7 @@ const HomePage = ({ handleClick }: { handleClick: () => void }) => {
       <Button
         variant="primary"
         content="See SolarSquare Homes"
-        className="!h-fit !w-fit px-16 py-8 text-[32px]"
+        className="animate-btn !h-fit !w-fit px-16 py-8 text-[32px]"
         onClick={handleClick}
       />
     </div>
