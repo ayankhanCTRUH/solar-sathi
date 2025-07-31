@@ -21,11 +21,6 @@ export const METRICS_DATA: MetricsCardProps[] = [
   },
 ];
 
-export const BREADCRUMBS_DATA: BreadCrumbItemType[] = [
-  { href: '/', label: 'India' },
-  { href: '/maharashtra', label: 'Maharashtra' },
-  { href: '/maharashtra/nagpur', label: 'Nagpur' },
-];
 
 // TODO: cities data need to be fetched from API
 export const CITIES_DATA: LeaderBoardData[] = [

@@ -14,25 +14,41 @@ import {
   useGetMapData,
   useGetPincodeData,
 } from '@/services/map-service';
-import { useSolarState } from '@/lib/store';
+import { useMapStateAndCityState, useSolarState } from '@/lib/store';
 import { LayerData } from '@/types';
 import { MapDataType, PincodeDataType } from '@/types';
+import useQueryParams from '@/hooks/useQueryParams';
 
 const MapSection = () => {
   const mapRef = useRef<HTMLDivElement>(null);
   // eslint-disable-next-line @typescript-eslint/no-explicit-any
   const mapInstanceRef = useRef<any>(null);
   const getMapDataQuery = useGetMapData({ enabled: true });
+  const { setParams } = useQueryParams();
 
-  const [currentStateNameState, setCurrentStateNameState] = useState<
-    string | null
-  >(null);
+  const [currentStateAndCity, setCurrentStateAndCity] = useState<{
+    state: string | null;
+    city: string | null;
+  }>({
+    state: null,
+    city: null,
+  });
+
+  useEffect(() => {
+    if (currentStateAndCity.state) {
+      setParams({ state: currentStateAndCity.state });
+    }
+    if (currentStateAndCity.city) {
+      setParams({ city: currentStateAndCity.city });
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentStateAndCity.state, currentStateAndCity.city]);
 
   let currentStateName: string | null = null;
 
   const getStateGeoJSONDataQuery = useGetGeoJSONData({
     enabled: false,
-    fileName: currentStateNameState,
+    fileName: currentStateAndCity.state,
   });
 
   const getIndiaGeoJSONDataQuery = useGetGeoJSONData({
@@ -41,11 +57,10 @@ const MapSection = () => {
   });
 
   const getPincodeDataQuery = useGetPincodeData({ enabled: false });
-  const { isHomePage, mapData, setMapData, pincodeData, setPincodeData } =
-    useSolarState();
+  const { setMapData, setPincodeData } = useSolarState();
+  const { backTos, backToDefaultValues } = useMapStateAndCityState();
 
   // TODO: remove after pulse dot integration
-  console.log('isHomePage', isHomePage ? 'yes' : 'no');
   // example: <PulseDot className="top-[250px] left-[750px]" />
 
   let map: L.Map;
@@ -157,7 +172,7 @@ const MapSection = () => {
       unfocusMap(stateLayers);
       focusLayer(layer);
       currentStateLayer = layer;
-      setCurrentStateNameState(stateName);
+      setCurrentStateAndCity({ state: stateName, city: null });
       currentStateName = stateName;
       addStateMarkers(marker.name, mapData, pincodeData);
       map.removeLayer(indiaMarkers);
@@ -239,6 +254,7 @@ const MapSection = () => {
     mapData: MapDataType,
     pincodeData: PincodeDataType[]
   ) {
+    setCurrentStateAndCity((prev) => ({ ...prev, city: cityName }));
     cityMarkers.addTo(map);
 
     if (currentStateName) {
@@ -258,7 +274,7 @@ const MapSection = () => {
     stateMarkers.addTo(map);
 
     const stateData = getCitiesByState(stateName, mapData);
-    console.log('stateData', stateData);
+
     if (!stateData) return;
     stateData.forEach((data) => {
       const marker = createStateMarkers(
@@ -446,6 +462,18 @@ const MapSection = () => {
       }
     };
   }, [getMapDataQuery?.data, getPincodeDataQuery.data]);
+
+  useEffect(() => {
+    if (backTos.country) {
+      backToIndia();
+      backToDefaultValues();
+    }
+    if (backTos.state) {
+      backToState();
+      backToDefaultValues();
+    }
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [backTos]);
 
   return (
     <div className="bg-background-dark-500 h-screen overflow-hidden">

@@ -102,7 +102,8 @@ export interface MetricsCardProps {
 
 export interface BreadCrumbItemType {
   label: string;
-  href: string;
+  key: string;
+  onClick?: () => void;
 }
 
 // middle section

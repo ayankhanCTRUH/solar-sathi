@@ -1,6 +1,5 @@
 import { ChevronIcon, HomeIcon } from '@/components/icons';
 import { BreadCrumbItemType } from '@/types';
-import Link from 'next/link';
 import { Fragment } from 'react';
 
 const BreadCrumbs = ({ items }: { items: BreadCrumbItemType[] }) => {
@@ -19,8 +18,8 @@ const BreadCrumbs = ({ items }: { items: BreadCrumbItemType[] }) => {
 
         return (
           <Fragment key={index}>
-            <Link
-              href={item.href}
+            <span
+              onClick={() => item.onClick?.()}
               className={`flex items-center gap-1 text-2xl/8.5 select-none ${
                 isLast && !isFirst
                   ? 'text-secondary-500 pointer-events-none font-semibold'
@@ -35,7 +34,7 @@ const BreadCrumbs = ({ items }: { items: BreadCrumbItemType[] }) => {
                   {item.label}
                 </span>
               )}
-            </Link>
+            </span>
             {!isLast && <ChevronIcon className="shrink-0" />}
           </Fragment>
         );

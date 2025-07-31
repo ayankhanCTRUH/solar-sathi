@@ -20,3 +20,15 @@ export const useSolarState = create<MapDataStateType>()(
     }
   )
 );
+
+export const useMapStateAndCityState = create<{
+  backTos: { country: boolean; state: boolean };
+  setBackToCountry: () => void;
+  setBackToState: () => void;
+  backToDefaultValues: () => void;
+}>((set) => ({
+  backTos: { country: false, state: false },
+  setBackToCountry: () => set({ backTos: { country: true, state: false } }),
+  setBackToState: () => set({ backTos: { country: false, state: true } }),
+  backToDefaultValues: () => set({ backTos: { country: false, state: false } }),
+}));
