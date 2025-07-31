@@ -181,3 +181,11 @@ export interface StateDataType {
     latLng: [number, number];
   };
 }
+
+export interface LayerData {
+  feature: {
+    properties: {
+      ST_NM: string;
+    };
+  };
+}

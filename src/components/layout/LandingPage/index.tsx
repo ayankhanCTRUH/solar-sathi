@@ -1,9 +1,10 @@
 'use client';
-import { useEffect, useRef, useState } from 'react';
+import { useEffect, useRef } from 'react';
 import * as L from 'leaflet';
 import 'leaflet/dist/leaflet.css';
 import { MAP_STYLE_DATA, STATE_DATA, STATE_NAME_DATA } from '@/data/constants';
-import { useGetGeoJSONData, useGetMapData } from '@/services/map-service';
+import { useGetGeoJSONData } from '@/services/map-service';
+import { LayerData } from '@/types';
 
 const {
   focusWeight,
@@ -19,7 +20,7 @@ const {
 
 const LandingPageMap = () => {
   const mapRef = useRef<HTMLDivElement>(null);
-  const mapInstanceRef = useRef<any>(null);
+  const mapInstanceRef = useRef<L.Map>(null);
 
   const getIndiaGeoJSONDataQuery = useGetGeoJSONData({
     enabled: false,
@@ -66,7 +67,7 @@ const LandingPageMap = () => {
     });
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
-    const onEachFeature = (feature: any, layer: L.GeoJSON) => {
+    const onEachFeature = (feature: any) => {
       const stateName = feature.properties.ST_NM;
 
       if (STATE_NAME_DATA.includes(stateName)) {
@@ -84,8 +85,12 @@ const LandingPageMap = () => {
       onEachFeature: onEachFeature,
     }).addTo(map);
 
-    indiaGeoJsonLayer.getLayers().forEach((layer: any) => {
-      if (STATE_NAME_DATA.includes(layer.feature.properties.ST_NM)) {
+    indiaGeoJsonLayer.getLayers().forEach((layer) => {
+      if (
+        layer instanceof L.GeoJSON &&
+        (layer as LayerData).feature?.properties?.ST_NM &&
+        STATE_NAME_DATA.includes((layer as LayerData).feature.properties.ST_NM)
+      ) {
         focusLayer(layer);
       }
     });

@@ -15,6 +15,7 @@ import {
   useGetPincodeData,
 } from '@/services/map-service';
 import { useSolarState } from '@/lib/store';
+import { LayerData } from '@/types';
 
 const MapSection = () => {
   const mapRef = useRef<HTMLDivElement>(null);
@@ -340,8 +341,12 @@ const MapSection = () => {
       onEachFeature: onEachFeature,
     }).addTo(map);
 
-    indiaGeoJsonLayer.getLayers().forEach((layer: any) => {
-      if (STATE_NAME_DATA.includes(layer.feature.properties.ST_NM)) {
+    indiaGeoJsonLayer.getLayers().forEach((layer) => {
+      if (
+        layer instanceof L.GeoJSON &&
+        (layer as LayerData).feature?.properties?.ST_NM &&
+        STATE_NAME_DATA.includes((layer as LayerData).feature.properties.ST_NM)
+      ) {
         focusLayer(layer);
       }
     });
@@ -404,7 +409,6 @@ const MapSection = () => {
         map.whenReady(async () => {
           await loadGeoJSONData(map);
         });
-        
       } catch (err) {
         console.error('Error initializing map: ', err);
       }
@@ -418,7 +422,7 @@ const MapSection = () => {
         mapInstanceRef.current = null;
       }
     };
-  }, [getMapDataQuery?.data,getPincodeDataQuery.data]);
+  }, [getMapDataQuery?.data, getPincodeDataQuery.data]);
 
   return (
     <div className="bg-background-dark-500 h-screen overflow-hidden">
