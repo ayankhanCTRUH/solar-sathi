@@ -6,6 +6,7 @@ import LeftSection from '@/components/layout/LeftSection';
 import MiddleSection from '@/components/layout/MiddleSection';
 import RightSection from '@/components/layout/RightSection';
 import Ribbon from '@/components/layout/Ribbon';
+import { Suspense } from 'react';
 
 const dmSans = DM_Sans({
   variable: '--font-dm-sans',
@@ -38,9 +39,11 @@ export default function RootLayout({
       >
         <ReactQueryProvider>
           <div className="pointer-events-none absolute inset-x-12 top-[51px] bottom-[90px] z-[1000] flex gap-6">
-            <LeftSection />
-            <MiddleSection />
-            <RightSection />
+            <Suspense fallback={null}>
+              <LeftSection />
+              <MiddleSection />
+              <RightSection />
+            </Suspense>
           </div>
           {children}
           <Ribbon />
