@@ -292,7 +292,6 @@ const MapSection = () => {
       mapData: MapDataType,
       pincodeData: PincodeDataType[]
     ) => {
-      debugger;
       const { map, cityMarkers } = mapRefsRef.current;
       if (!map || !cityMarkers) return;
 
