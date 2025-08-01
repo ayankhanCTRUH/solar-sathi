@@ -94,6 +94,10 @@
     rgba(14, 16, 26, 0) 40%;
   --testimonial-gradient: 180deg, rgba(27, 31, 63, 0) 65%, #1b1f3f 90%;
   --button-primary-gradient: 104deg, #00bdff 0%, #131ca2 95.88%;
+  --home-page-gradient: 180deg, rgba(14, 17, 24, 0) 0%, #0e1118 100%;
+  --button-animate-gradient:
+    45deg, rgba(255, 255, 255, 0) 10%, rgba(255, 255, 255, 0.35) 40%,
+    rgba(255, 255, 255, 0.35) 50%, rgba(255, 255, 255, 0) 80%;
 }
 
 @layer utilities {
@@ -131,4 +135,75 @@
   .leaflet-map-pane {
     @apply !top-0 !left-0;
   }
+}
+
+@keyframes pulseAnimation {
+  100% {
+    transform: scale(2);
+    opacity: 0;
+  }
+}
+
+.animate-pulseAnimation {
+  animation: pulseAnimation 2s ease-out infinite;
+}
+
+.circle-animation::after,
+.circle-animation::before {
+  content: '';
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  z-index: -1;
+  animation: grow 1s ease-in-out infinite;
+}
+
+.circle-animation::after {
+  background: #00bbff7e;
+}
+
+.circle-animation::before {
+  background: #00bbffd7;
+  animation-delay: -0.5s;
+}
+
+@keyframes grow {
+  0% {
+    transform: scale(1, 1);
+    opacity: 1;
+  }
+
+  100% {
+    transform: scale(1.8, 1.8);
+    opacity: 0;
+  }
+}
+@keyframes buttonAnimation {
+  0% {
+    transform: translateX(-100%);
+  }
+  100% {
+    transform: translateX(100%);
+  }
+}
+
+.animate-btn {
+  overflow: hidden;
+  position: relative;
+}
+
+.animate-btn:after {
+  content: '';
+  position: absolute;
+  width: 150%;
+  height: 100%;
+  background: linear-gradient(var(--button-animate-gradient));
+  animation-duration: 4s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-out;
+  animation-name: buttonAnimation;
 }
