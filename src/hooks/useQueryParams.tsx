@@ -1,6 +1,6 @@
-"use client";
-import { useRouter, useSearchParams } from "next/navigation";
-import { useMemo } from "react";
+'use client';
+import { useRouter, useSearchParams } from 'next/navigation';
+import { useMemo } from 'react';
 
 interface QueryParams {
   [key: string]: string;
@@ -28,7 +28,7 @@ function useQueryParams() {
     }
 
     const search = current.toString();
-    const query = search ? `?${search}` : "";
+    const query = search ? `?${search}` : '';
 
     router.push(`${window.location.pathname}${query}`);
   };
@@ -38,7 +38,7 @@ function useQueryParams() {
     current.delete(paramKey);
 
     const search = current.toString();
-    const query = search ? `?${search}` : "";
+    const query = search ? `?${search}` : '';
 
     router.push(`${window.location.pathname}${query}`);
   };

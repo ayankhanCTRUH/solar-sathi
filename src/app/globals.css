@@ -105,7 +105,6 @@
 }
 
 @layer components {
-
   /* Leaflet popup styling */
   .leaflet-popup-content-wrapper {
     @apply bg-background-dark-200 shadow-leaflet rounded-[10px] text-white;
@@ -148,7 +147,7 @@
 
 .circle-animation::after,
 .circle-animation::before {
-  content: "";
+  content: '';
   display: block;
   position: absolute;
   top: 0;

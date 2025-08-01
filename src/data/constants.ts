@@ -21,7 +21,6 @@ export const METRICS_DATA: MetricsCardProps[] = [
   },
 ];
 
-
 // TODO: cities data need to be fetched from API
 export const CITIES_DATA: LeaderBoardData[] = [
   { rank: 1, city: 'Nagpur', homesSolarized: '2,500' },

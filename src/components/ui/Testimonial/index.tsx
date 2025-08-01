@@ -34,7 +34,7 @@ const Testimonial = () => {
 
     const interval = setInterval(() => {
       handleNext();
-    }, 2000); 
+    }, 2000);
 
     return () => clearInterval(interval);
   }, [handleNext, isAutoPlaying, allTestimonials.length]);
@@ -74,7 +74,7 @@ const Testimonial = () => {
     );
 
   return (
-    <div 
+    <div
       className="bg-background-dark-200 shadow-smoke mx-auto flex w-[360px] flex-grow flex-col rounded-2xl border border-neutral-100 p-5"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
@@ -83,26 +83,25 @@ const Testimonial = () => {
         <div className="absolute inset-0 -bottom-1 z-[0] bg-linear-(--testimonial-gradient)" />
         <div className="absolute inset-0 z-[1] bg-radial-(--testimonial-radial)" />
         <div className="absolute inset-x-4 top-4 z-[2] flex justify-end gap-3">
-          <ArrowIcon 
-            onClick={handleManualPrev} 
-            className="cursor-pointer hover:opacity-80 transition-opacity" 
+          <ArrowIcon
+            onClick={handleManualPrev}
+            className="cursor-pointer transition-opacity hover:opacity-80"
           />
           <ArrowIcon
             onClick={handleManualNext}
-            className="rotate-180 cursor-pointer hover:opacity-80 transition-opacity"
+            className="rotate-180 cursor-pointer transition-opacity hover:opacity-80"
           />
         </div>
-        
-  
+
         <Image
           width={0}
           height={0}
           sizes="100vw"
           src={currentTestimonial?.image}
           alt={currentTestimonial?.name}
-          className="h-[300px] w-full object-cover select-none transition-opacity duration-500"
+          className="h-[300px] w-full object-cover transition-opacity duration-500 select-none"
         />
-        <div className="absolute inset-x-0 bottom-0 left-4 z-[3] select-none mb-8">
+        <div className="absolute inset-x-0 bottom-0 left-4 z-[3] mb-8 select-none">
           <h3 className="font-dm-sans text-shadow-testimonial-content text-2xl/[33px] font-bold tracking-[-0.96px] text-white">
             {currentTestimonial?.name}
           </h3>
