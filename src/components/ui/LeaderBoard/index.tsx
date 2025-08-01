@@ -13,11 +13,17 @@ const LeaderBoard = () => {
         <span className="font-dm-sans text-2xl/[33px] font-medium tracking-[-0.96px] text-white">
           Top{' '}
           {queryParams.state && queryParams.city
-            ? queryParams.city
+            ? queryParams.city.length > 10
+              ? queryParams.city.slice(0, 10) + '...'
+              : queryParams.city
             : queryParams.state
               ? queryParams.state
               : 'SolarSquare'}{' '}
-          {queryParams.state && queryParams.city ? 'Cities' : 'States'}
+          {queryParams.state && queryParams.city
+            ? 'PIN Codes'
+            : queryParams.state
+              ? 'Cities'
+              : 'States'}{' '}
         </span>
       </div>
       <table>
