@@ -6,9 +6,11 @@ import PinCodeModal from './components/PinCodeModal';
 import ServiceableModal from './components/ServiceableModal';
 import UnServiceableModal from './components/UnServiceableModal';
 import { useSolarState } from '@/lib/store';
+import useQueryParams from '@/hooks/useQueryParams';
 
 const MiddleSection = () => {
   const { isHomePage, setIsHomePage } = useSolarState();
+  const { queryParams } = useQueryParams();
   const [modalState, setModalState] = useState<{
     pinCode: boolean;
     serviceable: boolean;
@@ -40,7 +42,15 @@ const MiddleSection = () => {
             titleProps: {
               content: [
                 { text: 'SolarSquare Homes in' },
-                { text: 'India', variant: 'blue' },
+                {
+                  text:
+                    queryParams.state && queryParams.city
+                      ? queryParams.city
+                      : queryParams.state
+                        ? queryParams.state
+                        : 'India',
+                  variant: 'blue',
+                },
               ],
             },
             subtitleProps: {

@@ -1,6 +1,6 @@
 import { ChevronIcon, HomeIcon } from '@/components/icons';
 import { BreadCrumbItemType } from '@/types';
-import { Fragment } from 'react';
+import { Fragment, useEffect } from 'react';
 
 const BreadCrumbs = ({ items }: { items: BreadCrumbItemType[] }) => {
   if (!items?.length) return null;
@@ -13,9 +13,12 @@ const BreadCrumbs = ({ items }: { items: BreadCrumbItemType[] }) => {
       {items.map((item, index) => {
         const isFirst = index === 0;
         const isLast = index === items.length - 1;
+        const isSecond = index === 1;
         const shouldShowLabel = items.length <= 2 || !isFirst;
-        const shouldTruncate = items.length > 2 && !isFirst && !isLast;
-
+        const shouldTruncate =
+          (items.length === 2 && isSecond && item.label.length > 11) ||
+          (items.length === 3 && isSecond && item.label.length > 6) ||
+          (items.length > 2 && isLast && item.label.length > 6);
         return (
           <Fragment key={index}>
             <span
@@ -29,7 +32,7 @@ const BreadCrumbs = ({ items }: { items: BreadCrumbItemType[] }) => {
               {isFirst && <HomeIcon className="m-2 shrink-0" />}
               {shouldShowLabel && (
                 <span
-                  className={`${shouldTruncate ? 'max-w-20 truncate' : ''}`}
+                  className={`${shouldTruncate ? 'max-w-20 truncate' : ''} whitespace-nowrap`}
                 >
                   {item.label}
                 </span>

@@ -1,14 +1,23 @@
+'use client';
 import { LeaderBoardIcon } from '@/components/icons';
 import { CITIES_DATA, TABLE_HEADINGS } from '@/data/constants';
 import LeaderBoardRow from './LeaderBoardRow';
+import useQueryParams from '@/hooks/useQueryParams';
 
 const LeaderBoard = () => {
+  const { queryParams } = useQueryParams();
   return (
     <div className="bg-background-dark-200 shadow-smoke flex flex-col gap-8 rounded-xl border border-neutral-400 px-5 py-6 backdrop-blur-sm">
       <div className="flex gap-3">
         <LeaderBoardIcon />
         <span className="font-dm-sans text-2xl/[33px] font-medium tracking-[-0.96px] text-white">
-          Top Maharashtra Cities
+          Top{' '}
+          {queryParams.state && queryParams.city
+            ? queryParams.city
+            : queryParams.state
+              ? queryParams.state
+              : 'India'}{' '}
+          Cities
         </span>
       </div>
       <table>
