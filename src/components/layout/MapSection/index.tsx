@@ -100,7 +100,8 @@ const MapSection = () => {
     if (currentStateAndCity.state) params.state = currentStateAndCity.state;
     if (currentStateAndCity.city) params.city = currentStateAndCity.city;
     if (Object.keys(params).length > 0) setParams(params);
-  }, [currentStateAndCity, setParams]);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [currentStateAndCity]);
 
   // Utility functions
   const focusLayer = useCallback(
