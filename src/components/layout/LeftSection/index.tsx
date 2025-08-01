@@ -2,19 +2,11 @@
 
 import BreadCrumbs from '@/components/ui/BreadCrumbs';
 import MetricsCard from '@/components/ui/MetricsCard';
-import { METRICS_DATA } from '@/data/constants';
+import { DEFAULT_BREADCRUMBS, METRICS_DATA } from '@/data/constants';
 import useQueryParams from '@/hooks/useQueryParams';
 import { useMapStateAndCityState, useSolarState } from '@/lib/store';
 import Image from 'next/image';
 import { useEffect, useState } from 'react';
-
-const DEFAULT_BREADCRUMBS = [
-  {
-    key: 'country',
-    label: 'India',
-    onClick: null, // assigned in component to access current closures
-  },
-];
 
 const LeftSection = () => {
   const { queryParams, removeParam } = useQueryParams();

@@ -16,8 +16,8 @@ const LeaderBoard = () => {
             ? queryParams.city
             : queryParams.state
               ? queryParams.state
-              : 'India'}{' '}
-          Cities
+              : 'SolarSquare'}{' '}
+          {queryParams.state && queryParams.city ? 'Cities' : 'States'}
         </span>
       </div>
       <table>

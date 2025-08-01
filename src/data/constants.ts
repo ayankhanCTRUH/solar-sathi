@@ -105,3 +105,11 @@ export const STATE_DATA: StateDataType = {
     latLng: [11.080035, 78.201705],
   },
 };
+
+export const DEFAULT_BREADCRUMBS = [
+  {
+    key: 'country',
+    label: 'India',
+    onClick: null, // assigned in component to access current closures
+  },
+];

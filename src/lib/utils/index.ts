@@ -72,7 +72,6 @@ export const getCoordinatesByPincode = (
   pincode: number,
   pincodeData: PincodeDataType[]
 ): [number, number] | undefined => {
-  console.log('pincodeData', pincodeData);
   const pincodeRecord = pincodeData.find((entry) => entry.pincode === pincode);
 
   if (!pincodeRecord) {
