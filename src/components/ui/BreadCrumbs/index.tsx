@@ -1,6 +1,6 @@
 import { ChevronIcon, HomeIcon } from '@/components/icons';
 import { BreadCrumbItemType } from '@/types';
-import { Fragment, useEffect } from 'react';
+import { Fragment } from 'react';
 
 const BreadCrumbs = ({ items }: { items: BreadCrumbItemType[] }) => {
   if (!items?.length) return null;
