@@ -1,5 +1,5 @@
 import { RupeeIcon, SolarHomeIcon, SubsidyIcon } from '@/components/icons';
-import { BreadCrumbItemType, MetricsCardProps, StateDataType } from '@/types';
+import { MetricsCardProps, StateDataType } from '@/types';
 import { LeaderBoardData } from '@/types';
 
 export const METRICS_DATA: MetricsCardProps[] = [

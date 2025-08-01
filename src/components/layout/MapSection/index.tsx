@@ -18,6 +18,8 @@ import { useMapStateAndCityState, useSolarState } from '@/lib/store';
 import { MapDataType, PincodeDataType } from '@/types';
 import useQueryParams from '@/hooks/useQueryParams';
 
+// TODO: define types wherever used `any` as a type in this component
+
 interface CurrentLocation {
   state: string | null;
   city: string | null;
@@ -55,7 +57,7 @@ const MapSection = () => {
       city: null,
     });
   const [currentStateName, setCurrentStateName] = useState<string | null>(null);
-  let currStateName: string;
+  const currStateName = useRef<string | null>(null);
 
   // Queries
   const getMapDataQuery = useGetMapData({ enabled: true });
@@ -167,13 +169,14 @@ const MapSection = () => {
         mapRefsRef.current.currentStateLayer = layer;
         setCurrentStateAndCity({ state: stateName, city: null });
         setCurrentStateName(stateName);
-        currStateName = stateName;
+        currStateName.current = stateName;
         addStateMarkers(stateName, mapData, pincodeData);
         map.removeLayer(indiaMarkers);
       });
 
       return marker;
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [createMarkerIcon, focusLayer, unfocusMap]
   );
 
@@ -208,6 +211,7 @@ const MapSection = () => {
 
       return marker;
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [createMarkerIcon, unfocusMap]
   );
 
@@ -279,6 +283,7 @@ const MapSection = () => {
 
     indiaMarkers.addTo(map);
 
+    // eslint-disable-next-line @typescript-eslint/no-explicit-any
     indiaGeoJsonLayer.getLayers().forEach((layer: any) => {
       if (STATE_NAME_DATA.includes(layer.feature?.properties.ST_NM)) {
         focusLayer(layer);
@@ -299,14 +304,19 @@ const MapSection = () => {
       setCurrentStateAndCity((prev) => ({ ...prev, city: cityName }));
       cityMarkers.addTo(map);
 
-      if (currStateName) {
-        const cityData = getPincodesByCity(currStateName, cityName, mapData);
+      if (currStateName.current) {
+        const cityData = getPincodesByCity(
+          currStateName.current,
+          cityName,
+          mapData
+        );
         cityData?.forEach((pincode) => {
           const marker = createCityMarkers(parseInt(pincode), pincodeData);
           if (marker) marker.addTo(cityMarkers);
         });
       }
     },
+    // eslint-disable-next-line react-hooks/exhaustive-deps
     [currentStateName, createCityMarkers]
   );
 
@@ -347,6 +357,7 @@ const MapSection = () => {
       try {
         const { data } = await getStateGeoJSONDataQuery.refetch();
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const onEachFeature = (feature: any, layer: L.GeoJSON) => {
           const distName = feature.properties.district;
 
@@ -380,6 +391,7 @@ const MapSection = () => {
       try {
         const { data } = await getIndiaGeoJSONDataQuery.refetch();
 
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         const onEachFeature = (feature: any, layer: L.GeoJSON) => {
           const stateName = feature.properties.ST_NM;
 
@@ -413,6 +425,7 @@ const MapSection = () => {
         mapRefsRef.current.indiaGeoJsonLayer = indiaGeoJsonLayer;
 
         // Focus valid state layers
+        // eslint-disable-next-line @typescript-eslint/no-explicit-any
         indiaGeoJsonLayer.getLayers().forEach((layer: any) => {
           if (STATE_NAME_DATA.includes(layer.feature?.properties.ST_NM)) {
             focusLayer(layer);
@@ -541,6 +554,7 @@ const MapSection = () => {
         mapInstanceRef.current = null;
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, []);
 
   useEffect(() => {
