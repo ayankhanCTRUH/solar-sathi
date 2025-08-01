@@ -102,7 +102,8 @@ export interface MetricsCardProps {
 
 export interface BreadCrumbItemType {
   label: string;
-  href: string;
+  key: string;
+  onClick?: () => void;
 }
 
 // middle section
@@ -165,6 +166,10 @@ export interface PincodeDataType {
 }
 
 export interface MapDataStateType {
+  // home section
+  isHomePage: boolean;
+  setIsHomePage: (data: boolean) => void;
+  // map section
   mapData: MapDataType;
   setMapData: (data: MapDataType) => void;
   pincodeData: PincodeDataType[];
@@ -175,5 +180,13 @@ export interface StateDataType {
   [state: string]: {
     value: number;
     latLng: [number, number];
+  };
+}
+
+export interface LayerData {
+  feature: {
+    properties: {
+      ST_NM: string;
+    };
   };
 }

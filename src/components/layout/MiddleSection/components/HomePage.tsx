@@ -3,7 +3,7 @@ import MixColorsText from '@/components/ui/MixColorsText';
 
 const HomePage = ({ handleClick }: { handleClick: () => void }) => {
   return (
-    <div className="font-dm-sans flex h-full flex-col items-center justify-center gap-12 text-white">
+    <div className="font-dm-sans relative flex h-full flex-col items-center justify-center gap-12 text-white before:absolute before:top-50 before:z-[-1] before:h-full before:w-full before:backdrop-blur-sm">
       <div className="flex flex-col items-center gap-4">
         <MixColorsText
           content={[

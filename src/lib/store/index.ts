@@ -3,10 +3,11 @@ import { MapDataStateType } from '@/types';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
-export const useMapState = create<MapDataStateType>()(
+export const useSolarState = create<MapDataStateType>()(
   persist(
     (set) => ({
       ...INITIAL_MAP_STORE_DATA,
+      setIsHomePage: (data) => set({ isHomePage: data }),
       setMapData: (data) => set({ mapData: data }),
       setPincodeData: (data) => set({ pincodeData: data }),
     }),
@@ -19,3 +20,15 @@ export const useMapState = create<MapDataStateType>()(
     }
   )
 );
+
+export const useMapStateAndCityState = create<{
+  backTos: { country: boolean; state: boolean };
+  setBackToCountry: () => void;
+  setBackToState: () => void;
+  backToDefaultValues: () => void;
+}>((set) => ({
+  backTos: { country: false, state: false },
+  setBackToCountry: () => set({ backTos: { country: true, state: false } }),
+  setBackToState: () => set({ backTos: { country: false, state: true } }),
+  backToDefaultValues: () => set({ backTos: { country: false, state: false } }),
+}));

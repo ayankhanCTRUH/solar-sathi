@@ -1,5 +1,5 @@
 import { RupeeIcon, SolarHomeIcon, SubsidyIcon } from '@/components/icons';
-import { BreadCrumbItemType, MetricsCardProps, StateDataType } from '@/types';
+import { MetricsCardProps, StateDataType } from '@/types';
 import { LeaderBoardData } from '@/types';
 
 export const METRICS_DATA: MetricsCardProps[] = [
@@ -19,12 +19,6 @@ export const METRICS_DATA: MetricsCardProps[] = [
     icon: SubsidyIcon,
     metricContents: [{ text: '₹53.9' }, { text: 'Cr', highlighted: true }],
   },
-];
-
-export const BREADCRUMBS_DATA: BreadCrumbItemType[] = [
-  { href: '/', label: 'India' },
-  { href: '/maharashtra', label: 'Maharashtra' },
-  { href: '/maharashtra/nagpur', label: 'Nagpur' },
 ];
 
 // TODO: cities data need to be fetched from API
@@ -56,6 +50,7 @@ export const MAP_STYLE_DATA = {
 };
 
 export const INITIAL_MAP_STORE_DATA = {
+  isHomePage: true,
   mapData: {},
   pincodeData: [],
 };
@@ -110,3 +105,11 @@ export const STATE_DATA: StateDataType = {
     latLng: [11.080035, 78.201705],
   },
 };
+
+export const DEFAULT_BREADCRUMBS = [
+  {
+    key: 'country',
+    label: 'India',
+    onClick: null, // assigned in component to access current closures
+  },
+];
