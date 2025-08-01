@@ -134,7 +134,7 @@ const MapSection = () => {
           <div class="mb-2.5">
             <img class="marker" src="/icons/marker.svg" alt="Marker" />
           </div>
-          <div class="relative -top-3.5 w-auto rounded-[20px] bg-white p-1 text-xs font-normal font-dm-sans text-black">${label}</div>
+          <div class="relative -top-3.5 w-auto rounded-[20px] bg-white p-1 text-xs font-normal font-dm-sans text-black whitespace-nowrap">${label}</div>
         </div>
       `,
         iconSize: size,
