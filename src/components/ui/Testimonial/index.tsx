@@ -75,7 +75,7 @@ const Testimonial = () => {
 
   return (
     <div
-      className="bg-background-dark-200 shadow-smoke mx-auto flex w-[360px] flex-grow flex-col rounded-2xl border border-neutral-100 p-5"
+      className="bg-background-dark-200 shadow-smoke mx-auto flex w-full flex-grow flex-col rounded-2xl border border-neutral-100 p-5"
       onMouseEnter={handleMouseEnter}
       onMouseLeave={handleMouseLeave}
     >
@@ -92,16 +92,15 @@ const Testimonial = () => {
             className="rotate-180 cursor-pointer transition-opacity hover:opacity-80"
           />
         </div>
-
         <Image
           width={0}
           height={0}
           sizes="100vw"
           src={currentTestimonial?.image}
           alt={currentTestimonial?.name}
-          className="h-[300px] w-full object-cover transition-opacity duration-500 select-none"
+          className="h-[300px] w-full rounded-xl object-cover transition-opacity duration-500 select-none"
         />
-        <div className="absolute inset-x-0 bottom-0 left-4 z-[3] mb-8 select-none">
+        <div className="absolute inset-x-0 bottom-0 left-4 z-[3] mb-3 select-none">
           <h3 className="font-dm-sans text-shadow-testimonial-content text-2xl/[33px] font-bold tracking-[-0.96px] text-white">
             {currentTestimonial?.name}
           </h3>
@@ -110,7 +109,7 @@ const Testimonial = () => {
           </p>
         </div>
       </div>
-      <div className="relative mt-5">
+      <div className="relative mt-1">
         <p className="font-dm-sans z-10 mb-4 line-clamp-6 text-2xl/[33px] font-medium tracking-[-0.96px] text-white">
           {currentTestimonial?.description}
         </p>

@@ -16,7 +16,6 @@ const PinCodeModal = ({ open, onClose, handleSubmit }: PinCodeModalProps) => {
   };
 
   const onSubmit = () => {
-    console.log(pinCode);
     handleSubmit();
     handleClose();
   };

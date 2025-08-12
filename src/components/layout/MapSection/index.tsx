@@ -20,9 +20,10 @@ import useQueryParams from '@/hooks/useQueryParams';
 
 // TODO: define types wherever used `any` as a type in this component
 
-interface CurrentLocation {
+export interface CurrentLocationType {
   state: string | null;
   city: string | null;
+  pincode: string | null;
 }
 
 interface MapRefs {
@@ -51,10 +52,11 @@ const MapSection = () => {
   });
   const keyboardListenerRef = useRef<((e: KeyboardEvent) => void) | null>(null);
 
-  const [currentStateAndCity, setCurrentStateAndCity] =
-    useState<CurrentLocation>({
+  const [currentLocationData, setCurrentLocationData] =
+    useState<CurrentLocationType>({
       state: null,
       city: null,
+      pincode: null,
     });
   const [currentStateName, setCurrentStateName] = useState<string | null>(null);
   const currStateName = useRef<string | null>(null);
@@ -63,7 +65,7 @@ const MapSection = () => {
   const getMapDataQuery = useGetMapData({ enabled: true });
   const getStateGeoJSONDataQuery = useGetGeoJSONData({
     enabled: false,
-    fileName: currentStateAndCity.state,
+    fileName: currentLocationData.state,
   });
   const getIndiaGeoJSONDataQuery = useGetGeoJSONData({
     enabled: false,
@@ -96,14 +98,16 @@ const MapSection = () => {
     []
   );
 
-  // Update URL params when state/city changes
+  // Update URL params when state/city/pincode changes
   useEffect(() => {
     const params: Record<string, string> = {};
-    if (currentStateAndCity.state) params.state = currentStateAndCity.state;
-    if (currentStateAndCity.city) params.city = currentStateAndCity.city;
+    if (currentLocationData.state) params.state = currentLocationData.state;
+    if (currentLocationData.city) params.city = currentLocationData.city;
+    if (currentLocationData.pincode)
+      params.pincode = currentLocationData.pincode;
     if (Object.keys(params).length > 0) setParams(params);
     // eslint-disable-next-line react-hooks/exhaustive-deps
-  }, [currentStateAndCity]);
+  }, [currentLocationData]);
 
   // Utility functions
   const focusLayer = useCallback(
@@ -167,7 +171,7 @@ const MapSection = () => {
         unfocusMap(mapRefsRef.current.stateLayers);
         focusLayer(layer);
         mapRefsRef.current.currentStateLayer = layer;
-        setCurrentStateAndCity({ state: stateName, city: null });
+        setCurrentLocationData({ state: stateName, city: null, pincode: null });
         setCurrentStateName(stateName);
         currStateName.current = stateName;
         addStateMarkers(stateName, mapData, pincodeData);
@@ -229,6 +233,14 @@ const MapSection = () => {
         name: number;
       };
       marker.name = pincode;
+
+      marker.on('click', () => {
+        setCurrentLocationData((prev) => ({
+          ...prev,
+          pincode: pincode.toString(),
+        }));
+      });
+
       return marker;
     },
     [createMarkerIcon]
@@ -301,7 +313,11 @@ const MapSection = () => {
       const { map, cityMarkers } = mapRefsRef.current;
       if (!map || !cityMarkers) return;
 
-      setCurrentStateAndCity((prev) => ({ ...prev, city: cityName }));
+      setCurrentLocationData((prev) => ({
+        ...prev,
+        city: cityName,
+        pincode: null,
+      }));
       cityMarkers.addTo(map);
 
       if (currStateName.current) {

@@ -93,7 +93,7 @@ export interface ServiceModalProps {
 
 export interface MetricsCardProps {
   title: string;
-  metricContents: {
+  metricContents?: {
     text: string;
     highlighted?: boolean;
   }[];
@@ -190,3 +190,9 @@ export interface LayerData {
     };
   };
 }
+
+export type ExpCenterBodyType =
+  | object
+  | { state: string }
+  | { state: string; city: string }
+  | { pincode: string };
