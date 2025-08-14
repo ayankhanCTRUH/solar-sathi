@@ -10,10 +10,12 @@ export const useSolarState = create<MapDataStateType>()(
       setIsHomePage: (data) => set({ isHomePage: data }),
       setMapData: (data) => set({ mapData: data }),
       setPincodeData: (data) => set({ pincodeData: data }),
+      reset: () => set(INITIAL_MAP_STORE_DATA),
     }),
     {
       name: 'map-store',
       partialize: (state) => ({
+        isHomePage: state.isHomePage,
         mapData: state.mapData,
         pincodeData: state.pincodeData,
       }),
@@ -25,10 +27,10 @@ export const useMapStateAndCityState = create<{
   backTos: { country: boolean; state: boolean };
   setBackToCountry: () => void;
   setBackToState: () => void;
-  backToDefaultValues: () => void;
+  reset: () => void;
 }>((set) => ({
   backTos: { country: false, state: false },
   setBackToCountry: () => set({ backTos: { country: true, state: false } }),
   setBackToState: () => set({ backTos: { country: false, state: true } }),
-  backToDefaultValues: () => set({ backTos: { country: false, state: false } }),
+  reset: () => set({ backTos: { country: false, state: false } }),
 }));
