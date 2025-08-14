@@ -33,6 +33,7 @@ const useIdleTimeout = (timeout = 120000) => {
         clearTimeout(timerRef.current);
       }
     };
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [timeout]);
 };
 

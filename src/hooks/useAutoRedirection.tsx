@@ -13,6 +13,7 @@ const useAutoRedirection = (initialSeconds = 10) => {
     queryClient.clear();
     solarState.reset();
     mapStateAndCityState.reset();
+    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [queryClient]);
 
   useEffect(() => {
