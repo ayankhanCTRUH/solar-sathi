@@ -75,7 +75,7 @@ const MapSection = () => {
 
   // Store actions
   const { setMapData, setPincodeData } = useSolarState();
-  const { backTos, backToDefaultValues } = useMapStateAndCityState();
+  const { backTos, reset } = useMapStateAndCityState();
   const { setParams } = useQueryParams();
 
   // Memoized style configurations
@@ -576,13 +576,13 @@ const MapSection = () => {
   useEffect(() => {
     if (backTos.country) {
       backToIndia();
-      backToDefaultValues();
+      reset();
     }
     if (backTos.state) {
       backToState();
-      backToDefaultValues();
+      reset();
     }
-  }, [backTos, backToIndia, backToState, backToDefaultValues]);
+  }, [backTos, backToIndia, backToState, reset]);
 
   return (
     <div className="bg-background-dark-500 h-screen overflow-hidden">

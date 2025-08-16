@@ -174,6 +174,7 @@ export interface MapDataStateType {
   setMapData: (data: MapDataType) => void;
   pincodeData: PincodeDataType[];
   setPincodeData: (data: PincodeDataType[]) => void;
+  reset: () => void;
 }
 
 export interface StateDataType {
