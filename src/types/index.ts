@@ -197,3 +197,8 @@ export type ExpCenterBodyType =
   | { state: string }
   | { state: string; city: string }
   | { pincode: string };
+
+export interface IdleStateType {
+  idleFlag: boolean;
+  setIdleFlag: (idleFlag: boolean) => void;
+}

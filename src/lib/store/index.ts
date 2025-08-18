@@ -1,5 +1,5 @@
 import { INITIAL_MAP_STORE_DATA } from '@/data/constants';
-import { MapDataStateType } from '@/types';
+import { IdleStateType, MapDataStateType } from '@/types';
 import { create } from 'zustand';
 import { persist } from 'zustand/middleware';
 
@@ -33,4 +33,9 @@ export const useMapStateAndCityState = create<{
   setBackToCountry: () => set({ backTos: { country: true, state: false } }),
   setBackToState: () => set({ backTos: { country: false, state: true } }),
   reset: () => set({ backTos: { country: false, state: false } }),
+}));
+
+export const useIdleFlagStore = create<IdleStateType>((set) => ({
+  idleFlag: false,
+  setIdleFlag: (idleFlag) => set({ idleFlag }),
 }));
