@@ -7,19 +7,18 @@ import ServiceableModal from './components/ServiceableModal';
 import UnServiceableModal from './components/UnServiceableModal';
 import { useSolarState } from '@/lib/store';
 import useQueryParams from '@/hooks/useQueryParams';
+import { MiddleSectionModalStateProps } from '@/types';
+import { useGetExpCenter } from '@/services/exp-center-service';
 
 const MiddleSection = () => {
   const { isHomePage, setIsHomePage } = useSolarState();
   const { queryParams } = useQueryParams();
-  const [modalState, setModalState] = useState<{
-    pinCode: boolean;
-    serviceable: boolean;
-    unserviceable: boolean;
-  }>({
+  const [modalState, setModalState] = useState<MiddleSectionModalStateProps>({
     pinCode: false,
     serviceable: false,
     unserviceable: false,
   });
+  const getExpCenterQuery = useGetExpCenter();
 
   const openModal = (type: keyof typeof modalState) =>
     setModalState((prev) => ({ ...prev, [type]: true }));
@@ -27,9 +26,32 @@ const MiddleSection = () => {
   const closeModal = (type: keyof typeof modalState) =>
     setModalState((prev) => ({ ...prev, [type]: false }));
 
-  const handlePinSubmit = () => {
-    // TODO: choose which modal to open based on serviceability check
-    openModal('serviceable');
+  const handlePinSubmit = (pinCode: string) => {
+    getExpCenterQuery.mutate(
+      { pincode: pinCode },
+      {
+        onSuccess: (data) => {
+          const selectedCity = data.data.find(
+            (city: { pincode: string }) => city.pincode === pinCode
+          );
+          if (selectedCity) {
+            setModalState((prev) => ({
+              ...prev,
+              serviceable: {
+                pinCode,
+                city: data.city,
+                count: selectedCity.count,
+                lifetimeSavings: selectedCity.lifetimeSavings,
+              },
+            }));
+          } else {
+            openModal('unserviceable');
+          }
+        },
+        onError: () => openModal('unserviceable'),
+        onSettled: () => closeModal('pinCode'),
+      }
+    );
   };
 
   return (
@@ -84,10 +106,12 @@ const MiddleSection = () => {
       <PinCodeModal
         open={modalState.pinCode}
         onClose={() => closeModal('pinCode')}
-        handleSubmit={handlePinSubmit}
+        handleSubmit={(pinCode) => handlePinSubmit(pinCode)}
+        isLoading={getExpCenterQuery.isPending}
       />
       <ServiceableModal
-        open={modalState.serviceable}
+        open={modalState.serviceable !== false}
+        data={modalState.serviceable}
         onClose={() => closeModal('serviceable')}
         handleHomeClick={() => setIsHomePage(true)}
         handlePinClick={() => openModal('pinCode')}
