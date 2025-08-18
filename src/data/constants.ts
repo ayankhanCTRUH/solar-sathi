@@ -1,5 +1,9 @@
 import { RupeeIcon, SolarHomeIcon, SubsidyIcon } from '@/components/icons';
-import { MetricsCardProps, StateDataType } from '@/types';
+import {
+  MetricsCardProps,
+  MiddleSectionModalStateProps,
+  StateDataType,
+} from '@/types';
 
 export const INITIAL_METRICS_DATA: MetricsCardProps[] = [
   {
@@ -40,6 +44,11 @@ export const INITIAL_MAP_STORE_DATA = {
   isHomePage: true,
   mapData: {},
   pincodeData: [],
+  modalState: {
+    pinCode: false,
+    serviceable: false,
+    unserviceable: false,
+  } as MiddleSectionModalStateProps,
 };
 
 export const STATE_NAME_DATA: string[] = [

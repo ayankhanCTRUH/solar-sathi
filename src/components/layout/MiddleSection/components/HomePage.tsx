@@ -1,7 +1,10 @@
 import Button from '@/components/ui/Button';
 import MixColorsText from '@/components/ui/MixColorsText';
+import { useSolarState } from '@/lib/store';
 
-const HomePage = ({ handleClick }: { handleClick: () => void }) => {
+const HomePage = () => {
+  const { setIsHomePage } = useSolarState();
+
   return (
     <div className="font-dm-sans relative flex h-full flex-col items-center justify-center gap-12 text-white before:absolute before:top-50 before:z-[-1] before:h-full before:w-full before:backdrop-blur-sm">
       <div className="flex flex-col items-center gap-4">
@@ -21,7 +24,7 @@ const HomePage = ({ handleClick }: { handleClick: () => void }) => {
         variant="primary"
         content="See SolarSquare Homes"
         className="animate-btn !h-fit !w-fit px-16 py-8 text-[32px]"
-        onClick={handleClick}
+        onClick={() => setIsHomePage(false)}
       />
     </div>
   );

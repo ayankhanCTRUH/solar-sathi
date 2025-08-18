@@ -5,23 +5,27 @@ import Modal from '@/components/ui/Modal';
 import Numpad from '@/components/ui/Numpad';
 import { PIN_INPUT_LIMIT } from '@/data/constants';
 import { PinCodeModalProps } from '@/types';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 
-const PinCodeModal = ({ open, onClose, handleSubmit }: PinCodeModalProps) => {
+const PinCodeModal = ({
+  open,
+  onClose,
+  handleSubmit,
+  isLoading,
+}: PinCodeModalProps) => {
   const [pinCode, setPinCode] = useState<string>('');
 
-  const handleClose = () => {
-    setPinCode('');
-    onClose();
+  const onSubmit = () => {
+    if (isLoading) return;
+    handleSubmit(pinCode);
   };
 
-  const onSubmit = () => {
-    handleSubmit();
-    handleClose();
-  };
+  useEffect(() => {
+    if (!open) setPinCode('');
+  }, [open]);
 
   return (
-    <Modal open={open} onClose={handleClose}>
+    <Modal open={open} onClose={onClose}>
       <div className="bg-background-dark-400 font-dm-sans flex h-[770px] max-w-4xl flex-col items-center justify-between gap-8 p-12">
         <MixColorsText
           content={[
@@ -43,7 +47,7 @@ const PinCodeModal = ({ open, onClose, handleSubmit }: PinCodeModalProps) => {
               variant="tertiary"
               content="Back"
               leftIcon={<WestIcon />}
-              onClick={handleClose}
+              onClick={onClose}
               className="w-min"
             />
             <Button
@@ -52,6 +56,7 @@ const PinCodeModal = ({ open, onClose, handleSubmit }: PinCodeModalProps) => {
               }
               content="Submit"
               onClick={onSubmit}
+              isLoading={isLoading}
             />
           </div>
         </div>

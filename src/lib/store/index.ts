@@ -10,6 +10,8 @@ export const useSolarState = create<MapDataStateType>()(
       setIsHomePage: (data) => set({ isHomePage: data }),
       setMapData: (data) => set({ mapData: data }),
       setPincodeData: (data) => set({ pincodeData: data }),
+      setModalState: (updater) =>
+        set((state) => ({ modalState: updater(state.modalState) })),
       reset: () => set(INITIAL_MAP_STORE_DATA),
     }),
     {
@@ -18,6 +20,7 @@ export const useSolarState = create<MapDataStateType>()(
         isHomePage: state.isHomePage,
         mapData: state.mapData,
         pincodeData: state.pincodeData,
+        modalState: state.modalState,
       }),
     }
   )

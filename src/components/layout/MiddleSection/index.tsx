@@ -1,5 +1,4 @@
 'use client';
-import { useState } from 'react';
 import HomePage from './components/HomePage';
 import MiddleContent from './components/MiddleContent';
 import PinCodeModal from './components/PinCodeModal';
@@ -7,35 +6,52 @@ import ServiceableModal from './components/ServiceableModal';
 import UnServiceableModal from './components/UnServiceableModal';
 import { useSolarState } from '@/lib/store';
 import useQueryParams from '@/hooks/useQueryParams';
+import { MiddleSectionModalStateProps } from '@/types';
+import { useGetExpCenter } from '@/services/exp-center-service';
 
 const MiddleSection = () => {
-  const { isHomePage, setIsHomePage } = useSolarState();
+  const { isHomePage, modalState, setModalState } = useSolarState();
   const { queryParams } = useQueryParams();
-  const [modalState, setModalState] = useState<{
-    pinCode: boolean;
-    serviceable: boolean;
-    unserviceable: boolean;
-  }>({
-    pinCode: false,
-    serviceable: false,
-    unserviceable: false,
-  });
+  const getExpCenterQuery = useGetExpCenter();
 
-  const openModal = (type: keyof typeof modalState) =>
+  const openModal = (type: keyof MiddleSectionModalStateProps) =>
     setModalState((prev) => ({ ...prev, [type]: true }));
 
-  const closeModal = (type: keyof typeof modalState) =>
+  const closeModal = (type: keyof MiddleSectionModalStateProps) =>
     setModalState((prev) => ({ ...prev, [type]: false }));
 
-  const handlePinSubmit = () => {
-    // TODO: choose which modal to open based on serviceability check
-    openModal('serviceable');
+  const handlePinSubmit = (pinCode: string) => {
+    getExpCenterQuery.mutate(
+      { pincode: pinCode },
+      {
+        onSuccess: (data) => {
+          const selectedCity = data.data.find(
+            (city: { pincode: string }) => city.pincode === pinCode
+          );
+          if (selectedCity) {
+            setModalState((prev) => ({
+              ...prev,
+              serviceable: {
+                pinCode,
+                city: data.city,
+                count: selectedCity.count,
+                lifetimeSavings: selectedCity.lifetimeSavings,
+              },
+            }));
+          } else {
+            openModal('unserviceable');
+          }
+        },
+        onError: () => openModal('unserviceable'),
+        onSettled: () => closeModal('pinCode'),
+      }
+    );
   };
 
   return (
     <div className="flex-grow">
       {isHomePage ? (
-        <HomePage handleClick={() => setIsHomePage(false)} />
+        <HomePage />
       ) : (
         <MiddleContent
           top={{
@@ -84,18 +100,18 @@ const MiddleSection = () => {
       <PinCodeModal
         open={modalState.pinCode}
         onClose={() => closeModal('pinCode')}
-        handleSubmit={handlePinSubmit}
+        handleSubmit={(pinCode) => handlePinSubmit(pinCode)}
+        isLoading={getExpCenterQuery.isPending}
       />
       <ServiceableModal
-        open={modalState.serviceable}
+        open={modalState.serviceable !== false}
+        data={modalState.serviceable}
         onClose={() => closeModal('serviceable')}
-        handleHomeClick={() => setIsHomePage(true)}
         handlePinClick={() => openModal('pinCode')}
       />
       <UnServiceableModal
         open={modalState.unserviceable}
         onClose={() => closeModal('unserviceable')}
-        handleHomeClick={() => setIsHomePage(true)}
         handlePinClick={() => openModal('pinCode')}
       />
     </div>

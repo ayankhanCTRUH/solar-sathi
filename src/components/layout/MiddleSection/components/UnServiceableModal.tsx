@@ -1,20 +1,14 @@
 import Image from 'next/image';
 import Modal from '@/components/ui/Modal';
 import Button from '@/components/ui/Button';
-import AutoRedirectBody from './AutoRedirect';
+import BackToHome from './BackToHome';
 import { ServiceModalProps } from '@/types';
 
 const UnServiceableModal = ({
   open,
   onClose,
-  handleHomeClick,
   handlePinClick,
 }: ServiceModalProps) => {
-  const handleRedirection = () => {
-    handleHomeClick();
-    onClose();
-  };
-
   return (
     <Modal open={open} onClose={onClose}>
       <div className="bg-background-dark-400 font-dm-sans flex w-[1413px] flex-col items-center gap-11 pt-14 pb-28">
@@ -25,7 +19,7 @@ const UnServiceableModal = ({
             sizes="100vw"
             alt="unserviceable"
             className="h-[302px] w-[377px]"
-            src="/images/map.webp"
+            src="/images/pin.webp"
           />
           <div className="flex flex-col items-center gap-4 text-center">
             <h2 className="font-poppins text-[60px]/[84px] font-bold -tracking-[1.2px] text-white">
@@ -42,10 +36,7 @@ const UnServiceableModal = ({
           </div>
         </div>
         <div className="flex justify-between gap-6">
-          <AutoRedirectBody
-            handleRedirection={handleRedirection}
-            className="bg-background-dark-300 border-background-dark-100 min-w-80 rounded-xl border p-8 text-center text-[28px] leading-[39px] -tracking-[1.12px] !no-underline"
-          />
+          <BackToHome className="bg-background-dark-300 border-background-dark-100 min-w-80 rounded-xl border p-8 text-center text-[28px] leading-[39px] -tracking-[1.12px] !no-underline" />
           <Button
             content="Enter Another PIN Code"
             className="w-min px-[70px] py-8 leading-[39px] -tracking-[1.12px]"

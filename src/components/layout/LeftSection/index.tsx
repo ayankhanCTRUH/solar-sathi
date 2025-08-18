@@ -63,6 +63,7 @@ const LeftSection = () => {
   useEffect(() => {
     if (idleFlag) {
       handleUrlCleanupAndReset();
+      setBackToCountry();
       setIdleFlag(false);
     }
     // eslint-disable-next-line react-hooks/exhaustive-deps
