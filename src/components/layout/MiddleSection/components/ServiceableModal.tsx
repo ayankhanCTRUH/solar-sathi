@@ -57,8 +57,8 @@ const ServiceableModal = ({
                 {formatNumWithUnits({
                   num: lifetimeSavings,
                   isRupees: true,
-                }).map((item) => (
-                  <span>{item.text}</span>
+                }).map((item, index) => (
+                  <span key={index}>{item.text}</span>
                 ))}
               </div>
             </div>
