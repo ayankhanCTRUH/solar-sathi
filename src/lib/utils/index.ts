@@ -85,58 +85,36 @@ export const getCoordinatesByPincode = (
 export const formatNumWithUnits = ({
   num,
   isRupees = false,
-  unitHighlighted = true,
 }: {
   num: number;
   isRupees?: boolean;
-  unitHighlighted?: boolean;
 }) => {
   if (num >= 10000000) {
     // 1 crore and above
-    return unitHighlighted
-      ? [
-          {
-            text: `${isRupees ? '₹' : ''}${(num / 10000000).toFixed(2).replace(/\.00$/, '')}`,
-          },
-          { text: 'Cr', highlighted: true },
-        ]
-      : [
-          {
-            text: `${isRupees ? '₹' : ''}${(num / 10000000).toFixed(2).replace(/\.00$/, '')}Cr`,
-          },
-        ];
+    return [
+      {
+        text: `${isRupees ? '₹' : ''}${(num / 10000000).toFixed(2).replace(/\.00$/, '')}`,
+      },
+      { text: 'Cr', highlighted: true },
+    ];
   } else if (num >= 100000) {
     // between 1 lakh and 1 crore
-    return unitHighlighted
-      ? [
-          {
-            text: `${isRupees ? '₹' : ''}${(num / 100000).toFixed(2).replace(/\.00$/, '')}`,
-          },
-          { text: 'L', highlighted: true },
-        ]
-      : [
-          {
-            text: `${isRupees ? '₹' : ''}${(num / 100000).toFixed(2).replace(/\.00$/, '')}L`,
-          },
-        ];
+    return [
+      {
+        text: `${isRupees ? '₹' : ''}${(num / 100000).toFixed(2).replace(/\.00$/, '')}`,
+      },
+      { text: 'L', highlighted: true },
+    ];
   } else if (num >= 10000) {
     // between 10k and 1 lakh
-    return unitHighlighted
-      ? [
-          {
-            text: `${isRupees ? '₹' : ''}${(num / 1000).toFixed(2).replace(/\.00$/, '')}`,
-          },
-          { text: 'K', highlighted: true },
-        ]
-      : [
-          {
-            text: `${isRupees ? '₹' : ''}${(num / 1000).toFixed(2).replace(/\.00$/, '')}K`,
-          },
-        ];
+    return [
+      {
+        text: `${isRupees ? '₹' : ''}${(num / 1000).toFixed(2).replace(/\.00$/, '')}`,
+      },
+      { text: 'K', highlighted: true },
+    ];
   } else {
     // Less than 10k
-    return unitHighlighted
-      ? [{ text: `${isRupees ? '₹' : ''}${num.toLocaleString()}` }]
-      : [{ text: `${isRupees ? '₹' : ''}${num.toLocaleString()}` }];
+    return [{ text: `${isRupees ? '₹' : ''}${num.toLocaleString()}` }];
   }
 };

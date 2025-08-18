@@ -79,8 +79,7 @@ export interface ModalProps {
 export interface PinCodeModalProps {
   open: boolean;
   onClose: () => void;
-  handleSubmit: (pinCode: string) => void;
-  isLoading: boolean;
+  handleSubmit: () => void;
 }
 
 export interface ServiceModalProps {
@@ -112,19 +111,6 @@ export interface BreadCrumbItemType {
 export interface MiddleContentProps {
   top: { titleProps: MixColorsTextProps; subtitleProps: MixColorsTextProps };
   bottom: { textProps: MixColorsTextProps; buttonProps: ButtonProps };
-}
-
-export interface ServiceableModalDataType {
-  pinCode: string;
-  city: string;
-  count: number;
-  lifetimeSavings: number;
-}
-
-export interface MiddleSectionModalStateProps {
-  pinCode: boolean;
-  serviceable: false | ServiceableModalDataType;
-  unserviceable: boolean;
 }
 
 // right section

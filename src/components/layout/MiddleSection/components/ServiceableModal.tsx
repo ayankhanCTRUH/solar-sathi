@@ -1,24 +1,16 @@
 import Button from '@/components/ui/Button';
 import MixColorsText from '@/components/ui/MixColorsText';
 import Modal from '@/components/ui/Modal';
-import { MiddleSectionModalStateProps, ServiceModalProps } from '@/types';
+import { ServiceModalProps } from '@/types';
 import Image from 'next/image';
 import AutoRedirectBody from './AutoRedirect';
-import { formatNumWithUnits } from '@/lib/utils';
 
 const ServiceableModal = ({
   open,
-  data,
   onClose,
   handleHomeClick,
   handlePinClick,
-}: ServiceModalProps & {
-  data: MiddleSectionModalStateProps['serviceable'];
-}) => {
-  if (data === false) return;
-
-  const { pinCode, city, count, lifetimeSavings } = data;
-
+}: ServiceModalProps) => {
   const handleRedirection = () => {
     handleHomeClick();
     onClose();
@@ -36,17 +28,17 @@ const ServiceableModal = ({
             <MixColorsText
               content={[
                 { text: 'SolarSquare Homes in', break: true },
-                { text: pinCode, variant: 'blue' },
-                { text: `(${city})` },
+                { text: '440002', variant: 'blue' },
+                { text: '(Nayapura)' },
               ]}
               className="justify-center text-center [&>span:first-child]:mb-2 [&>span:first-child]:font-semibold [&>span:last-child]:text-[28px] [&>span:last-child]:leading-[39px] [&>span:last-child]:font-normal [&>span:nth-last-child(2)]:text-[28px] [&>span:nth-last-child(2)]:leading-[39px]"
             />
             <div className="font-poppins relative h-48 text-[144px] font-bold">
               <span className="text-secondary-500 absolute inset-0 -translate-y-2">
-                {count}
+                78
               </span>
               <span className="text-transparent [-webkit-text-stroke:1px_var(--color-secondary-500)]">
-                {count}
+                78
               </span>
             </div>
             <div className="text-background-200 text-2xl leading-8 -tracking-[0.96px]">
@@ -64,13 +56,7 @@ const ServiceableModal = ({
                 className="h-16 w-14"
               />
               <div className="text-green-success-500 text-[40px] font-bold -tracking-[0.8px]">
-                {
-                  formatNumWithUnits({
-                    num: lifetimeSavings,
-                    isRupees: true,
-                    unitHighlighted: false,
-                  })[0].text
-                }
+                ₹35.6L
               </div>
             </div>
             <div className="text-2xl leading-8 font-semibold -tracking-[0.96px] text-neutral-400">
