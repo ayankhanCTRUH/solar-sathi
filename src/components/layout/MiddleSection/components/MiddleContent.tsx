@@ -22,7 +22,7 @@ const MiddleContent = ({
         />
         <Button
           {...buttonProps}
-          className={`pointer-events-auto !h-fit !max-w-[282px] ${buttonProps?.className ?? ''}`}
+          className={`animate-btn pointer-events-auto !h-fit !max-w-[282px] ${buttonProps?.className ?? ''}`}
         />
       </div>
     </div>
