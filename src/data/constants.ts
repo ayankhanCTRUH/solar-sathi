@@ -109,3 +109,12 @@ export const DEFAULT_BREADCRUMBS = [
     onClick: null, // assigned in component to access current closures
   },
 ];
+
+export const RIBBON_DATA = [
+  'A new home goes solar with SolarSquare every 25 minutes',
+  'Every 25 minutes, a new family goes solar with SolarSquare',
+  "SolarSquare - India's #1 Home Solar Company",
+  '30000+ homes across India powered by SolarSquare',
+  'Real Impact:  2 Lakh Tons CO₂ emissions reduced',
+  'Brightening homes in 20+Cities across 9 states',
+];
