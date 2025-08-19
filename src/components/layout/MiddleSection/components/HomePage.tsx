@@ -21,7 +21,7 @@ const HomePage = () => {
             { text: 'one rooftop at a time.' },
             { text: 'Join the Solar Revolution!', variant: 'blue' },
           ]}
-          className="justify-center text-center [&>span]:text-7xl [&>span]:leading-[101px] [&>span]:-tracking-[1.44px] [&>span:last-child]:text-6xl [&>span:last-child]:leading-[84px] [&>span:last-child]:-tracking-[1.2px]"
+          className="justify-center text-center [&>span]:text-7xl/[100px]! [&>span]:-tracking-[1.44px]! [&>span:last-child]:text-6xl/[84px]! [&>span:last-child]:-tracking-[1.2px]!"
         />
         <div className="text-neutral-dark-500 text-[28px] leading-[39px] font-medium -tracking-[1.12px]">
           See how SolarSquare is powering homes across India
