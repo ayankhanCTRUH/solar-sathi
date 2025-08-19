@@ -104,8 +104,8 @@ export const STATE_DATA: StateDataType = {
 
 export const DEFAULT_BREADCRUMBS = [
   {
-    key: 'country',
-    label: 'India',
+    key: 'home',
+    label: 'Home',
     onClick: null, // assigned in component to access current closures
   },
 ];
