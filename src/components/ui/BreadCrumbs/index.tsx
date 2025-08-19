@@ -41,11 +41,11 @@ const BreadCrumbs = ({ items }: { items: BreadCrumbItemType[] }) => {
           <Fragment key={index}>
             <span
               onClick={() => !isLast && !isTotalOne && item.onClick?.()}
-              className={`flex items-center gap-1 text-2xl/8.5 select-none ${
+              className={`flex items-center gap-1 text-2xl/[33px] select-none ${
                 isLast && !isFirst
                   ? 'text-secondary-500 pointer-events-none font-semibold'
                   : 'font-normal'
-              } ${isTotalOne ? '' : 'cursor-pointer'}`}
+              } ${isTotalOne ? 'font-semibold!' : 'cursor-pointer'}`}
             >
               {isFirst && (
                 <span
