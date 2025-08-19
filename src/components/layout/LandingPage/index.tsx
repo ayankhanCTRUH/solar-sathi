@@ -43,11 +43,10 @@ const LandingPageMap = () => {
     const markerIcon = L.divIcon({
       className: 'text-center',
       html: `
-      <div class="circle-animation absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[26px] h-[26px] bg-secondary-500 text-white text-center leading-[100px] font-sans rounded-full text-xl cursor-pointer">
-
-</div>
-          `,
-      //   iconSize: [60, 80],
+      <span class="relative flex size-6 items-center justify-center">
+        <span class="absolute inline-flex h-full w-full animate-[ping_1s_infinite] bg-secondary-500 rounded-full blur-[1px] opacity-50"></span>
+        <span class="relative inline-flex size-2.5 bg-secondary-500 rounded-full"></span>
+      </span>`,
     });
 
     // eslint-disable-next-line @typescript-eslint/no-explicit-any
@@ -142,18 +141,6 @@ const LandingPageMap = () => {
   return (
     <div className="bg-background-dark-500 h-screen overflow-hidden">
       <div ref={mapRef} className="!h-full !w-full"></div>
-
-      {/* Inline CSS for Pulse Animation */}
-      <style>
-        {`
-          @keyframes pulseAnimation {
-            100% {
-                transform: scale(2);
-                opacity: 0;
-            }
-            }
-        `}
-      </style>
     </div>
   );
 };

@@ -6,7 +6,7 @@ const HomePage = () => {
   const { setIsHomePage } = useSolarState();
 
   return (
-    <div className="font-dm-sans relative flex h-full flex-col items-center justify-center gap-12 text-white before:absolute before:top-50 before:z-[-1] before:h-full before:w-full before:backdrop-blur-sm">
+    <div className="font-dm-sans relative flex h-full flex-col items-center justify-center gap-12 text-white before:absolute before:top-50 before:z-[-1] before:h-full before:w-full before:backdrop-blur-[2px]">
       <div className="flex flex-col items-center gap-4">
         <MixColorsText
           content={[

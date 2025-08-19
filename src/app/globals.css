@@ -105,6 +105,10 @@
     text-box-trim: trim-both;
     text-box-edge: cap alphabetic;
   }
+
+  .animate-btn {
+    @apply relative overflow-hidden after:absolute after:h-[150%] after:w-[150%] after:animate-[buttonAnimation_4s_infinite_ease-out] after:bg-linear-(--button-animate-gradient) after:content-[''];
+  }
 }
 
 @layer components {
@@ -137,51 +141,6 @@
   }
 }
 
-@keyframes pulseAnimation {
-  100% {
-    transform: scale(2);
-    opacity: 0;
-  }
-}
-
-.animate-pulseAnimation {
-  animation: pulseAnimation 2s ease-out infinite;
-}
-
-.circle-animation::after,
-.circle-animation::before {
-  content: '';
-  display: block;
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 26px;
-  height: 26px;
-  border-radius: 50%;
-  z-index: -1;
-  animation: grow 1s ease-in-out infinite;
-}
-
-.circle-animation::after {
-  background: #00bbff7e;
-}
-
-.circle-animation::before {
-  background: #00bbffd7;
-  animation-delay: -0.5s;
-}
-
-@keyframes grow {
-  0% {
-    transform: scale(1, 1);
-    opacity: 1;
-  }
-
-  100% {
-    transform: scale(1.8, 1.8);
-    opacity: 0;
-  }
-}
 @keyframes buttonAnimation {
   0% {
     transform: translateX(-100%);
@@ -189,21 +148,4 @@
   100% {
     transform: translateX(100%);
   }
-}
-
-.animate-btn {
-  overflow: hidden;
-  position: relative;
-}
-
-.animate-btn:after {
-  content: '';
-  position: absolute;
-  width: 150%;
-  height: 100%;
-  background: linear-gradient(var(--button-animate-gradient));
-  animation-duration: 4s;
-  animation-iteration-count: infinite;
-  animation-timing-function: ease-out;
-  animation-name: buttonAnimation;
 }
