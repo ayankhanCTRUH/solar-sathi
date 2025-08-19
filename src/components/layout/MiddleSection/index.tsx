@@ -61,9 +61,13 @@ const MiddleSection = () => {
                 {
                   text:
                     queryParams.state && queryParams.city
-                      ? queryParams.city
+                      ? queryParams.city.length > 14
+                        ? queryParams.city.slice(0, 11) + '...'
+                        : queryParams.city
                       : queryParams.state
-                        ? queryParams.state
+                        ? queryParams.state.length > 14
+                          ? queryParams.state.slice(0, 11) + '...'
+                          : queryParams.state
                         : 'India',
                   variant: 'blue',
                 },

@@ -41,8 +41,9 @@ const LeftSection = () => {
   const DEFAULT_BREADCRUMB_CONFIG = {
     ...DEFAULT_BREADCRUMBS[0],
     onClick: () => {
-      removeParamsAndUpdateBreadcrumbs('state', 'city', 'pincode');
+      removeParamsAndUpdateBreadcrumbs('country', 'state', 'city', 'pincode');
       setBackToCountry();
+      setIsHomePage(true);
     },
   };
 
@@ -53,6 +54,7 @@ const LeftSection = () => {
   const handleUrlCleanupAndReset = () => {
     clearUrlSearchParams();
     setBreadCrumbs([DEFAULT_BREADCRUMB_CONFIG]);
+    setIsHomePage(true);
   };
 
   useEffect(() => {
@@ -78,6 +80,15 @@ const LeftSection = () => {
       (item: BreadCrumbItemType) => item.key === key && item.label === label
     );
 
+  const createCountryBreadcrumb = (country: string) => ({
+    key: 'country',
+    label: country,
+    onClick: () => {
+      removeParamsAndUpdateBreadcrumbs('state', 'city', 'pincode');
+      setBackToCountry();
+    },
+  });
+
   const createStateBreadcrumb = (state: string) => ({
     key: 'state',
     label: state,
@@ -94,14 +105,18 @@ const LeftSection = () => {
   });
 
   useEffect(() => {
-    const { state, city } = queryParams || {};
+    const { country, state, city } = queryParams || {};
 
     setBreadCrumbs((prev) => {
-      if (!state && !city) {
+      if (!country && !state && !city) {
         return [DEFAULT_BREADCRUMB_CONFIG];
       }
 
       const updated = [...prev];
+
+      if (country && !breadcrumbExists(updated, 'country', country)) {
+        updated.push(createCountryBreadcrumb(country));
+      }
 
       if (state && !breadcrumbExists(updated, 'state', state)) {
         updated.push(createStateBreadcrumb(state));
