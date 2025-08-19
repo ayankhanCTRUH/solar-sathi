@@ -14,6 +14,7 @@ const PinCodeModal = ({
   isLoading,
 }: PinCodeModalProps) => {
   const [pinCode, setPinCode] = useState<string>('');
+  const [errorText, setErrorText] = useState('');
 
   const onSubmit = () => {
     if (isLoading) return;
@@ -23,6 +24,8 @@ const PinCodeModal = ({
   useEffect(() => {
     if (!open) setPinCode('');
   }, [open]);
+
+  const isDisabled = errorText || pinCode.length !== PIN_INPUT_LIMIT;
 
   return (
     <Modal open={open} onClose={onClose}>
@@ -38,9 +41,17 @@ const PinCodeModal = ({
         />
         <div className="flex w-3/5 flex-grow flex-col justify-between gap-8">
           <Numpad
-            onChange={(value) => setPinCode(value)}
+            onChange={(value) => {
+              if (value.startsWith('0')) {
+                setErrorText('Pin code cannot start with 0');
+              } else {
+                setErrorText('');
+                setPinCode(value);
+              }
+            }}
             inputLimit={PIN_INPUT_LIMIT}
             defaultInput={pinCode}
+            errorText={errorText}
           />
           <div className="flex w-full justify-between gap-6">
             <Button
@@ -51,9 +62,7 @@ const PinCodeModal = ({
               className="w-min"
             />
             <Button
-              variant={
-                pinCode.length === PIN_INPUT_LIMIT ? 'primary' : 'disable'
-              }
+              variant={isDisabled ? 'disable' : 'primary'}
               content="Submit"
               onClick={onSubmit}
               isLoading={isLoading}
