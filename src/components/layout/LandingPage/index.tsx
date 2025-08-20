@@ -44,8 +44,8 @@ const LandingPageMap = () => {
       className: 'text-center',
       html: `
       <span class="relative flex size-6 items-center justify-center pointer-events-none">
-        <span class="absolute inline-flex h-full w-full animate-[ping_1s_infinite] bg-secondary-500 rounded-full blur-[1px] opacity-50"></span>
-        <span class="relative inline-flex size-2.5 bg-secondary-500 rounded-full"></span>
+        <span class="absolute inline-flex h-full w-full animate-[ping_2s_infinite] bg-secondary-500 rounded-full blur-[1px] opacity-30"></span>
+        <span class="relative inline-flex size-2.5 bg-secondary-500 rounded-full opacity-80"></span>
       </span>`,
     });
 
