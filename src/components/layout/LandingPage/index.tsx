@@ -43,7 +43,7 @@ const LandingPageMap = () => {
     const markerIcon = L.divIcon({
       className: 'text-center',
       html: `
-      <span class="relative flex size-6 items-center justify-center">
+      <span class="relative flex size-6 items-center justify-center pointer-events-none">
         <span class="absolute inline-flex h-full w-full animate-[ping_1s_infinite] bg-secondary-500 rounded-full blur-[1px] opacity-50"></span>
         <span class="relative inline-flex size-2.5 bg-secondary-500 rounded-full"></span>
       </span>`,
@@ -139,7 +139,7 @@ const LandingPageMap = () => {
   }, []);
 
   return (
-    <div className="bg-background-dark-500 h-screen overflow-hidden">
+    <div className="bg-background-dark-500 h-screen overflow-hidden pointer-events-none">
       <div ref={mapRef} className="!h-full !w-full"></div>
     </div>
   );
