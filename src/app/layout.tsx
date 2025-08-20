@@ -35,7 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${dmSans.variable} ${poppins.variable} bg-background-dark-500 antialiased`}
+        className={`${dmSans.variable} ${poppins.variable} bg-background-dark-500 fixed inset-0 antialiased`}
       >
         <ReactQueryProvider>
           <div className="pointer-events-none absolute inset-x-12 top-[51px] bottom-[90px] z-[1000] flex gap-6">
