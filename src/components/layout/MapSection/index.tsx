@@ -141,12 +141,13 @@ const MapSection = () => {
       return L.divIcon({
         className: 'text-center',
         html: `
-        <div class="flex flex-col items-center">
+        <div class="flex flex-col items-center relative">
           ${content}
           <div class="mb-2.5">
             <img class="marker" src="/icons/marker.svg" alt="Marker" />
           </div>
           <div class="relative -top-3.5 w-auto rounded-[20px] bg-white p-1 text-xs font-normal font-dm-sans text-black whitespace-nowrap">${label}</div>
+          ${label === 'Maharashtra' ? `<img src="/gifs/finger-click.gif" class="absolute -top-10 left-[50px] h-[250px] w-[125px] -translate-x-1/2 scale-[40%] -rotate-10" />` : ''}
         </div>
       `,
         iconSize: size,
