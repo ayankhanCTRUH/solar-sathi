@@ -30,7 +30,7 @@ const ServiceableModal = ({
                 { text: `(${city})` },
               ]}
               className="justify-center text-center"
-              contentClassName="[&:first-child]:mb-2 [&:first-child]:font-semibold [&:last-child]:text-[28px] [&:last-child]:leading-[39px] [&:last-child]:font-normal [&:nth-last-child(2)]:text-[28px] [&:nth-last-child(2)]:leading-[39px]"
+              contentClassName="[&:first-child]:!mb-2 [&:first-child]:!font-semibold [&:last-child]:!text-[28px] [&:last-child]:!leading-[39px] [&:last-child]:!font-normal [&:nth-last-child(2)]:!text-[28px] [&:nth-last-child(2)]:!leading-[39px]"
             />
             <div className="font-poppins relative h-48 text-[144px] font-bold">
               <span className="text-secondary-500 absolute inset-0 -translate-y-2">

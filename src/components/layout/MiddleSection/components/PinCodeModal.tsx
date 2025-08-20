@@ -38,7 +38,7 @@ const PinCodeModal = ({
             { text: 'homes' },
           ]}
           className="!font-dm-sans justify-center text-center"
-          contentClassName="!font-dm-sans text-[40px] leading-14 font-semibold"
+          contentClassName="!font-dm-sans !text-[40px] !leading-14 !font-semibold"
         />
         <div className="flex w-3/5 flex-grow flex-col justify-between gap-8">
           <Numpad

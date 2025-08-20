@@ -12,14 +12,14 @@ const MiddleContent = ({
         <MixColorsText {...titleProps} />
         <MixColorsText
           {...subtitleProps}
-          contentClassName={`font-dm-sans text-[32px] leading-[45px] font-normal -tracking-[1.28px] [&:last-child]:font-medium ${subtitleProps?.contentClassName ?? ''}`}
+          contentClassName={`!font-dm-sans !text-[32px] !leading-[45px] !font-normal !-tracking-[1.28px] [&:last-child]:!font-medium ${subtitleProps?.contentClassName ?? ''}`}
         />
       </div>
       <div className="bg-background-dark-300 flex w-3xl gap-6 rounded-xl border border-neutral-100 px-6 py-4">
         <MixColorsText
           {...textProps}
           className={`w-3/5 ${textProps?.className ?? ''}`}
-          contentClassName={`font-dm-sans text-2xl font-normal [&:nth-last-child(2)]:font-bold ${textProps?.contentClassName ?? ''}`}
+          contentClassName={`!font-dm-sans !text-2xl !font-normal [&:nth-last-child(2)]:!font-bold ${textProps?.contentClassName ?? ''}`}
         />
         <Button
           {...buttonProps}
