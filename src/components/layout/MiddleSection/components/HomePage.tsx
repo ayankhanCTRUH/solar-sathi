@@ -2,6 +2,7 @@ import Button from '@/components/ui/Button';
 import MixColorsText from '@/components/ui/MixColorsText';
 import useQueryParams from '@/hooks/useQueryParams';
 import { useSolarState } from '@/lib/store';
+import Image from 'next/image';
 
 const HomePage = () => {
   const { setIsHomePage } = useSolarState();
@@ -28,12 +29,22 @@ const HomePage = () => {
           See how SolarSquare is powering homes across India
         </div>
       </div>
-      <Button
-        variant="primary"
-        content="See SolarSquare Homes"
-        className="animate-btn !h-fit !w-fit px-16 py-8 text-[32px]"
-        onClick={handleExploreClick}
-      />
+      <div className="relative">
+        <Button
+          variant="primary"
+          content="See SolarSquare Homes"
+          className="animate-btn !h-fit !w-fit px-16 py-8 text-[32px]"
+          onClick={handleExploreClick}
+        />
+        <Image
+          height={0}
+          width={0}
+          sizes="100vw"
+          src="/gifs/finger-click.gif"
+          alt="finger-click-gif"
+          className="absolute -top-1/6 -right-[5%] h-[250px] w-[250px] -rotate-10"
+        />
+      </div>
     </div>
   );
 };
