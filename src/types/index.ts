@@ -22,6 +22,7 @@ export interface TextItem {
 export interface MixColorsTextProps {
   content: TextItem[];
   className?: string;
+  contentClassName?: string;
 }
 
 export type ButtonVariant = 'primary' | 'secondary' | 'tertiary' | 'disable';

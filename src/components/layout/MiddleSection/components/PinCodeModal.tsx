@@ -37,7 +37,8 @@ const PinCodeModal = ({
             { text: 'SolarSquare', variant: 'blue' },
             { text: 'homes' },
           ]}
-          className="!font-dm-sans [&>span]:font-dm-sans! justify-center text-center [&>span]:text-[40px] [&>span]:leading-14 [&>span]:font-semibold"
+          className="!font-dm-sans justify-center text-center"
+          contentClassName="!font-dm-sans text-[40px] leading-14 font-semibold"
         />
         <div className="flex w-3/5 flex-grow flex-col justify-between gap-8">
           <Numpad

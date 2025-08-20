@@ -1,6 +1,10 @@
 import { MixColorsTextProps, TextItem } from '@/types';
 
-const MixColorsText = ({ className = '', content }: MixColorsTextProps) => {
+const MixColorsText = ({
+  content,
+  className = '',
+  contentClassName = '',
+}: MixColorsTextProps) => {
   const color = (value: TextItem['variant'] | TextItem['color']) => {
     switch (value) {
       case 'blue':
@@ -20,7 +24,7 @@ const MixColorsText = ({ className = '', content }: MixColorsTextProps) => {
         return (
           <span
             key={index}
-            className={`font-poppins text-[54px]/[76px] font-bold -tracking-[1.08px] ${item.break ? 'w-full' : ''} ${color(item.variant || item.color)}`}
+            className={`font-poppins text-[54px]/[76px] font-bold -tracking-[1.08px] ${item.break ? 'w-full' : ''} ${color(item.variant || item.color)} ${contentClassName}`}
           >
             {item.text}&nbsp;
           </span>
