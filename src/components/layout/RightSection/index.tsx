@@ -3,7 +3,7 @@ import Testimonial from '@/components/ui/Testimonial';
 
 const RightSection = () => {
   return (
-    <div className="pointer-events-auto z-[1] flex max-w-[360px] flex-col gap-6">
+    <div className="pointer-events-auto z-0 flex max-w-[360px] flex-col gap-6">
       <LeaderBoard />
       <Testimonial />
     </div>
