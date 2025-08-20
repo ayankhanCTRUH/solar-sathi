@@ -172,11 +172,36 @@ export interface MapDataType {
   };
 }
 
+export interface mapFeatureType extends L.FeatureGroup {
+  properties: {
+    ST_NM: string;
+  };
+}
+
+export interface mapLayerType extends L.Layer {
+  feature: mapFeatureType;
+}
+
 export interface PincodeDataType {
   pincode: number;
   city: string;
   state: string;
   coordinates: [number, number];
+}
+
+export interface PincodeAPIDataType {
+  pincode: string;
+  lat_long: string;
+}
+
+export interface apiCityDataType {
+  data: Array<{
+    pincode: string;
+    count: number;
+    lifetimeSavings: number;
+    lat_long: string;
+  }>;
+  city: string;
 }
 
 export interface MapDataStateType {
@@ -201,7 +226,6 @@ export interface MapDataStateType {
 
 export interface StateDataType {
   [state: string]: {
-    value: number;
     latLng: [number, number];
   };
 }

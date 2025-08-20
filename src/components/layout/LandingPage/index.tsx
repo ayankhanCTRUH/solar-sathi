@@ -94,8 +94,9 @@ const LandingPageMap = () => {
       }
     });
 
-    map.setMaxBounds(indiaGeoJsonLayer.getBounds());
-    map.fitBounds(indiaGeoJsonLayer.getBounds());
+    map.setMaxBounds(indiaGeoJsonLayer.getBounds().pad(0.2));
+    map.fitBounds(indiaGeoJsonLayer.getBounds(), { padding: [150, 150] });
+    map.setZoom(5.2);
   };
 
   useEffect(() => {
@@ -112,6 +113,7 @@ const LandingPageMap = () => {
           dragging: false,
           preferCanvas: true,
           maxBoundsViscosity: 1.0,
+          zoomSnap: 0.1,
         }).setView([20.5937, 78.9629], 5);
 
         mapInstanceRef.current = map;
@@ -139,7 +141,7 @@ const LandingPageMap = () => {
   }, []);
 
   return (
-    <div className="bg-background-dark-500 h-screen overflow-hidden pointer-events-none">
+    <div className="bg-background-dark-500 pointer-events-none h-screen overflow-hidden">
       <div ref={mapRef} className="!h-full !w-full"></div>
     </div>
   );

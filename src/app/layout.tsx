@@ -39,6 +39,7 @@ export default function RootLayout({
       >
         <ReactQueryProvider>
           <div className="pointer-events-none absolute inset-x-12 top-[51px] bottom-[90px] z-[1000] flex gap-6">
+            <div className="fixed inset-x-0 top-0 z-0 h-60 bg-linear-(--home-page-gradient) rotate-180" />
             <Suspense fallback={null}>
               <LeftSection />
               <MiddleSection />

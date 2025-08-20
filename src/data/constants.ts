@@ -27,17 +27,17 @@ export const PIN_INPUT_LIMIT = 6;
 
 export const MAP_STYLE_DATA = {
   fillColor: '#151930',
-  weight: 2,
+  weight: 1,
   opacity: 1,
   color: '#3f4774',
   fillOpacity: 1,
   className: 'state',
 
   // Highlight/focused states styling
-  focusWeight: 3,
+  focusWeight: 2,
   focusColor: '#49549d',
   focusFillColor: '#1b1f3f',
-  focusFillOpacity: 0.9,
+  focusFillOpacity: 0.5,
 };
 
 export const INITIAL_MAP_STORE_DATA = {
@@ -64,41 +64,101 @@ export const STATE_NAME_DATA: string[] = [
 ];
 
 export const STATE_DATA: StateDataType = {
-  Delhi: {
-    value: 783,
-    latLng: [28.696433, 77.035625],
+  'Andhra pradesh': {
+    latLng: [15.9129, 79.74],
   },
-  Rajasthan: {
-    value: 1650,
-    latLng: [26.145328, 73.962306],
+  'Arunachal pradesh': {
+    latLng: [27.0928, 93.6053],
   },
-  'Uttar Pradesh': {
-    value: 2400,
-    latLng: [26.919632, 80.583116],
+  Assam: {
+    latLng: [26.2006, 92.9376],
+  },
+  Bihar: {
+    latLng: [25.0961, 85.3131],
+  },
+  Chhattisgarh: {
+    latLng: [21.2787, 81.8661],
+  },
+  Goa: {
+    latLng: [15.2993, 74.124],
   },
   Gujarat: {
-    value: 2750,
-    latLng: [22.736715, 71.513644],
+    latLng: [22.7367, 71.5136],
   },
-  'Madhya Pradesh': {
-    value: 6900,
-    latLng: [23.043479, 77.621057],
+  Haryana: {
+    latLng: [29.0588, 76.0856],
   },
-  Maharashtra: {
-    value: 7450,
-    latLng: [19.400641, 75.572232],
+  'Himachal pradesh': {
+    latLng: [32.0591, 77.1734],
   },
-  Telangana: {
-    value: 2100,
-    latLng: [18.226616, 79.293185],
+  Jharkhand: {
+    latLng: [23.6102, 85.2799],
   },
   Karnataka: {
-    value: 4500,
-    latLng: [15.329437, 75.72107],
+    latLng: [15.3294, 75.7211],
   },
-  'Tamil Nadu': {
-    value: 1450,
-    latLng: [11.080035, 78.201705],
+  Kerala: {
+    latLng: [10.8505, 76.2711],
+  },
+  'Madhya pradesh': {
+    latLng: [23.0435, 77.6211],
+  },
+  Maharashtra: {
+    latLng: [19.4006, 75.5722],
+  },
+  Manipur: {
+    latLng: [24.6637, 93.9063],
+  },
+  Meghalaya: {
+    latLng: [25.467, 91.3662],
+  },
+  Mizoram: {
+    latLng: [23.1645, 92.9376],
+  },
+  Nagaland: {
+    latLng: [26.1584, 94.5624],
+  },
+  Odisha: {
+    latLng: [20.9517, 85.0985],
+  },
+  Punjab: {
+    latLng: [31.1471, 75.3412],
+  },
+  Rajasthan: {
+    latLng: [26.1453, 73.9623],
+  },
+  Sikkim: {
+    latLng: [27.533, 88.614],
+  },
+  'Tamil nadu': {
+    latLng: [11.08, 78.2017],
+  },
+  Telangana: {
+    latLng: [18.2266, 79.2932],
+  },
+  Tripura: {
+    latLng: [23.9408, 91.9882],
+  },
+  'Uttar pradesh': {
+    latLng: [26.9196, 80.5831],
+  },
+  Uttarakhand: {
+    latLng: [30.0668, 79.0193],
+  },
+  'West bengal': {
+    latLng: [22.9868, 87.855],
+  },
+  Chandigarh: {
+    latLng: [30.7333, 76.7794],
+  },
+  Lakshadweep: {
+    latLng: [10.568, 72.96],
+  },
+  Delhi: {
+    latLng: [28.6964, 77.0356],
+  },
+  Puducherry: {
+    latLng: [11.9416, 79.8083],
   },
 };
 

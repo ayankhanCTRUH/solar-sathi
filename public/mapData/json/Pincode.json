@@ -10,7 +10,7 @@
   },
   {
     "pincode": 110002,
-    "city": "New Delhi Central",
+    "city": "New central delhi",
     "state": "Delhi",
     "coordinates": [
       77.2494,
@@ -19,7 +19,7 @@
   },
   {
     "pincode": 110003,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.229251,
@@ -28,7 +28,7 @@
   },
   {
     "pincode": 110004,
-    "city": "New Delhi Central",
+    "city": "New central delhi",
     "state": "Delhi",
     "coordinates": [
       77.185837,
@@ -37,11 +37,29 @@
   },
   {
     "pincode": 110005,
-    "city": "New Delhi Central",
+    "city": "New central delhi",
     "state": "Delhi",
     "coordinates": [
       77.182581,
       28.661144
+    ]
+  },
+  {
+    "pincode": 110058,
+    "city": "New west delhi",
+    "state": "Delhi",
+    "coordinates": [
+      77.066806,
+      28.625712
+    ]
+  },
+  {
+    "pincode": 0,
+    "city": "north west delhi",
+    "state": "Delhi",
+    "coordinates": [
+      76.96774202912621,
+      28.812503997515066
     ]
   },
   {
@@ -55,7 +73,7 @@
   },
   {
     "pincode": 110007,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.198315,
@@ -64,7 +82,7 @@
   },
   {
     "pincode": 110008,
-    "city": "New Delhi Central",
+    "city": "New central delhi",
     "state": "Delhi",
     "coordinates": [
       77.182581,
@@ -73,7 +91,7 @@
   },
   {
     "pincode": 110010,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.078147,
@@ -82,7 +100,7 @@
   },
   {
     "pincode": 110011,
-    "city": "New Delhi Central",
+    "city": "New central delhi",
     "state": "Delhi",
     "coordinates": [
       77.203792,
@@ -91,7 +109,7 @@
   },
   {
     "pincode": 110012,
-    "city": "New Delhi Central",
+    "city": "New central delhi",
     "state": "Delhi",
     "coordinates": [
       77.151169,
@@ -100,7 +118,7 @@
   },
   {
     "pincode": 110013,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.252795,
@@ -109,7 +127,7 @@
   },
   {
     "pincode": 110014,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.244204,
@@ -118,7 +136,7 @@
   },
   {
     "pincode": 110015,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.181193,
@@ -127,7 +145,7 @@
   },
   {
     "pincode": 110016,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.17593,
@@ -136,7 +154,7 @@
   },
   {
     "pincode": 110017,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.189813,
@@ -145,7 +163,7 @@
   },
   {
     "pincode": 110018,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.059861,
@@ -154,7 +172,7 @@
   },
   {
     "pincode": 110019,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.247728,
@@ -163,7 +181,7 @@
   },
   {
     "pincode": 110020,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.275417,
@@ -172,7 +190,7 @@
   },
   {
     "pincode": 110021,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.199748,
@@ -181,7 +199,7 @@
   },
   {
     "pincode": 110022,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.187493,
@@ -190,7 +208,7 @@
   },
   {
     "pincode": 110023,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.201293,
@@ -199,7 +217,7 @@
   },
   {
     "pincode": 110024,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.223115,
@@ -208,7 +226,7 @@
   },
   {
     "pincode": 110025,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.269467,
@@ -217,7 +235,7 @@
   },
   {
     "pincode": 110026,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.157911,
@@ -226,7 +244,7 @@
   },
   {
     "pincode": 110027,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.127947,
@@ -235,7 +253,7 @@
   },
   {
     "pincode": 110028,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.14939,
@@ -244,7 +262,7 @@
   },
   {
     "pincode": 110029,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.209055,
@@ -253,7 +271,7 @@
   },
   {
     "pincode": 110030,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.17593,
@@ -262,7 +280,7 @@
   },
   {
     "pincode": 110031,
-    "city": "Delhi East",
+    "city": "east delhi",
     "state": "Delhi",
     "coordinates": [
       77.26391,
@@ -271,7 +289,7 @@
   },
   {
     "pincode": 110032,
-    "city": "Delhi East",
+    "city": "east delhi",
     "state": "Delhi",
     "coordinates": [
       77.279536,
@@ -280,7 +298,7 @@
   },
   {
     "pincode": 110033,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.209032,
@@ -289,7 +307,7 @@
   },
   {
     "pincode": 110034,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.148084,
@@ -298,7 +316,7 @@
   },
   {
     "pincode": 110035,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.171174,
@@ -307,7 +325,7 @@
   },
   {
     "pincode": 110036,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.141744,
@@ -316,7 +334,7 @@
   },
   {
     "pincode": 110037,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.078147,
@@ -325,7 +343,7 @@
   },
   {
     "pincode": 110038,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.13267,
@@ -334,7 +352,7 @@
   },
   {
     "pincode": 110039,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       76.952405,
@@ -343,7 +361,7 @@
   },
   {
     "pincode": 110040,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.120899,
@@ -352,7 +370,7 @@
   },
   {
     "pincode": 110041,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.082165,
@@ -361,7 +379,7 @@
   },
   {
     "pincode": 110042,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.190948,
@@ -370,7 +388,7 @@
   },
   {
     "pincode": 110043,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       76.964956,
@@ -379,7 +397,7 @@
   },
   {
     "pincode": 110044,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.253071,
@@ -388,7 +406,7 @@
   },
   {
     "pincode": 110045,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.102586,
@@ -397,7 +415,7 @@
   },
   {
     "pincode": 110046,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.114433,
@@ -406,7 +424,7 @@
   },
   {
     "pincode": 110047,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.125675,
@@ -415,7 +433,7 @@
   },
   {
     "pincode": 110048,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.23217,
@@ -424,7 +442,7 @@
   },
   {
     "pincode": 110049,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.217637,
@@ -433,7 +451,7 @@
   },
   {
     "pincode": 110051,
-    "city": "Delhi East",
+    "city": "east delhi",
     "state": "Delhi",
     "coordinates": [
       77.281333,
@@ -442,7 +460,7 @@
   },
   {
     "pincode": 110052,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.18623,
@@ -451,7 +469,7 @@
   },
   {
     "pincode": 110053,
-    "city": "Delhi East",
+    "city": "east delhi",
     "state": "Delhi",
     "coordinates": [
       77.248105,
@@ -460,7 +478,7 @@
   },
   {
     "pincode": 110054,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.234407,
@@ -469,7 +487,7 @@
   },
   {
     "pincode": 110055,
-    "city": "New Delhi Central",
+    "city": "New central delhi",
     "state": "Delhi",
     "coordinates": [
       77.219883,
@@ -478,7 +496,7 @@
   },
   {
     "pincode": 110056,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.140186,
@@ -487,7 +505,7 @@
   },
   {
     "pincode": 110057,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.144881,
@@ -495,17 +513,8 @@
     ]
   },
   {
-    "pincode": 110058,
-    "city": "New Delhi West",
-    "state": "Delhi",
-    "coordinates": [
-      77.066806,
-      28.625712
-    ]
-  },
-  {
     "pincode": 110059,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.059861,
@@ -514,7 +523,7 @@
   },
   {
     "pincode": 110060,
-    "city": "New Delhi Central",
+    "city": "New central delhi",
     "state": "Delhi",
     "coordinates": [
       77.200755,
@@ -523,7 +532,7 @@
   },
   {
     "pincode": 110061,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.075555,
@@ -532,7 +541,7 @@
   },
   {
     "pincode": 110062,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.226732,
@@ -541,7 +550,7 @@
   },
   {
     "pincode": 110063,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.105357,
@@ -550,7 +559,7 @@
   },
   {
     "pincode": 110064,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.123626,
@@ -559,7 +568,7 @@
   },
   {
     "pincode": 110065,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.254723,
@@ -568,7 +577,7 @@
   },
   {
     "pincode": 110066,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.177848,
@@ -577,7 +586,7 @@
   },
   {
     "pincode": 110067,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.1823,
@@ -586,7 +595,7 @@
   },
   {
     "pincode": 110068,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.206795,
@@ -595,7 +604,7 @@
   },
   {
     "pincode": 110069,
-    "city": "New Delhi Central",
+    "city": "New central delhi",
     "state": "Delhi",
     "coordinates": [
       77.228454,
@@ -604,7 +613,7 @@
   },
   {
     "pincode": 110070,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.171285,
@@ -613,7 +622,7 @@
   },
   {
     "pincode": 110071,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       76.9762,
@@ -622,7 +631,7 @@
   },
   {
     "pincode": 110072,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       76.955001,
@@ -631,7 +640,7 @@
   },
   {
     "pincode": 110073,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       76.880247,
@@ -640,7 +649,7 @@
   },
   {
     "pincode": 110074,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.162439,
@@ -649,7 +658,7 @@
   },
   {
     "pincode": 110075,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.070354,
@@ -658,7 +667,7 @@
   },
   {
     "pincode": 110076,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.284788,
@@ -667,7 +676,7 @@
   },
   {
     "pincode": 110077,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.090876,
@@ -676,7 +685,7 @@
   },
   {
     "pincode": 110078,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.010894,
@@ -685,7 +694,7 @@
   },
   {
     "pincode": 110080,
-    "city": "New Delhi South",
+    "city": "New south delhi",
     "state": "Delhi",
     "coordinates": [
       77.214317,
@@ -694,7 +703,7 @@
   },
   {
     "pincode": 110081,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       76.952405,
@@ -703,7 +712,7 @@
   },
   {
     "pincode": 110082,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.108755,
@@ -712,7 +721,7 @@
   },
   {
     "pincode": 110083,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.099389,
@@ -721,7 +730,7 @@
   },
   {
     "pincode": 110084,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.226775,
@@ -730,7 +739,7 @@
   },
   {
     "pincode": 110085,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.141484,
@@ -739,7 +748,7 @@
   },
   {
     "pincode": 110086,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.076221,
@@ -748,7 +757,7 @@
   },
   {
     "pincode": 110087,
-    "city": "New Delhi West",
+    "city": "New west delhi",
     "state": "Delhi",
     "coordinates": [
       77.08953,
@@ -757,7 +766,7 @@
   },
   {
     "pincode": 110088,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.151412,
@@ -766,7 +775,7 @@
   },
   {
     "pincode": 110089,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.112447,
@@ -775,7 +784,7 @@
   },
   {
     "pincode": 110090,
-    "city": "Delhi East",
+    "city": "east delhi",
     "state": "Delhi",
     "coordinates": [
       77.204281,
@@ -784,7 +793,7 @@
   },
   {
     "pincode": 110091,
-    "city": "Delhi East",
+    "city": "east delhi",
     "state": "Delhi",
     "coordinates": [
       77.281598,
@@ -793,7 +802,7 @@
   },
   {
     "pincode": 110092,
-    "city": "Delhi East",
+    "city": "east delhi",
     "state": "Delhi",
     "coordinates": [
       77.262533,
@@ -802,7 +811,7 @@
   },
   {
     "pincode": 110093,
-    "city": "Delhi East",
+    "city": "east delhi",
     "state": "Delhi",
     "coordinates": [
       77.304107,
@@ -811,7 +820,7 @@
   },
   {
     "pincode": 110094,
-    "city": "Delhi East",
+    "city": "east delhi",
     "state": "Delhi",
     "coordinates": [
       77.28562,
@@ -820,7 +829,7 @@
   },
   {
     "pincode": 110095,
-    "city": "Delhi East",
+    "city": "east delhi",
     "state": "Delhi",
     "coordinates": [
       77.303778,
@@ -829,7 +838,7 @@
   },
   {
     "pincode": 110096,
-    "city": "Delhi East",
+    "city": "east delhi",
     "state": "Delhi",
     "coordinates": [
       77.302175,
@@ -838,7 +847,7 @@
   },
   {
     "pincode": 110097,
-    "city": "New Delhi South West",
+    "city": "New south west delhi",
     "state": "Delhi",
     "coordinates": [
       77.085871,
@@ -847,7 +856,7 @@
   },
   {
     "pincode": 110099,
-    "city": "Delhi North",
+    "city": "north delhi",
     "state": "Delhi",
     "coordinates": [
       77.055016,
@@ -15024,6 +15033,17 @@
     ]
   },
   {
+    "pincode": 4,
+    "city": "Agar malwa",
+    "state": "Madhya Pradesh",
+    "coordinates": 
+      [
+                            76.43466857381222,
+                            23.632775038398247
+                        
+    ]
+  },
+  {
     "pincode": 203201,
     "city": "Gautam Buddha Nagar  office",
     "state": "Uttar Pradesh",
@@ -15957,6 +15977,24 @@
     "coordinates": [
       78.60632,
       27.974404
+    ]
+  },
+  {
+    "pincode": 1,
+    "city": "Kanpur nagar",
+    "state": "Uttar Pradesh",
+    "coordinates": [
+      81.74840367627105,
+      26.86752049251528
+    ]
+  },
+  {
+    "pincode": 2,
+    "city": "Kanpur dehat",
+    "state": "Uttar Pradesh",
+    "coordinates": [
+      79.75541699527277,
+      26.79435379420088
     ]
   },
   {
@@ -59116,7 +59154,7 @@
   },
   {
     "pincode": 422001,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.785724,
@@ -59125,7 +59163,7 @@
   },
   {
     "pincode": 422002,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.785724,
@@ -59134,7 +59172,7 @@
   },
   {
     "pincode": 422003,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.854185,
@@ -59143,7 +59181,7 @@
   },
   {
     "pincode": 422004,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.846507,
@@ -59152,7 +59190,7 @@
   },
   {
     "pincode": 422005,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.771181,
@@ -59161,7 +59199,7 @@
   },
   {
     "pincode": 422006,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.822273,
@@ -59170,7 +59208,7 @@
   },
   {
     "pincode": 422007,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.740569,
@@ -59179,7 +59217,7 @@
   },
   {
     "pincode": 422008,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.754408,
@@ -59188,7 +59226,7 @@
   },
   {
     "pincode": 422009,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.783997,
@@ -59197,7 +59235,7 @@
   },
   {
     "pincode": 422010,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.740444,
@@ -59206,7 +59244,7 @@
   },
   {
     "pincode": 422011,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.78496,
@@ -59215,7 +59253,7 @@
   },
   {
     "pincode": 422012,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.72895,
@@ -59224,7 +59262,7 @@
   },
   {
     "pincode": 422013,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.77647,
@@ -59233,7 +59271,7 @@
   },
   {
     "pincode": 422101,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.829511,
@@ -59242,7 +59280,7 @@
   },
   {
     "pincode": 422102,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.789229,
@@ -59251,7 +59289,7 @@
   },
   {
     "pincode": 422103,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.994291,
@@ -59260,7 +59298,7 @@
   },
   {
     "pincode": 422104,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       74.120885,
@@ -59269,7 +59307,7 @@
   },
   {
     "pincode": 422105,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.853018,
@@ -59278,7 +59316,7 @@
   },
   {
     "pincode": 422112,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       74.090853,
@@ -59287,7 +59325,7 @@
   },
   {
     "pincode": 422113,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.939361,
@@ -59296,7 +59334,7 @@
   },
   {
     "pincode": 422201,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.963973,
@@ -59305,7 +59343,7 @@
   },
   {
     "pincode": 422202,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.82561,
@@ -59314,7 +59352,7 @@
   },
   {
     "pincode": 422203,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.649151,
@@ -59323,7 +59361,7 @@
   },
   {
     "pincode": 422204,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.249252,
@@ -59341,7 +59379,7 @@
   },
   {
     "pincode": 422206,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.952086,
@@ -59350,7 +59388,7 @@
   },
   {
     "pincode": 422207,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.952086,
@@ -59359,7 +59397,7 @@
   },
   {
     "pincode": 422208,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.441796,
@@ -59377,7 +59415,7 @@
   },
   {
     "pincode": 422210,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       74.074198,
@@ -59386,7 +59424,7 @@
   },
   {
     "pincode": 422211,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.775764,
@@ -59395,7 +59433,7 @@
   },
   {
     "pincode": 422212,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.417685,
@@ -59404,7 +59442,7 @@
   },
   {
     "pincode": 422213,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.69923,
@@ -59413,7 +59451,7 @@
   },
   {
     "pincode": 422214,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.475651,
@@ -59422,7 +59460,7 @@
   },
   {
     "pincode": 422215,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.910847,
@@ -59431,7 +59469,7 @@
   },
   {
     "pincode": 422221,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.935414,
@@ -59440,7 +59478,7 @@
   },
   {
     "pincode": 422222,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.695391,
@@ -59449,7 +59487,7 @@
   },
   {
     "pincode": 422301,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       74.072115,
@@ -59458,7 +59496,7 @@
   },
   {
     "pincode": 422302,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.962856,
@@ -59512,7 +59550,7 @@
   },
   {
     "pincode": 422401,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.780664,
@@ -59521,7 +59559,7 @@
   },
   {
     "pincode": 422402,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.624612,
@@ -59530,7 +59568,7 @@
   },
   {
     "pincode": 422403,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.449558,
@@ -59539,7 +59577,7 @@
   },
   {
     "pincode": 422501,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.831052,
@@ -59548,7 +59586,7 @@
   },
   {
     "pincode": 422502,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       73.773548,
@@ -59602,7 +59640,7 @@
   },
   {
     "pincode": 422606,
-    "city": "Nasik",
+    "city": "Nashik",
     "state": "Maharashtra",
     "coordinates": [
       74.033593,
@@ -59962,7 +60000,7 @@
   },
   {
     "pincode": 423701,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       74.647263,
@@ -59971,7 +60009,7 @@
   },
   {
     "pincode": 423702,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       74.939865,
@@ -59980,7 +60018,7 @@
   },
   {
     "pincode": 423703,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       74.851021,
@@ -60961,7 +60999,7 @@
   },
   {
     "pincode": 431001,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.307217,
@@ -60970,7 +61008,7 @@
   },
   {
     "pincode": 431002,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.140047,
@@ -60979,7 +61017,7 @@
   },
   {
     "pincode": 431003,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.353185,
@@ -60988,7 +61026,7 @@
   },
   {
     "pincode": 431004,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.325008,
@@ -60997,7 +61035,7 @@
   },
   {
     "pincode": 431005,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.300881,
@@ -61006,7 +61044,7 @@
   },
   {
     "pincode": 431006,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.367973,
@@ -61015,7 +61053,7 @@
   },
   {
     "pincode": 431007,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.393735,
@@ -61024,7 +61062,7 @@
   },
   {
     "pincode": 431008,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.332252,
@@ -61033,7 +61071,7 @@
   },
   {
     "pincode": 431009,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.346162,
@@ -61042,7 +61080,7 @@
   },
   {
     "pincode": 431010,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.298377,
@@ -61051,7 +61089,7 @@
   },
   {
     "pincode": 431011,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.276947,
@@ -61060,7 +61098,7 @@
   },
   {
     "pincode": 431101,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.141777,
@@ -61069,7 +61107,7 @@
   },
   {
     "pincode": 431102,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.141276,
@@ -61078,7 +61116,7 @@
   },
   {
     "pincode": 431103,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       74.937921,
@@ -61087,7 +61125,7 @@
   },
   {
     "pincode": 431104,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.297379,
@@ -61096,7 +61134,7 @@
   },
   {
     "pincode": 431105,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.325582,
@@ -61105,7 +61143,7 @@
   },
   {
     "pincode": 431107,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.346955,
@@ -61114,7 +61152,7 @@
   },
   {
     "pincode": 431109,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       74.838053,
@@ -61123,7 +61161,7 @@
   },
   {
     "pincode": 431110,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       74.874916,
@@ -61132,7 +61170,7 @@
   },
   {
     "pincode": 431111,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.477369,
@@ -61141,7 +61179,7 @@
   },
   {
     "pincode": 431112,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.568754,
@@ -61150,7 +61188,7 @@
   },
   {
     "pincode": 431113,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.568754,
@@ -61159,7 +61197,7 @@
   },
   {
     "pincode": 431114,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.674099,
@@ -61168,7 +61206,7 @@
   },
   {
     "pincode": 431115,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.090783,
@@ -61177,7 +61215,7 @@
   },
   {
     "pincode": 431116,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       74.665489,
@@ -61186,7 +61224,7 @@
   },
   {
     "pincode": 431117,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.755435,
@@ -61195,7 +61233,7 @@
   },
   {
     "pincode": 431118,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.590229,
@@ -61204,7 +61242,7 @@
   },
   {
     "pincode": 431120,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.472333,
@@ -61213,7 +61251,7 @@
   },
   {
     "pincode": 431121,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.490643,
@@ -61312,7 +61350,7 @@
   },
   {
     "pincode": 431132,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.892525,
@@ -61321,7 +61359,7 @@
   },
   {
     "pincode": 431133,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.207265,
@@ -61330,7 +61368,7 @@
   },
   {
     "pincode": 431134,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.52297,
@@ -61339,7 +61377,7 @@
   },
   {
     "pincode": 431135,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.600461,
@@ -61348,7 +61386,7 @@
   },
   {
     "pincode": 431136,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.174395,
@@ -61357,7 +61395,7 @@
   },
   {
     "pincode": 431137,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.523688,
@@ -61393,7 +61431,7 @@
   },
   {
     "pincode": 431147,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.2117,
@@ -61402,7 +61440,7 @@
   },
   {
     "pincode": 431148,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.373548,
@@ -61411,7 +61449,7 @@
   },
   {
     "pincode": 431150,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.185966,
@@ -61420,7 +61458,7 @@
   },
   {
     "pincode": 431151,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.3414,
@@ -61429,7 +61467,7 @@
   },
   {
     "pincode": 431152,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.328853,
@@ -61447,7 +61485,7 @@
   },
   {
     "pincode": 431154,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.588588,
@@ -61456,7 +61494,7 @@
   },
   {
     "pincode": 431202,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.578642,
@@ -61465,7 +61503,7 @@
   },
   {
     "pincode": 431203,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.91016,
@@ -61474,7 +61512,7 @@
   },
   {
     "pincode": 431204,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.760488,
@@ -61483,7 +61521,7 @@
   },
   {
     "pincode": 431205,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.636695,
@@ -61492,7 +61530,7 @@
   },
   {
     "pincode": 431206,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.888861,
@@ -61501,7 +61539,7 @@
   },
   {
     "pincode": 431207,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       76.13346,
@@ -61510,7 +61548,7 @@
   },
   {
     "pincode": 431208,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       76.012309,
@@ -61519,7 +61557,7 @@
   },
   {
     "pincode": 431209,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.932334,
@@ -61528,7 +61566,7 @@
   },
   {
     "pincode": 431211,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.984097,
@@ -61537,7 +61575,7 @@
   },
   {
     "pincode": 431212,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.881515,
@@ -61546,7 +61584,7 @@
   },
   {
     "pincode": 431213,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.791187,
@@ -61555,7 +61593,7 @@
   },
   {
     "pincode": 431214,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.931036,
@@ -61564,7 +61602,7 @@
   },
   {
     "pincode": 431215,
-    "city": "Chhatrapati Sambhajinagar",
+    "city": "Aurangabad",
     "state": "Maharashtra",
     "coordinates": [
       75.698048,
@@ -64357,7 +64395,7 @@
   },
   {
     "pincode": 444601,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.760531,
@@ -64366,7 +64404,7 @@
   },
   {
     "pincode": 444602,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.601147,
@@ -64375,7 +64413,7 @@
   },
   {
     "pincode": 444603,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.759531,
@@ -64384,7 +64422,7 @@
   },
   {
     "pincode": 444604,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.760531,
@@ -64393,7 +64431,7 @@
   },
   {
     "pincode": 444605,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.714667,
@@ -64402,7 +64440,7 @@
   },
   {
     "pincode": 444606,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.756467,
@@ -64411,7 +64449,7 @@
   },
   {
     "pincode": 444607,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.721498,
@@ -64420,7 +64458,7 @@
   },
   {
     "pincode": 444701,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.646787,
@@ -64429,7 +64467,7 @@
   },
   {
     "pincode": 444702,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.201926,
@@ -64438,7 +64476,7 @@
   },
   {
     "pincode": 444704,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.586994,
@@ -64447,7 +64485,7 @@
   },
   {
     "pincode": 444705,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.18771,
@@ -64456,7 +64494,7 @@
   },
   {
     "pincode": 444706,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.179341,
@@ -64465,7 +64503,7 @@
   },
   {
     "pincode": 444707,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       78.070604,
@@ -64474,7 +64512,7 @@
   },
   {
     "pincode": 444708,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.744837,
@@ -64483,7 +64521,7 @@
   },
   {
     "pincode": 444709,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       78.137765,
@@ -64492,7 +64530,7 @@
   },
   {
     "pincode": 444710,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       78.058882,
@@ -64501,7 +64539,7 @@
   },
   {
     "pincode": 444711,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       78.226656,
@@ -64510,7 +64548,7 @@
   },
   {
     "pincode": 444717,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.176819,
@@ -64519,7 +64557,7 @@
   },
   {
     "pincode": 444719,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       76.623489,
@@ -64528,7 +64566,7 @@
   },
   {
     "pincode": 444720,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.803288,
@@ -64537,7 +64575,7 @@
   },
   {
     "pincode": 444723,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.65745,
@@ -64546,7 +64584,7 @@
   },
   {
     "pincode": 444801,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.791111,
@@ -64555,7 +64593,7 @@
   },
   {
     "pincode": 444802,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.47171,
@@ -64564,7 +64602,7 @@
   },
   {
     "pincode": 444803,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.219287,
@@ -64573,7 +64611,7 @@
   },
   {
     "pincode": 444804,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.603753,
@@ -64582,7 +64620,7 @@
   },
   {
     "pincode": 444805,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.505841,
@@ -64591,7 +64629,7 @@
   },
   {
     "pincode": 444806,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.586994,
@@ -64600,7 +64638,7 @@
   },
   {
     "pincode": 444807,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.402287,
@@ -64609,7 +64647,7 @@
   },
   {
     "pincode": 444808,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.419437,
@@ -64618,7 +64656,7 @@
   },
   {
     "pincode": 444809,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.643874,
@@ -64627,7 +64665,7 @@
   },
   {
     "pincode": 444810,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.693424,
@@ -64636,7 +64674,7 @@
   },
   {
     "pincode": 444813,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.121806,
@@ -64645,7 +64683,7 @@
   },
   {
     "pincode": 444901,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.902942,
@@ -64654,7 +64692,7 @@
   },
   {
     "pincode": 444902,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.902508,
@@ -64663,7 +64701,7 @@
   },
   {
     "pincode": 444903,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       78.152077,
@@ -64672,7 +64710,7 @@
   },
   {
     "pincode": 444904,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.816359,
@@ -64681,7 +64719,7 @@
   },
   {
     "pincode": 444905,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       78.22193,
@@ -64690,7 +64728,7 @@
   },
   {
     "pincode": 444906,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       78.441622,
@@ -64699,7 +64737,7 @@
   },
   {
     "pincode": 444907,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       78.355299,
@@ -64708,7 +64746,7 @@
   },
   {
     "pincode": 444908,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       78.209518,
@@ -64717,7 +64755,7 @@
   },
   {
     "pincode": 444915,
-    "city": "Amaravati",
+    "city": "Amravati",
     "state": "Maharashtra",
     "coordinates": [
       77.803978,
@@ -75624,6 +75662,15 @@
     "coordinates": [
       78.619246,
       17.265391
+    ]
+  },
+  {
+    "pincode": 5,
+    "city": "Rangareddy",
+    "state": "Telangana",
+    "coordinates": [
+      78.21801643563711,
+      17.438502263868706
     ]
   },
   {

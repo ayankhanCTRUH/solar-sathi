@@ -163,7 +163,7 @@ const LeftSection = () => {
   }, [queryParams]);
 
   return (
-    <div className="pointer-events-auto flex h-full max-w-[320px] min-w-[320px] flex-col gap-5">
+    <div className="pointer-events-auto flex h-full max-w-[320px] min-w-[320px] flex-col gap-5 z-[1]">
       <Image
         width={0}
         height={0}

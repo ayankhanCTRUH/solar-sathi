@@ -49,7 +49,7 @@ const MiddleSection = () => {
   };
 
   return (
-    <div className="flex-grow">
+    <div className="relative z-[1] flex-grow">
       {isHomePage ? (
         <HomePage />
       ) : (

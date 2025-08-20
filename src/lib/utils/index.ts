@@ -14,10 +14,26 @@ export const formatDate = (dateString: string) => {
 
 // map section
 
+export const getCityLatlng = (
+  cityName: string,
+  pincodeData: PincodeDataType[]
+): [number, number] => {
+  let latitude = -1;
+  let longitude = -1;
+  pincodeData.some((data) => {
+    if (data.city.toLowerCase().includes(cityName.toLowerCase())) {
+      [longitude, latitude] = data.coordinates;
+      return true;
+    }
+  });
+  return [latitude, longitude];
+};
+
 export const getCitiesByState = (
   stateName: string,
-  mapData: MapDataType
-): { cityName: string; count: number; pincode: string }[] | null => {
+  mapData: MapDataType,
+  pincodeData: PincodeDataType[]
+): { cityName: string; count: number; latLng: [number, number] }[] | null => {
   const state = mapData[stateName];
 
   if (!state) {
@@ -28,22 +44,8 @@ export const getCitiesByState = (
   return Object.keys(state.cities).map((cityName) => ({
     cityName,
     count: state.cities[cityName].count,
-    pincode: state.cities[cityName].active_pincode[0],
+    latLng: getCityLatlng(cityName, pincodeData),
   }));
-};
-
-export const getStateCount = (
-  stateName: string,
-  mapData: MapDataType
-): number | null => {
-  const state = mapData[stateName];
-
-  if (!state) {
-    console.error(`No state with name ${stateName} is found`);
-    return null;
-  }
-
-  return state.total_count;
 };
 
 export const getPincodesByCity = (
@@ -72,12 +74,14 @@ export const getCoordinatesByPincode = (
   pincode: number,
   pincodeData: PincodeDataType[]
 ): [number, number] | undefined => {
-  const pincodeRecord = pincodeData.find((entry) => entry.pincode === pincode);
-
-  if (!pincodeRecord) {
-    return undefined;
-  }
-  const [longitude, latitude] = pincodeRecord.coordinates;
+  let longitude: number = -1,
+    latitude: number = -1;
+  pincodeData.some((data) => {
+    if (data.pincode === pincode) {
+      [longitude, latitude] = data.coordinates;
+      return true;
+    }
+  });
 
   return [latitude, longitude];
 };
