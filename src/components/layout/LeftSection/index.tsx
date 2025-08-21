@@ -105,9 +105,8 @@ const LeftSection = () => {
   });
 
   useEffect(() => {
-    const { country, state, city } = queryParams || {};
-
     setBreadCrumbs((prev) => {
+      const { country, state, city } = queryParams || {};
       if (!country && !state && !city) {
         return [DEFAULT_BREADCRUMB_CONFIG];
       }
