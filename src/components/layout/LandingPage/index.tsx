@@ -94,9 +94,12 @@ const LandingPageMap = () => {
       }
     });
 
-    map.setMaxBounds(indiaGeoJsonLayer.getBounds().pad(0.2));
-    map.fitBounds(indiaGeoJsonLayer.getBounds(), { padding: [150, 150] });
-    map.setZoom(5.2);
+    // map.setMaxBounds(indiaGeoJsonLayer.getBounds().pad(0.1));
+    map.fitBounds(indiaGeoJsonLayer.getBounds(), {
+      padding: [150, 150],
+      animate: false,
+    });
+    map.setZoom(5.3);
   };
 
   useEffect(() => {

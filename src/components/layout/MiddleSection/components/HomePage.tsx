@@ -43,6 +43,7 @@ const HomePage = () => {
           src="/gifs/finger-click.gif"
           alt="finger-click-gif"
           className="absolute -top-1/6 -right-[5%] h-[250px] w-[250px] -rotate-10"
+          unoptimized={true}
         />
       </div>
     </div>

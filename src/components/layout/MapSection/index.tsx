@@ -174,10 +174,12 @@ const MapSection = () => {
       marker.on('click', () => {
         const { map, indiaMarkers, roadwayLayer } = mapRefsRef.current;
         if (!map || !indiaMarkers || !roadwayLayer) return;
-
+        map.setMaxZoom(14);
         map.fitBounds(layer.getBounds(), { padding: [150, 150] });
-        // const zoomVal = Math.round(map.get());
-        // map.setZoom()
+        setTimeout(() => {
+          const maxZoomOut = map.getBoundsZoom(layer.getBounds()) - 1;
+          map.setMinZoom(maxZoomOut);
+        }, 1000);
         unfocusMap(mapRefsRef.current.stateLayers);
         focusLayer(layer);
         mapRefsRef.current.currentStateLayer = layer;
@@ -317,7 +319,7 @@ const MapSection = () => {
     )
       return;
 
-    map.setMinZoom(4.5);
+    map.setMinZoom(5.2);
     map.setMaxBounds(indiaGeoJsonLayer?.getBounds().pad(0.2));
     map.fitBounds(stateGeoJsonLayer.getBounds(), { padding: [150, 150] });
     map.removeLayer(stateGeoJsonLayer);
@@ -344,7 +346,7 @@ const MapSection = () => {
 
     if (!map || !indiaGeoJsonLayer || !indiaMarkers) return;
 
-    map.setMinZoom(4.5);
+    map.setMinZoom(5.2);
     map.setMaxBounds(indiaGeoJsonLayer.getBounds().pad(0.2));
     map.fitBounds(indiaGeoJsonLayer.getBounds(), { padding: [150, 150] });
     map.setZoom(5.2);
@@ -439,8 +441,10 @@ const MapSection = () => {
 
   const addStateMarkers = useCallback(
     (stateName: string, pincodeData: PincodeDataType[]) => {
-      const { stateMarkers } = mapRefsRef.current;
-      if (!stateMarkers) return;
+      const { stateMarkers, map } = mapRefsRef.current;
+      if (!stateMarkers || !map) return;
+
+      console.log('Maps: ', map);
 
       stateMarkers.addTo(mapRefsRef.current.map!);
 
@@ -649,8 +653,8 @@ const MapSection = () => {
         doubleClickZoom: true,
         dragging: true,
         preferCanvas: true,
-        minZoom: 4.5,
-        maxZoom: 14,
+        minZoom: 5.2,
+        maxZoom: 5.2,
         zoomSnap: 0.1,
         maxBoundsViscosity: 1.0,
       }).setView([20.5937, 78.9629], 5);

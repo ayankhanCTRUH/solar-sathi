@@ -13,25 +13,17 @@ import { formatNumWithUnits } from '@/lib/utils';
 import { useGetExpCenter } from '@/services/exp-center-service';
 import { BreadCrumbItemType } from '@/types';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 import { useEffect, useState } from 'react';
 
 const LeftSection = () => {
   const { queryParams, removeParam } = useQueryParams();
+  const router = useRouter();
   const { setBackToState, setBackToCountry } = useMapStateAndCityState();
   const { setIsHomePage } = useSolarState();
   const getExpCenterQuery = useGetExpCenter();
   const [metricsData, setMetricsData] = useState(INITIAL_METRICS_DATA);
   const { idleFlag, setIdleFlag } = useIdleFlagStore();
-
-  const clearUrlSearchParams = () => {
-    if (typeof window !== 'undefined') {
-      const url = new URL(window.location.href);
-      if (url.search.length > 0) {
-        url.search = '';
-        window.history.replaceState(null, '', url.pathname + url.search);
-      }
-    }
-  };
 
   const removeParamsAndUpdateBreadcrumbs = (...params: string[]) => {
     params.forEach((param) => removeParam(param));
@@ -52,7 +44,7 @@ const LeftSection = () => {
   ]);
 
   const handleUrlCleanupAndReset = () => {
-    clearUrlSearchParams();
+    router.replace('/');
     setBreadCrumbs([DEFAULT_BREADCRUMB_CONFIG]);
     setIsHomePage(true);
   };
@@ -105,9 +97,8 @@ const LeftSection = () => {
   });
 
   useEffect(() => {
-    const { country, state, city } = queryParams || {};
-
     setBreadCrumbs((prev) => {
+      const { country, state, city } = queryParams || {};
       if (!country && !state && !city) {
         return [DEFAULT_BREADCRUMB_CONFIG];
       }
