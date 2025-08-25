@@ -149,7 +149,6 @@ export interface TestimonialAPIType {
   name: string;
   address: string;
   description: string;
-  installedOn: string;
   image: StrapiImageType;
 }
 

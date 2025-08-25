@@ -1,6 +1,5 @@
 'use client';
 import { ArrowIcon, QuotesIcon } from '@/components/icons';
-import { formatDate } from '@/lib/utils';
 import { useGetTestimonials } from '@/services/testimonial-service';
 import { TestimonialType } from '@/types';
 import Image from 'next/image';
@@ -114,9 +113,6 @@ const Testimonial = () => {
           {currentTestimonial?.description}
         </p>
         <QuotesIcon className="absolute top-0 right-0 z-0" />
-        <span className="text-neutral-450 font-dm-sans text-base leading-normal font-medium tracking-[-0.32px]">
-          Installed on {formatDate(currentTestimonial?.installedOn)}
-        </span>
       </div>
     </div>
   );
